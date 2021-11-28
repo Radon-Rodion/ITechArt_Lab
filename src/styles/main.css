@@ -6,12 +6,6 @@ body {
   font-family: "OpenSans-Regular", sans-serif;
 }
 
-h2 {
-  font-size: 50px;
-  display: block;
-  background-color: white;
-}
-
 ::placeholder {
   /*test for autoprefixer in postcss*/
   color: antiquewhite;
