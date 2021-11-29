@@ -6,7 +6,7 @@ import { FooterNavLink, footerNavLinks } from "@/links";
 export class Footer extends Component {
   renderLinks = () =>
     footerNavLinks.map((link: FooterNavLink) => (
-      <li className="element">
+      <li key={link.id} className="element">
         <FooterNavButton url={link.url} image={link.image} name={link.name} />
       </li>
     ));

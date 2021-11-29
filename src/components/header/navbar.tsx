@@ -6,7 +6,7 @@ import { NavLinkInfo, navLinks } from "@/links";
 export class NavBar extends Component {
   renderLinks = () =>
     navLinks.map((link: NavLinkInfo) => (
-      <li className="navbutton">
+      <li key={link.id} className="navbutton">
         <NavLink className={({ isActive }) => (isActive ? "navlink active" : "navlink")} to={link.url}>
           {link.name}
         </NavLink>
