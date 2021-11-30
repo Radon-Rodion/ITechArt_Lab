@@ -1,47 +1,6 @@
-# webpack-must-have
-
-Webpack version: 5+
-
-## What is new in Webpack 5
-
-- Faster builds with persistent caching
-- Smaller bundle sizes (better tree-shaking)
-- Better long term caching
-
-### If you need Webpack4 take a look branch [webpack_v4](https://github.com/Yegorich555/WebpackMustHave/tree/webpack_v4)
-
-## How to run project
-
-1. Open project in VSCode (for example)
-2. Run command `npm i` in terminal (console) for installing all required packages (Node.js is required: <https://nodejs.org/en/>)
-3. For builing project you can use the following commands:
-   - `npm run build-prod` - building production version (minimized and optimized). The project will be builded into `build` folder. You can change destination in `webpack.common.js (line 19)`
-   - `npm run build-dev` - building development version
-   - `npm run serve` - building development hot-reloaded version with webpack-dev-server
-
-## Recommended VSCode extensions
-
-- CSS Modules: <https://marketplace.visualstudio.com/items?itemName=clinyong.vscode-css-modules>
-- CSS Modules Syntax Highlighter: <https://marketplace.visualstudio.com/items?itemName=andrewleedham.vscode-css-modules>
-- ESlint: <https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint>
-- Stylelint: <https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint>
-- SCSS intellisense: <https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss>
-- Path autocomplete: <https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete>
-- Prettier - Code formatter: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-- Import Cost: <https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost>
-- Markdownlint: <https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint>
-- EditConfig for VS Code: <https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig>
-
-## Features
-
-- **Lint**. Integrated the most popular linters: ESlint, Stylelint
-- **BrowserList**. All required browsers are pointed in **.browserslistrc**, so project will be compiled according to required browsers (babel, postcss, stylint use this file)
-- **BrowserList. Stylelint**. Integrated [no-unsupported-browser-features](https://www.npmjs.com/package/stylelint-no-unsupported-browser-features), so during the css,scss-coding stylelint will show on-css rule that unsupported (according to .browserslistrc)
-- **MockServer**. For mocking api responses integrated [webpack-mock-server](https://www.npmjs.com/package/webpack-mock-server) that supports JS,TS and hot-replacement:
-- **Styles**. Integrated [CSS-Modules](https://github.com/css-modules/css-modules) and [postcss-autoprefixer](https://www.npmjs.com/package/autoprefixer), [postcss-normalize](https://www.npmjs.com/package/postcss-normalize), [OptimizeCSSAssetsPlugin](https://www.npmjs.com/package/optimize-css-assets-webpack-plugin) (uses [css-nano](https://cssnano.co/) for production build)
-
-## TODO. Issues
-
-- add Prepack
-- add icomoon to fonts
-- Path autocomplete doesn't read path-alias-config from tsconfig.json
+![image](https://user-images.githubusercontent.com/74260579/144118141-3973fb68-50e0-41e6-95df-151731b13594.png)
+![image](https://user-images.githubusercontent.com/74260579/144118205-8c786b53-30b3-47e5-b1c1-cb9b3a2d6a76.png)
+![image](https://user-images.githubusercontent.com/74260579/144118231-c77d14bd-f38d-4291-ad5d-dbc940c605e3.png)
+![image](https://user-images.githubusercontent.com/74260579/144118248-20cc4161-b24a-4502-b792-65ec8123033e.png)
+![image](https://user-images.githubusercontent.com/74260579/144118264-ad9cbbad-b010-41c3-ae30-1e5ca8357aaa.png)
+![image](https://user-images.githubusercontent.com/74260579/144118285-5a4f4b26-d575-450a-b63f-f56747c9bd8b.png)
