@@ -1,19 +1,12 @@
-import "./footerNavButton.scss";
-import { Component } from "react";
+import styles from "./footerNavButton.module.scss";
 import { FooterNavLink } from "@/links";
 
-export class FooterNavButton extends Component<FooterNavLink> {
-  ["constructor"]: typeof FooterNavButton;
+const FooterNavButton = function (link: FooterNavLink) {
+  return (
+    <a className={styles.footerNavButton} href={link.url}>
+      <img className={styles.footerNavButtonImage} src={link.image} alt={link.name} />
+    </a>
+  );
+};
 
-  constructor(props: FooterNavLink) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <a className="footerNavButton" href={this.props.url}>
-        <img className="footerNavButtonImage" src={this.props.image} alt={this.props.name} />
-      </a>
-    );
-  }
-}
+export default FooterNavButton;
