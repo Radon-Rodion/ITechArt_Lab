@@ -1,0 +1,29 @@
+@import "normalize.css";
+@import "sanitize.css";
+
+.navbar{
+    float: right;
+}
+
+.navbutton{
+    display: inline;
+    vertical-align: top;
+}
+
+.navlink{
+    color: #ccc;
+    text-decoration: none;
+    padding: 18px 10px 7px;
+}
+
+.navlink:hover{
+    background-color: lighten(rgb(34,34,34), 30%);
+    border-bottom: 2px solid lighten(rgb(34,34,34), 30%);
+    color: #fff;
+}
+
+.active{
+    color: #fff;
+    border-bottom: 3px solid #a3f;
+    background-color: lighten(rgb(34,34,34), 15%);
+}

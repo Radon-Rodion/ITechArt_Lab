@@ -1,9 +1,11 @@
 import vironITLogo from "images/vironIT.png";
 import playgendary from "images/playgendary.png";
 import herocraft from "images/herocraft.png";
-import { Home } from "@/components/home";
-import { Products } from "@/components/products/products";
-import { About } from "@/components/about";
+import Home from "@/pages/home";
+import Products from "@/pages/products/products";
+import About from "@/pages/about";
+import SignIn from "@/pages/users/signIn";
+import SignUp from "@/pages/users/signUp";
 
 export interface FooterNavLink {
   name: string;
@@ -57,6 +59,16 @@ const navLinks = [
     url: "/about",
     id: 2,
   },
+  {
+    name: "Sign In",
+    url: "/sign-in",
+    id: 3,
+  },
+  {
+    name: "Sign Up",
+    url: "/sign-up",
+    id: 4,
+  },
 ];
 
 export { navLinks };
@@ -67,6 +79,10 @@ export function getPageByID(id: number) {
       return <Products />;
     case 2:
       return <About />;
+    case 3:
+      return <SignIn />;
+    case 4:
+      return <SignUp />;
     default:
       return <Home />;
   }

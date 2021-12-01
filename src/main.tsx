@@ -4,10 +4,14 @@ import "./styles/main.scss";
 // start-path is 'images' because we have an alias 'images' in webpack.common.js
 import { Component, StrictMode } from "react";
 import ReactDom from "react-dom";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Header } from "./components/header/header";
-import { Footer } from "./components/footer";
-import { navLinks, getPageByID, NavLinkInfo } from "@/links";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Header from "./components/header/header";
+import Footer from "./components/footer";
+import Home from "@/pages/home";
+import Products from "@/pages/products/products";
+import About from "@/pages/about";
+import SignIn from "@/pages/users/signIn";
+import SignUp from "@/pages/users/signUp";
 
 interface AppProps {
   nothing: boolean;
@@ -40,26 +44,51 @@ class AppContainer extends Component<AppProps, AppState> {
     AppContainer.getDerivedStateFromError(error);
   }
 
-  redirectToHome() {
-    window.location.pathname = "/";
+  /* renderRoutes = () =>
+    navLinks.map((link: NavLinkInfo) => <Route key={link.id} path={link.url} element={getPageByID(link.id)} />);*/
+  rerender() {
+    this.forceUpdate();
+    return <Home />;
   }
 
-  renderRoutes = () =>
-    navLinks.map((link: NavLinkInfo) => <Route key={link.id} path={link.url} element={getPageByID(link.id)} />);
+  errorRouting() {
+    return (
+      <Routes>
+        <Route path="/" element={this.rerender()} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    );
+  }
+
+  normalRouting() {
+    return (
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    );
+  }
+
+  checkErrors() {
+    if (this.state.hasError && window.location.pathname !== "/") {
+      this.state = {
+        hasError: false,
+      };
+      return this.errorRouting();
+    }
+    return this.normalRouting();
+  }
 
   render() {
-    if (this.state.hasError && window.location.pathname !== "/") {
-      this.state.hasError = false;
-      this.redirectToHome();
-    }
-    if (!navLinks.some((link: NavLinkInfo) => link.url === window.location.pathname)) {
-      this.redirectToHome();
-    }
     return (
       <StrictMode>
         <Router>
           <Header />
-          <Routes>{this.renderRoutes()}</Routes>
+          {this.checkErrors()}
         </Router>
         <Footer />
       </StrictMode>

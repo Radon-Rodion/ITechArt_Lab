@@ -1,14 +1,11 @@
-import "./header.scss";
-import { Component } from "react";
-import { NavBar } from "./navbar";
+import styles from "./header.module.css";
+import NavBar from "./navbar";
 
-export class Header extends Component {
-  render() {
-    return (
-      <header>
-        <div className="title">Best Games Portal</div>
-        <NavBar />
-      </header>
-    );
-  }
-}
+const Header = () => (
+  <header className={styles.header}>
+    <div className={styles.title}>Game Store</div>
+    <NavBar />
+  </header>
+);
+
+export default Header;
