@@ -10,13 +10,11 @@ function mapLinks() {
   ));
 }
 
-const Footer = function () {
-  return (
-    <footer>
-      <div className={styles.slogan}>"Games are not just hobbies for us!"</div>
-      <ul className={styles.list}>{mapLinks()}</ul>
-    </footer>
-  );
-};
+const Footer = () => (
+  <footer>
+    <div className={styles.slogan}>"Games are not just hobbies for us!"</div>
+    <ul className={styles.list}>{mapLinks()}</ul>
+  </footer>
+);
 
 export default Footer;

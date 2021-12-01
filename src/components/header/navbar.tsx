@@ -16,12 +16,10 @@ function mapLinks() {
   ));
 }
 
-const NavBar = function () {
-  return (
-    <ul className={styles.navbar}>
-      <nav>{mapLinks()}</nav>
-    </ul>
-  );
-};
+const NavBar = () => (
+  <ul className={styles.navbar}>
+    <nav>{mapLinks()}</nav>
+  </ul>
+);
 
 export default NavBar;
