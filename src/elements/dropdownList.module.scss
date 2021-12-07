@@ -1,0 +1,16 @@
+@import "normalize.css";
+@import "sanitize.css";
+
+.list{
+    display: none;
+}
+
+.listHeader{
+    display: inline-block;
+}
+
+.listItem{
+    display: block;
+}
+
+.listHeader:hover .list {display: block;}
