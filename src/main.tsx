@@ -6,9 +6,10 @@ import { Component, StrictMode } from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/header/header";
-import Footer from "./components/footer";
-import Home from "@/pages/home";
+import Footer from "./components/footer/footer";
+import Home from "@/pages/home/home";
 import Products from "@/pages/products/products";
+import ProductsPageWrapper from "@/pages/products/productsPageWrapper";
 import About from "@/pages/about";
 import SignIn from "@/pages/users/signIn";
 import SignUp from "@/pages/users/signUp";
@@ -64,7 +65,10 @@ class AppContainer extends Component<AppProps, AppState> {
     return (
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/products">
+          <Route index element={<Products category={undefined} />} />
+          <Route path=":category" element={<ProductsPageWrapper />} />
+        </Route>
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />

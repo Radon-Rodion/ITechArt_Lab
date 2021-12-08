@@ -1,0 +1,35 @@
+@import "normalize.css";
+@import "sanitize.css";
+
+.block {
+    background-color: #23232375;
+    margin: 10px 10px 0px;
+    padding: 10px;
+    border-radius: 15px;
+    width: 90%;
+}
+
+.blockHeader {
+    margin: 5px;
+    color: #ccc;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+}
+
+.blockContent{
+    width: fit-content;
+    position: relative;
+    margin:0 auto;
+}
+
+.blockContentElement{
+    display: inline;
+    margin: 10px 20px 10px;
+}
+
+.spinner{
+    color: #ccc;
+    opacity: 95%;
+    margin: 20px 0px 20px;
+}

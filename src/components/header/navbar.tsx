@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styles from "./navbar.module.scss";
 import { NavLinkInfo, navLinks } from "@/links";
-import DropdownList from "@/elements/dropdownList";
+import DropdownList from "@/elements/dropdownList/dropdownList";
 
 function getNavbarElement(link: NavLinkInfo) {
   switch (link.name) {

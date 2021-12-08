@@ -1,21 +1,24 @@
-// import ReactRouterDOM from "react-router-dom";
-import axios from "axios";
+import { useState } from "react";
+import { ProductInfo } from "@/productInfos";
+import GamesBlock from "@/components/blocks/gameCardsBlock";
+import styles from "./products.module.scss";
+import { filterProductInfos } from "@/api/clientRequests/getProductInfos";
 
-// const { useParams } = ReactRouterDOM;
+interface ProductsPageProps {
+  category: string | undefined;
+}
+const Products = (props: ProductsPageProps) => {
+  const [infos, setInfos] = useState<Array<ProductInfo> | null>(null);
 
-const Products = () => {
-  // const parameters = useParams();
-  axios
-    .get("/products")
-    .then((response) => {
-      // handle success
-      console.log(response);
-    })
-    .catch((error) => {
-      // handle error
-      console.log(error);
-    });
-  return <h2>Products page</h2>;
+  if (infos === null || infos.length === 0) {
+    filterProductInfos(undefined, props.category, setInfos);
+  }
+
+  return (
+    <div className={styles.allPage}>
+      <GamesBlock blockName="Games list" blockContent={infos} />
+    </div>
+  );
 };
 
 export default Products;

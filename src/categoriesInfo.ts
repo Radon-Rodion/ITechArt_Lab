@@ -12,19 +12,19 @@ export interface CategoryInfo {
 const categoryInfos = [
   {
     name: "PC",
-    url: "/PC",
+    url: "/products/pc",
     image: windows,
     key: 1,
   },
   {
     name: "Playstation",
-    url: "/PS",
+    url: "/products/ps",
     image: playstation,
     key: 2,
   },
   {
     name: "Xbox",
-    url: "/XB",
+    url: "/products/xb",
     image: xbox,
     key: 3,
   },

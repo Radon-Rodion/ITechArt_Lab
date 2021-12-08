@@ -1,5 +1,5 @@
 import styles from "./footer.module.scss";
-import FooterNavButton from "@/elements/footerNavButton";
+import FooterNavButton from "@/elements/footerNavButton/footerNavButton";
 import { FooterNavLink, footerNavLinks } from "@/links";
 
 function mapLinks() {

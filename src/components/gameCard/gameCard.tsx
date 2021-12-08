@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { ProductInfo } from "@/productInfos";
 import { categoryInfos } from "@/categoriesInfo";
+import getCard from "./getCard";
 
 import styles from "./gameCard.module.scss";
 
@@ -65,7 +66,7 @@ const GameCard = (gameInfo: ProductInfo) => (
       <div className={styles.backContent}>
         <div className={styles.description}>{gameInfo.description}</div>
         <div className={styles.ageCategory}>{`${gameInfo.ageCategory}+`}</div>
-        <button className={styles.buttonAdd} type="button">
+        <button className={styles.buttonAdd} type="button" onClick={getCard}>
           Add to cart
         </button>
       </div>

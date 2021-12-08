@@ -1,0 +1,47 @@
+@import "normalize.css";
+@import "sanitize.css";
+
+.list{
+    display: none;
+    z-index: 9999999;
+    position: absolute;
+    left: calc(100% - 298px);
+    width: 86px;
+    top: 47px;
+    background-color: #232323;
+}
+
+.listHeader{
+    position: relative;
+}
+
+.listItem{
+    display: block;
+    text-align: center;
+    height: 35px;
+    padding-top: 5px;
+}
+
+.link{
+    text-decoration: none;
+    color: #ccc;
+}
+
+.listHeader:hover ~ .list {
+    display: block;
+}
+
+.list:Hover {
+    display: block;
+    height: fit-content;
+}
+
+.listItem:Hover {
+    background-color: lighten(#232323, 15%);
+}
+
+.active{
+    color: #fff;
+    border-bottom: 3px solid #a3f;
+    background-color: lighten(rgb(34,34,34), 15%);
+}

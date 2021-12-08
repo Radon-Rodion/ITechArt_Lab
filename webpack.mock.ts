@@ -1,24 +1,27 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import webpackMockServer from "webpack-mock-server";
 import { productInfos } from "@/productInfos";
+import filter from "@/api/serverOperations/filterProductInfo";
+import select from "@/api/serverOperations/selectProductInfo";
 
 export default webpackMockServer.add((app, helper) => {
-  app.get("/testMock", (_req, res) => {
+  app.get("/api/search", (_req, res) => {
+    // processing products request
+    const nameFilter = (_req?.query?.name as string) ?? "";
+    const categoryFilter = (_req?.query?.category as string) ?? "";
     const response = {
-      id: helper.getUniqueIdInt(),
-      randomInt: helper.getRandomInt(),
-      lastDate: new Date(),
+      products: filter(nameFilter, categoryFilter, productInfos),
     };
-
-    res.json(response);
+    return res.json(response);
   });
 
-  app.get("/products", (_req, res) => {
+  app.get("/api/getTopProducts", (_req, res) => {
     // processing products request
+    const fieldName = (_req?.query?.category as string) ?? "name";
+    const amount = +(_req?.query?.amount as string) ?? 1;
     const response = {
-      products: productInfos,
+      products: select(fieldName, amount, productInfos),
     };
-
     return res.json(response);
   });
 
