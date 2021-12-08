@@ -16,7 +16,9 @@ function checkFittingCategory(categoryName: string, productInfo: ProductInfo): b
 
 function filter(name: string, category: string, arr: Array<ProductInfo>) {
   return arr.filter(
-    (productInfo) => checkFittingCategory(category, productInfo) && (name === "" || productInfo.name.startsWith(name))
+    (productInfo) =>
+      checkFittingCategory(category, productInfo) &&
+      (name === "" || productInfo.name.toLowerCase().startsWith(name.toLowerCase()))
   );
 }
 
