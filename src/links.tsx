@@ -1,7 +1,7 @@
 import vironITLogo from "images/vironIT.png";
 import playgendary from "images/playgendary.png";
 import herocraft from "images/herocraft.png";
-import Home from "@/pages/home";
+import Home from "@/pages/home/home";
 import Products from "@/pages/products/products";
 import About from "@/pages/about";
 import SignIn from "@/pages/users/signIn";
@@ -76,7 +76,7 @@ export { navLinks };
 export function getPageByID(id: number) {
   switch (id) {
     case 1:
-      return <Products />;
+      return <Products category={undefined} />;
     case 2:
       return <About />;
     case 3:

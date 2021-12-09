@@ -1,0 +1,28 @@
+.gameCategory{
+    display: inline-block;
+    width: 250px;
+    height: 150px;
+    background-color: #232323;
+    border: 2px solid #ccc;
+    border-bottom-width: 5px;
+    border-radius: 7px;
+}
+
+.categoryImage{
+    display: block;
+    width: 30%;
+    height: 50%;
+    margin-left: 35%;
+    margin-top: 10%;
+}
+
+.categoryName{
+    text-align: center;
+    border:none;
+    text-decoration: none;
+    color: #ccc;
+}
+
+.gameCategory:hover{
+    border-color: #8833ff;
+}

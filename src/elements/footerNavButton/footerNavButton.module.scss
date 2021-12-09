@@ -1,0 +1,16 @@
+.footerNavButton{
+}
+
+.footerNavButtonImage{
+    width: 150px;
+    height: 50px;
+}
+
+.footerNavButtonImage:hover{
+    width: 170px;
+    height: 60px;
+    border: 2px solid rgb(78, 78, 78);
+    border-radius: 2px;
+    opacity: 0.8; 
+    transition: all 0.5s ease;
+}

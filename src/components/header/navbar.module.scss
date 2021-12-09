@@ -1,8 +1,6 @@
-@import "normalize.css";
-@import "sanitize.css";
-
 .navbar{
-    float: right;
+    margin-bottom: 0;
+    background-color: rgb(34, 34, 34);
 }
 
 .navbutton{
@@ -14,6 +12,7 @@
     color: #ccc;
     text-decoration: none;
     padding: 18px 10px 7px;
+    height: 50px;
 }
 
 .navlink:hover{
