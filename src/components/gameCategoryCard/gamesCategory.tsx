@@ -2,10 +2,14 @@ import { NavLink } from "react-router-dom";
 import styles from "./gamesCategory.module.scss";
 import { CategoryInfo } from "@/categoriesInfo";
 
-const GameCategory = (info: CategoryInfo) => (
-  <NavLink className={styles.gameCategory} to={info.url}>
-    <img className={styles.categoryImage} src={info.image} alt={info.image} />
-    <p className={styles.categoryName}>{info.name}</p>
+interface IGameCategoryProps {
+  info: CategoryInfo;
+}
+
+const GameCategory = (props: IGameCategoryProps) => (
+  <NavLink className={styles.gameCategory} to={props.info.url}>
+    <img className={styles.categoryImage} src={props.info.image} alt={props.info.image} />
+    <p className={styles.categoryName}>{props.info.name}</p>
   </NavLink>
 );
 

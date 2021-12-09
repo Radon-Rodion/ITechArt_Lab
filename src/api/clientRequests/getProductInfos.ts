@@ -2,16 +2,12 @@ import axios from "axios";
 import { ProductInfo } from "@/productInfos";
 
 function sendRequestAndHandleResponse(request: string, responseSetMethod: (response: Array<ProductInfo>) => void) {
-  // console.log(request);
   axios
     .get(request)
     .then((response) => {
-      // handle success
-      // console.log(response.data);
       responseSetMethod(response.data.products);
     })
     .catch((error) => {
-      // handle error
       console.error(error);
     });
 }

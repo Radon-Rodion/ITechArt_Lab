@@ -76,7 +76,7 @@ export { navLinks };
 export function getPageByID(id: number) {
   switch (id) {
     case 1:
-      return <Products />;
+      return <Products category={undefined} />;
     case 2:
       return <About />;
     case 3:

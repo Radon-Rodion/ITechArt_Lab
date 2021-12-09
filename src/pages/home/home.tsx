@@ -5,23 +5,7 @@ import CategoriesBlock from "@/components/blocks/categoriesBlock";
 import Search from "@/elements/search/search";
 import { ProductInfo } from "@/productInfos";
 import { selectProductInfos } from "@/api/clientRequests/getProductInfos";
-
-function debounce<A = unknown, R = void>(fn: (args: A) => R, ms: number): (args: A) => Promise<R> {
-  let timer: NodeJS.Timeout;
-
-  const debouncedFunc = (args: A): Promise<R> =>
-    new Promise((resolve) => {
-      if (timer) {
-        clearTimeout(timer);
-      }
-
-      timer = setTimeout(() => {
-        resolve(fn(args));
-      }, ms);
-    });
-
-  return debouncedFunc;
-}
+import debounce from "@/utils/debounce";
 
 const Home = () => {
   const [infos, setInfos] = useState<Array<ProductInfo> | null>(null);

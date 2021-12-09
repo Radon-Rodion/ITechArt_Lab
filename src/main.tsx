@@ -2,14 +2,13 @@ import "./styles/main.css";
 import "./styles/main.scss";
 // watch: native intellisense and file-peek for aliases from jsconfig.json and with none-js files doesn't work: https://github.com/microsoft/TypeScript/issues/29334
 // start-path is 'images' because we have an alias 'images' in webpack.common.js
-import { Component, StrictMode } from "react";
+import { Component, ErrorInfo, StrictMode } from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Home from "@/pages/home/home";
 import Products from "@/pages/products/products";
-import ProductsPageWrapper from "@/pages/products/productsPageWrapper";
 import About from "@/pages/about";
 import SignIn from "@/pages/users/signIn";
 import SignUp from "@/pages/users/signUp";
@@ -29,24 +28,16 @@ class AppContainer extends Component<AppProps, AppState> {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
-  componentDidCatch(error, info) {
-    // Example "componentStack":
-    //   in ComponentThatThrows (created by App)
-    //   in ErrorBoundary (created by App)
-    //   in div (created by App)
-    //   in App
+  componentDidCatch(error: Error, info: ErrorInfo) {
     console.error(error);
     console.error(info.componentStack);
-    AppContainer.getDerivedStateFromError(error);
+    AppContainer.getDerivedStateFromError();
   }
 
-  /* renderRoutes = () =>
-    navLinks.map((link: NavLinkInfo) => <Route key={link.id} path={link.url} element={getPageByID(link.id)} />);*/
   rerender() {
     this.forceUpdate();
     return <Home />;
@@ -61,13 +52,16 @@ class AppContainer extends Component<AppProps, AppState> {
     );
   }
 
+  // <Route path=":category" element={<ProductsPageWrapper />} />
   normalRouting() {
     return (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products">
           <Route index element={<Products category={undefined} />} />
-          <Route path=":category" element={<ProductsPageWrapper />} />
+          <Route path="pc" element={<Products category="pc" />} />
+          <Route path="ps" element={<Products category="ps" />} />
+          <Route path="xb" element={<Products category="xb" />} />
         </Route>
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />

@@ -1,9 +1,6 @@
-@import "normalize.css";
-@import "sanitize.css";
-
 .list{
     display: none;
-    z-index: 9999999;
+    z-index: 9;
     position: absolute;
     left: calc(100% - 298px);
     width: 86px;
