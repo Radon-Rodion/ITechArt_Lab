@@ -1,6 +1,6 @@
 import styles from "./blocks.module.scss";
 import GameCategory from "@/components/gameCategoryCard/gamesCategory";
-import { CategoryInfo, categoryInfos } from "@/categoriesInfo";
+import { CategoryInfo, categoryInfos } from "@/data/categoriesInfo";
 
 interface ICategoriesBlockProps {
   blockName: string;

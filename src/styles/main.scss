@@ -4,3 +4,11 @@
 body {
   color: $basicColor;
 }
+
+#modal {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  margin-left: 10%;
+  width: 80%;
+}

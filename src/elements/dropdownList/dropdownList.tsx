@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { CategoryInfo, categoryInfos } from "@/categoriesInfo";
+import { CategoryInfo, categoryInfos } from "@/data/categoriesInfo";
 import styles from "./dropdownList.module.scss";
 
 interface IDopdownListProps {

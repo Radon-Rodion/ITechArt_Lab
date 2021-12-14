@@ -1,4 +1,4 @@
-import { ProductInfo } from "@/productInfos";
+import { ProductInfo } from "@/data/productInfos";
 
 function compareByCriteria(info1: ProductInfo, info2: ProductInfo, criteriaName: string): number {
   switch (criteriaName) {

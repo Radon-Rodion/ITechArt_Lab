@@ -1,6 +1,6 @@
 import styles from "./footer.module.scss";
 import FooterNavButton from "@/elements/footerNavButton/footerNavButton";
-import { FooterNavLink, footerNavLinks } from "@/links";
+import { FooterNavLink, footerNavLinks } from "@/data/links";
 
 const Footer = () => (
   <footer>

@@ -1,4 +1,4 @@
-import { ProductInfo } from "@/productInfos";
+import { ProductInfo } from "@/data/productInfos";
 
 function checkFittingCategory(categoryName: string, productInfo: ProductInfo): boolean {
   if (categoryName === "") return true;

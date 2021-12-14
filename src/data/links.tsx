@@ -1,11 +1,6 @@
 import vironITLogo from "images/vironIT.png";
 import playgendary from "images/playgendary.png";
 import herocraft from "images/herocraft.png";
-import Home from "@/pages/home/home";
-import Products from "@/pages/products/products";
-import About from "@/pages/about";
-import SignIn from "@/pages/users/signIn";
-import SignUp from "@/pages/users/signUp";
 
 export interface FooterNavLink {
   name: string;
@@ -41,6 +36,7 @@ export interface NavLinkInfo {
   name: string;
   url: string;
   id: number;
+  shownAfterLogIn: boolean | undefined;
 }
 
 const navLinks = [
@@ -48,42 +44,50 @@ const navLinks = [
     name: "Home",
     url: "/",
     id: 0,
+    shownAfterLogIn: undefined,
   },
   {
     name: "Products",
     url: "/products",
     id: 1,
+    shownAfterLogIn: undefined,
   },
   {
     name: "About",
     url: "/about",
     id: 2,
+    shownAfterLogIn: undefined,
   },
   {
     name: "Sign In",
-    url: "/sign-in",
+    url: "",
     id: 3,
+    shownAfterLogIn: false,
   },
   {
     name: "Sign Up",
-    url: "/sign-up",
+    url: "",
     id: 4,
+    shownAfterLogIn: false,
+  },
+  {
+    name: "Profile",
+    url: "/profile",
+    id: 5,
+    shownAfterLogIn: true,
+  },
+  {
+    name: "Buscket",
+    url: "/buscket",
+    id: 6,
+    shownAfterLogIn: true,
+  },
+  {
+    name: "Log Out",
+    url: "",
+    id: 7,
+    shownAfterLogIn: true,
   },
 ];
 
 export { navLinks };
-
-export function getPageByID(id: number) {
-  switch (id) {
-    case 1:
-      return <Products category={undefined} />;
-    case 2:
-      return <About />;
-    case 3:
-      return <SignIn />;
-    case 4:
-      return <SignUp />;
-    default:
-      return <Home />;
-  }
-}

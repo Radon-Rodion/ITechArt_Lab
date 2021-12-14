@@ -1,7 +1,5 @@
 import "./styles/main.css";
 import "./styles/main.scss";
-// watch: native intellisense and file-peek for aliases from jsconfig.json and with none-js files doesn't work: https://github.com/microsoft/TypeScript/issues/29334
-// start-path is 'images' because we have an alias 'images' in webpack.common.js
 import { Component, ErrorInfo, StrictMode } from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
@@ -10,14 +8,17 @@ import Footer from "./components/footer/footer";
 import Home from "@/pages/home/home";
 import Products from "@/pages/products/products";
 import About from "@/pages/about";
-import SignIn from "@/pages/users/signIn";
-import SignUp from "@/pages/users/signUp";
+import Profile from "@/pages/profile";
+import Buscket from "@/pages/buscket";
+import RouteGuard from "@/elements/routeGuard";
+import UserContext, { IUserContext } from "@/userContext";
 
 interface AppProps {
   nothing: boolean;
 }
 interface AppState {
   hasError: boolean;
+  userName: string | undefined;
 }
 
 class AppContainer extends Component<AppProps, AppState> {
@@ -25,7 +26,7 @@ class AppContainer extends Component<AppProps, AppState> {
 
   constructor(props: AppProps) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, userName: undefined };
   }
 
   static getDerivedStateFromError() {
@@ -52,20 +53,69 @@ class AppContainer extends Component<AppProps, AppState> {
     );
   }
 
-  // <Route path=":category" element={<ProductsPageWrapper />} />
   normalRouting() {
+    // You mentioned that it's better not to map routing, but due to RouteGuard size this function becomes too large. Maybe it's better to to use mapping in this case?
     return (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products">
-          <Route index element={<Products category={undefined} />} />
-          <Route path="pc" element={<Products category="pc" />} />
-          <Route path="ps" element={<Products category="ps" />} />
-          <Route path="xb" element={<Products category="xb" />} />
+          <Route
+            index
+            element={
+              <RouteGuard redirectTo="/">
+                <Products category={undefined} />
+              </RouteGuard>
+            }
+          />
+          <Route
+            path="pc"
+            element={
+              <RouteGuard redirectTo="/">
+                <Products category="pc" />
+              </RouteGuard>
+            }
+          />
+          <Route
+            path="ps"
+            element={
+              <RouteGuard redirectTo="/">
+                <Products category="ps" />
+              </RouteGuard>
+            }
+          />
+          <Route
+            path="xb"
+            element={
+              <RouteGuard redirectTo="/">
+                <Products category="xb" />
+              </RouteGuard>
+            }
+          />
         </Route>
-        <Route path="/about" element={<About />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route
+          path="/about"
+          element={
+            <RouteGuard redirectTo="/">
+              <About />
+            </RouteGuard>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RouteGuard redirectTo="/">
+              <Profile />
+            </RouteGuard>
+          }
+        />
+        <Route
+          path="/buscket"
+          element={
+            <RouteGuard redirectTo="/">
+              <Buscket />
+            </RouteGuard>
+          }
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     );
@@ -75,20 +125,34 @@ class AppContainer extends Component<AppProps, AppState> {
     if (this.state.hasError && window.location.pathname !== "/") {
       this.state = {
         hasError: false,
+        userName: this.state.userName,
       };
       return this.errorRouting();
     }
     return this.normalRouting();
   }
 
+  createBaseContext() {
+    const changeUserName = (arg: string | undefined) => {
+      this.setState({ userName: arg });
+    };
+    const baseContext: IUserContext = {
+      userName: this.state.userName,
+      setUserName: changeUserName,
+    };
+    return baseContext;
+  }
+
   render() {
     return (
       <StrictMode>
-        <Router>
-          <Header />
-          {this.checkErrors()}
-        </Router>
-        <Footer />
+        <UserContext.Provider value={this.createBaseContext()}>
+          <Router>
+            <Header />
+            {this.checkErrors()}
+          </Router>
+          <Footer />
+        </UserContext.Provider>
       </StrictMode>
     );
   }

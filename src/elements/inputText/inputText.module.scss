@@ -1,0 +1,36 @@
+.label{
+    width: calc(100% - 40px);
+    margin: 10px 20px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    font-size: 14pt;
+}
+
+.labelName{
+    align-self: flex-start;
+}
+
+.inputWithIcon{
+    border: 1px solid #ccc;
+    display: inline;
+    padding: 5px;
+    width: 67%;
+}
+
+.input{
+    border: none;
+    outline: none;
+    background-color: #0000;
+    color: #ccc;
+    width: calc(100% - 22px);
+}
+
+.input:invalid ~ .inputWithIcon  {
+    border: 1px solid red;
+}
+
+.input:valid ~ .inputWithIcon {
+    box-shadow: 0 0 7px 2px green;
+}

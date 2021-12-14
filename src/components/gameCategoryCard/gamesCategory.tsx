@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styles from "./gamesCategory.module.scss";
-import { CategoryInfo } from "@/categoriesInfo";
+import { CategoryInfo } from "@/data/categoriesInfo";
 
 interface IGameCategoryProps {
   info: CategoryInfo;

@@ -1,5 +1,5 @@
 import styles from "./categoryMarkers.module.scss";
-import { categoryInfos } from "@/categoriesInfo";
+import { categoryInfos } from "@/data/categoriesInfo";
 
 interface ICategoryMarkersProps {
   pc: boolean;
@@ -21,9 +21,7 @@ const CategoryMarkers = (props: ICategoryMarkersProps) => (
           className={styles.category}
           key={category.key}
         />
-      ) : (
-        <span key={category.key} />
-      )
+      ) : null
     )}
   </div>
 );
