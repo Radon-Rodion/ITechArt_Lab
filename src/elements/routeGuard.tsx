@@ -1,9 +1,10 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 
 import { Navigate } from "react-router-dom";
-import UserContext from "@/userContext";
+import { useSelector } from "react-redux";
 import Modal from "@/components/modal/modal";
 import SignIn from "@/pages/users/signIn";
+import User from "@/redux/types/user";
 
 interface IGuardedRouteProps {
   children: JSX.Element;
@@ -11,19 +12,19 @@ interface IGuardedRouteProps {
 }
 
 const RouteGuard = (props: IGuardedRouteProps) => {
-  const userContext = useContext(UserContext);
+  const userName = useSelector((state) => (state as User).userName);
   const [modalShown, setShown] = useState(true);
   const hide = () => setShown(false);
 
   // user logged in
-  if (userContext.userName !== undefined) {
+  if (userName !== undefined) {
     return props.children;
   }
   // user is signing in
   if (modalShown) {
     return (
       <Modal>
-        <SignIn onExit={hide} />
+        <SignIn onExit={hide} redirectAfterSign="/" />
       </Modal>
     );
   }

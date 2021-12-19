@@ -5,11 +5,12 @@ interface ISignInfo {
   password: string;
 }
 
-function postUserInfo(info: ISignInfo, callBack: (param: string) => void) {
+function postUserInfo(info: ISignInfo, callBack: (param: string) => void, setFlag: (param: boolean) => void) {
   axios
     .post("/api/auth/signIn/", info)
     .then((response) => {
       console.log(response);
+      setFlag(true);
       callBack(response.data.body.userName);
     })
     .catch((error) => {

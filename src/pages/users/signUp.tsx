@@ -1,14 +1,14 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { FormEvent, useState, useContext } from "react";
+import React, { FormEvent, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import InputText from "@/elements/inputText/inputText";
 import styles from "./signForm.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import { ISignFormProps } from "./signIn";
 import { putUserInfo } from "@/api/clientRequests/postPutUserInfo";
-import UserContext from "@/userContext";
 
 library.add(fas);
 
@@ -31,20 +31,24 @@ const SignUp = (props: ISignFormProps) => {
   const [login, setLogin, password, setPassword, password2, setPassword2] = useFields();
   const [successFlag, setSuccessFlag] = useState(false);
 
-  const userContext = useContext(UserContext);
+  const dispatch = useDispatch();
+
+  const setUserName = (userName: string) => {
+    dispatch({ type: "SET_USERNAME", value: userName });
+  };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (password !== password2) {
       alert("Passwords aren't equal!");
     } else {
-      putUserInfo({ login, password }, userContext.setUserName as (arg: string) => void, setSuccessFlag);
+      putUserInfo({ login, password }, setUserName as (arg: string) => void, setSuccessFlag);
     }
   };
 
-  // redirection to profile page
+  // redirection to required page
   if (successFlag) {
-    return <Navigate to="/profile" />;
+    return <Navigate to={props.redirectAfterSign} />;
   }
 
   return (

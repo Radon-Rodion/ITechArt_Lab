@@ -1,17 +1,19 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { FormEvent, useState, useContext } from "react";
+import React, { FormEvent, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Navigate } from "react-router-dom";
 import InputText from "@/elements/inputText/inputText";
 import styles from "./signForm.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import postUserInfo from "@/api/clientRequests/postPutUserInfo";
-import UserContext from "@/userContext";
 
 library.add(fas);
 
 export interface ISignFormProps {
   onExit: (() => void) | undefined;
+  redirectAfterSign: string;
 }
 
 const useFields: () => [
@@ -28,13 +30,23 @@ const useFields: () => [
 
 const SignIn = (props: ISignFormProps) => {
   const [login, setLogin, password, setPassword] = useFields();
+  const [successFlag, setSuccessFlag] = useState(false);
 
-  const userContext = useContext(UserContext);
+  const dispatch = useDispatch();
+
+  const setUserName = (userName: string) => {
+    dispatch({ type: "SET_USERNAME", value: userName });
+  };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    postUserInfo({ login, password }, userContext.setUserName as (arg: string) => void);
+    postUserInfo({ login, password }, setUserName as (arg: string) => void, setSuccessFlag);
   };
+
+  // redirection to required page
+  if (successFlag) {
+    return <Navigate to={props.redirectAfterSign} />;
+  }
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>

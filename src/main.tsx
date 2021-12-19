@@ -3,6 +3,7 @@ import "./styles/main.scss";
 import { Component, ErrorInfo, StrictMode } from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { Provider } from "react-redux";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Home from "@/pages/home/home";
@@ -11,14 +12,13 @@ import About from "@/pages/about";
 import Profile from "@/pages/profile";
 import Buscket from "@/pages/buscket";
 import RouteGuard from "@/elements/routeGuard";
-import UserContext, { IUserContext } from "@/userContext";
+import store from "@/redux/store/store";
 
 interface AppProps {
   nothing: boolean;
 }
 interface AppState {
   hasError: boolean;
-  userName: string | undefined;
 }
 
 class AppContainer extends Component<AppProps, AppState> {
@@ -26,7 +26,7 @@ class AppContainer extends Component<AppProps, AppState> {
 
   constructor(props: AppProps) {
     super(props);
-    this.state = { hasError: false, userName: undefined };
+    this.state = { hasError: false };
   }
 
   static getDerivedStateFromError() {
@@ -125,37 +125,28 @@ class AppContainer extends Component<AppProps, AppState> {
     if (this.state.hasError && window.location.pathname !== "/") {
       this.state = {
         hasError: false,
-        userName: this.state.userName,
       };
       return this.errorRouting();
     }
     return this.normalRouting();
   }
 
-  createBaseContext() {
-    const changeUserName = (arg: string | undefined) => {
-      this.setState({ userName: arg });
-    };
-    const baseContext: IUserContext = {
-      userName: this.state.userName,
-      setUserName: changeUserName,
-    };
-    return baseContext;
-  }
-
   render() {
     return (
       <StrictMode>
-        <UserContext.Provider value={this.createBaseContext()}>
-          <Router>
-            <Header />
-            {this.checkErrors()}
-          </Router>
-          <Footer />
-        </UserContext.Provider>
+        <Router>
+          <Header />
+          {this.checkErrors()}
+        </Router>
+        <Footer />
       </StrictMode>
     );
   }
 }
 
-ReactDom.render(<AppContainer nothing={false} />, document.getElementById("app"));
+ReactDom.render(
+  <Provider store={store}>
+    <AppContainer nothing={false} />
+  </Provider>,
+  document.getElementById("app")
+);

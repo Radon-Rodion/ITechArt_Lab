@@ -1,7 +1,7 @@
 import { ProductInfo } from "@/data/productInfos";
 
 function checkFittingCategory(categoryName: string, productInfo: ProductInfo): boolean {
-  if (categoryName === "") return true;
+  if (!categoryName) return true;
   switch (categoryName) {
     case "pc":
       return productInfo.isPC;
