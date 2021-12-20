@@ -1,6 +1,3 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FormEvent, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -9,8 +6,8 @@ import styles from "./signForm.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import { ISignFormProps } from "./signIn";
 import { putUserInfo } from "@/api/clientRequests/postPutUserInfo";
-
-library.add(fas);
+import FormHeader from "./formHeader";
+import { setUserNameAction } from "@/redux/store/reducers/userReducer";
 
 const useFields: () => [
   string,
@@ -34,7 +31,7 @@ const SignUp = (props: ISignFormProps) => {
   const dispatch = useDispatch();
 
   const setUserName = (userName: string) => {
-    dispatch({ type: "SET_USERNAME", value: userName });
+    dispatch(setUserNameAction(userName));
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -53,12 +50,7 @@ const SignUp = (props: ISignFormProps) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <div className={styles.header}>
-        Registration
-        <button type="button" className={styles.closeBtn} onClick={props.onExit}>
-          <FontAwesomeIcon icon="times" size="3x" />
-        </button>
-      </div>
+      <FormHeader name="Registration" onExit={props.onExit} />
       <InputText icon="address-card" field={formFieldByName("Login")} text={login} onChange={setLogin} />
       <InputText icon="lock" field={formFieldByName("Password")} text={password} onChange={setPassword} />
       <InputText icon="redo" field={formFieldByName("Repeat password")} text={password2} onChange={setPassword2} />

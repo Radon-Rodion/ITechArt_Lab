@@ -36,6 +36,24 @@ const formFields: Array<FormField> = [
     pattern: "[A-Za-z0-9]{8,}",
     title: "Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters",
   },
+  {
+    name: "User name",
+    inputType: "text",
+    required: true,
+    minLength: 6,
+    maxLength: 30,
+    pattern: undefined,
+    title: undefined,
+  },
+  {
+    name: "Profile description",
+    inputType: "textArea",
+    required: true,
+    minLength: undefined,
+    maxLength: undefined,
+    pattern: undefined,
+    title: undefined,
+  },
 ];
 
 export function formFieldByName(name: string): FormField {

@@ -1,6 +1,3 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -8,8 +5,8 @@ import InputText from "@/elements/inputText/inputText";
 import styles from "./signForm.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import postUserInfo from "@/api/clientRequests/postPutUserInfo";
-
-library.add(fas);
+import FormHeader from "./formHeader";
+import { setUserNameAction } from "@/redux/store/reducers/userReducer";
 
 export interface ISignFormProps {
   onExit: (() => void) | undefined;
@@ -35,7 +32,7 @@ const SignIn = (props: ISignFormProps) => {
   const dispatch = useDispatch();
 
   const setUserName = (userName: string) => {
-    dispatch({ type: "SET_USERNAME", value: userName });
+    dispatch(setUserNameAction(userName));
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -50,12 +47,7 @@ const SignIn = (props: ISignFormProps) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <div className={styles.header}>
-        Authorization
-        <button type="button" className={styles.closeBtn} onClick={props.onExit}>
-          <FontAwesomeIcon icon="times" size="3x" />
-        </button>
-      </div>
+      <FormHeader name="Authorization" onExit={props.onExit} />
       <InputText icon="ellipsis-h" field={formFieldByName("Login")} text={login} onChange={setLogin} />
       <InputText icon="ellipsis-h" field={formFieldByName("Password")} text={password} onChange={setPassword} />
       <input type="submit" value="Submit" className={styles.button} />

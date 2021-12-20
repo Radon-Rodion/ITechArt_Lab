@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SignIn from "@/pages/users/signIn";
 import SignButton from "@/elements/signButton/signButton";
-import User from "@/redux/types/user";
+import { RootState } from "@/redux/store/store";
 
 interface IGuardedLinkProps {
   name: string;
@@ -13,7 +13,7 @@ interface IGuardedLinkProps {
 }
 
 const LinkGuard = (props: IGuardedLinkProps) => {
-  const userName = useSelector((state) => (state as User).userName);
+  const userName = useSelector((state) => (state as RootState).user.userName);
 
   if (userName === undefined) {
     return (

@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Modal from "@/components/modal/modal";
 import SignIn from "@/pages/users/signIn";
-import User from "@/redux/types/user";
+import { RootState } from "@/redux/store/store";
 
 interface IGuardedRouteProps {
   children: JSX.Element;
@@ -12,7 +12,7 @@ interface IGuardedRouteProps {
 }
 
 const RouteGuard = (props: IGuardedRouteProps) => {
-  const userName = useSelector((state) => (state as User).userName);
+  const userName = useSelector((state) => (state as RootState).user.userName);
   const [modalShown, setShown] = useState(true);
   const hide = () => setShown(false);
 

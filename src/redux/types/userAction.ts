@@ -1,6 +1,6 @@
 interface UserAction {
   type: string;
-  value?: string | undefined;
+  payload?: string | undefined;
 }
 
 export default UserAction;

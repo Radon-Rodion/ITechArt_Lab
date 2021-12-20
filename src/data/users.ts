@@ -3,6 +3,7 @@ export interface IUserInfo {
   login: string;
   password: string;
   userName: string;
+  description?: string;
 }
 
 export interface IUserNameControl {

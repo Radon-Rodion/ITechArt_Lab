@@ -14,7 +14,7 @@ interface IInputTextProps {
   onChange: (value: React.SetStateAction<string>) => void;
 }
 
-function createChangeProcessor(setter: (value: React.SetStateAction<string>) => void) {
+export function createChangeProcessor(setter: (value: React.SetStateAction<string>) => void) {
   const changeProcessor = (e: FormEvent) => {
     setter((e.target as HTMLInputElement).value);
   };

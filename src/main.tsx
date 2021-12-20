@@ -9,7 +9,7 @@ import Footer from "./components/footer/footer";
 import Home from "@/pages/home/home";
 import Products from "@/pages/products/products";
 import About from "@/pages/about";
-import Profile from "@/pages/profile";
+import Profile from "@/pages/profile/profile";
 import Buscket from "@/pages/buscket";
 import RouteGuard from "@/elements/routeGuard";
 import store from "@/redux/store/store";

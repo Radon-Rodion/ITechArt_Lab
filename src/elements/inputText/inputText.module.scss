@@ -12,25 +12,33 @@
     align-self: flex-start;
 }
 
-.inputWithIcon{
+@mixin inputWithBorder () {
     border: 1px solid #ccc;
-    display: inline;
     padding: 5px;
-    width: 67%;
+}
+
+@mixin colors () {
+    background-color: #0000;
+    color: #ccc;
+}
+
+.inputWithIcon{
+    @include inputWithBorder();
+    display: inline;
+    width: 100%;
 }
 
 .input{
+    @include colors();
     border: none;
     outline: none;
-    background-color: #0000;
-    color: #ccc;
+    
     width: calc(100% - 22px);
 }
 
-.input:invalid ~ .inputWithIcon  {
-    border: 1px solid red;
-}
-
-.input:valid ~ .inputWithIcon {
-    box-shadow: 0 0 7px 2px green;
+.inputMultiline{
+    @include inputWithBorder();
+    @include colors();
+    width: 100%;
+    min-height: 100px;
 }

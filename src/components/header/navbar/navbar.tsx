@@ -11,8 +11,8 @@ import SignIn from "@/pages/users/signIn";
 import SignUp from "@/pages/users/signUp";
 import LogOut from "./logoutButton";
 import NavLinkWithElement from "./navlinkWithElement";
-import User from "@/redux/types/user";
 import LinkGuard from "@/elements/linkGuard";
+import { RootState } from "@/redux/store/store";
 
 library.add(fas);
 
@@ -81,7 +81,7 @@ function showLinks(userName: string | undefined) {
 }
 
 const NavBar = () => {
-  const userName = useSelector((state) => (state as User).userName);
+  const userName = useSelector((state) => (state as RootState).user.userName);
   const className = styles.navbar + (userName !== undefined ? styles.logged : "");
 
   return (
