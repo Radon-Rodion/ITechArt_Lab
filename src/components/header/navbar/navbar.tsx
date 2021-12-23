@@ -81,7 +81,7 @@ function showLinks(userName: string | undefined) {
 }
 
 const NavBar = () => {
-  const userName = useSelector((state) => (state as RootState).user.userName);
+  const userName = useSelector((state: RootState) => state.user.userName);
   const className = styles.navbar + (userName !== undefined ? styles.logged : "");
 
   return (

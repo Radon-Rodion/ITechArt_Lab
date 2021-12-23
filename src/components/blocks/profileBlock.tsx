@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import Block from "@/components/blocks/block";
 import PictureChoose from "@/elements/pictureChoose/pictureChoose";
 import InputText from "@/elements/inputText/inputText";
@@ -12,20 +12,9 @@ interface IProfileBlockProps {
   blockName: string;
 }
 
-const useFields: () => [
-  string,
-  React.Dispatch<React.SetStateAction<string>>,
-  string,
-  React.Dispatch<React.SetStateAction<string>>
-] = () => {
+const ProfileBlock = (props: IProfileBlockProps) => {
   const [userName, setUserName] = useState("");
   const [description, setDescription] = useState("");
-
-  return [userName, setUserName, description, setDescription];
-};
-
-const ProfileBlock = (props: IProfileBlockProps) => {
-  const [userName, setUserName, description, setDescription] = useFields();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

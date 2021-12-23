@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import InputText from "@/elements/inputText/inputText";
@@ -13,20 +13,9 @@ export interface ISignFormProps {
   redirectAfterSign: string;
 }
 
-const useFields: () => [
-  string,
-  React.Dispatch<React.SetStateAction<string>>,
-  string,
-  React.Dispatch<React.SetStateAction<string>>
-] = () => {
+const SignIn = (props: ISignFormProps) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-
-  return [login, setLogin, password, setPassword];
-};
-
-const SignIn = (props: ISignFormProps) => {
-  const [login, setLogin, password, setPassword] = useFields();
   const [successFlag, setSuccessFlag] = useState(false);
 
   const dispatch = useDispatch();
