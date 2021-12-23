@@ -1,5 +1,5 @@
 import styles from "./footerNavButton.module.scss";
-import { FooterNavLink } from "@/links";
+import { FooterNavLink } from "@/data/links";
 
 const FooterNavButton = (link: FooterNavLink) => (
   <a className={styles.footerNavButton} href={link.url}>

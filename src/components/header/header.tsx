@@ -1,5 +1,5 @@
 import styles from "./header.module.css";
-import NavBar from "./navbar";
+import NavBar from "./navbar/navbar";
 
 const Header = () => (
   <header className={styles.header}>

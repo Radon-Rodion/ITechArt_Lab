@@ -1,8 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import webpackMockServer from "webpack-mock-server";
-import { productInfos } from "@/productInfos";
+import { productInfos } from "@/data/productInfos";
 import filter from "@/api/serverOperations/filterProductInfo";
 import select from "@/api/serverOperations/selectProductInfo";
+import findUserInfo from "@/api/serverOperations/findUserInfo";
+import users from "@/data/users";
+
+const usersList = users;
 
 export default webpackMockServer.add((app, helper) => {
   app.get("/api/search", (_req, res) => {
@@ -25,7 +29,23 @@ export default webpackMockServer.add((app, helper) => {
     return res.json(response);
   });
 
-  app.post("/testPostMock", (req, res) => {
-    res.json({ body: req.body || null, success: true });
+  app.post("/api/auth/signIn", (req, res) => {
+    const response = findUserInfo(req.body.login, usersList);
+    if (response !== undefined && response.password === req.body.password)
+      res.status(201).json({ body: response || null, success: true });
+    else res.status(400).json({ body: undefined || null, success: false });
+  });
+
+  app.put("/api/auth/signUp", (req, res) => {
+    const existingInfo = findUserInfo(req.body.login, usersList);
+    if (existingInfo === undefined) {
+      usersList.push({
+        id: usersList.length,
+        login: req.body.login,
+        password: req.body.password,
+        userName: req.body.login,
+      });
+      res.json({ body: req.body || null, success: true });
+    } else res.status(400).json({ body: undefined || null, success: false });
   });
 });

@@ -1,4 +1,4 @@
-import { ProductInfo } from "@/productInfos";
+import { ProductInfo } from "@/data/productInfos";
 import getCard from "./getCard";
 import StarsMark from "@/elements/starsMark/starsMark";
 import CategoryMarkers from "@/elements/gameCategoryMarkers/categoryMarkers";
