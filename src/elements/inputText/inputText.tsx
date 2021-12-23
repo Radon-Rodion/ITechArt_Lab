@@ -11,10 +11,12 @@ interface IInputTextProps {
   field: FormField;
   icon: IconProp;
   text: string;
-  onChange: (value: React.SetStateAction<string>) => void;
+  onChange: ((value: React.SetStateAction<string>) => void) | ((value: string) => void);
 }
 
-export function createChangeProcessor(setter: (value: React.SetStateAction<string>) => void) {
+export function createChangeProcessor(
+  setter: ((value: React.SetStateAction<string>) => void) | ((value: string) => void)
+) {
   const changeProcessor = (e: FormEvent) => {
     setter((e.target as HTMLInputElement).value);
   };
@@ -37,7 +39,7 @@ const InputText = (props: IInputTextProps) => (
         value={props.text}
         onChange={createChangeProcessor(props.onChange)}
       />
-      <FontAwesomeIcon icon={props.icon} />
+      <FontAwesomeIcon icon={props.icon} className={styles.icon} />
     </div>
   </label>
 );

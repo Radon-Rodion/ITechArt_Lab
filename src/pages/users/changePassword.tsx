@@ -1,34 +1,29 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import InputText from "@/elements/inputText/inputText";
 import styles from "./signForm.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import FormHeader from "./formHeader";
+import { postPassword } from "@/api/clientRequests/profileRequests";
 
 library.add(fas);
 
 interface IChangePasswordProps {
-  onExit: (() => void) | undefined;
+  onExit: () => void;
+  userId: number;
 }
 
-const useFields: () => [
-  string,
-  React.Dispatch<React.SetStateAction<string>>,
-  string,
-  React.Dispatch<React.SetStateAction<string>>
-] = () => {
+const ChangePassword = (props: IChangePasswordProps) => {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
-  return [password, setPassword, password2, setPassword2];
-};
-
-const ChangePassword = (props: IChangePasswordProps) => {
-  const [password, setPassword, password2, setPassword2] = useFields();
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (password === password2) {
+      postPassword(props.userId, password);
+      props.onExit();
+    }
   };
 
   return (

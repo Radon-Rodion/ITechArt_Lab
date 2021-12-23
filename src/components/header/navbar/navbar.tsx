@@ -1,7 +1,6 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from "./navbar.module.scss";
 import { NavLinkInfo, navLinks } from "@/data/links";
@@ -17,7 +16,6 @@ import { RootState } from "@/redux/store/store";
 library.add(fas);
 
 function getNavbarElement(link: NavLinkInfo, userName: string | undefined) {
-  // I know that this function is too large, but almost all navbar components have to be processed differently... I have no good idea of how to decrease this switch-case size
   switch (link.name) {
     case "Home":
       return <NavLinkWithElement to={link.url}>Home</NavLinkWithElement>;
@@ -81,7 +79,7 @@ function showLinks(userName: string | undefined) {
 }
 
 const NavBar = () => {
-  const userName = useSelector((state) => (state as RootState).user.userName);
+  const userName = useSelector((state: RootState) => state.user.userName);
   const className = styles.navbar + (userName !== undefined ? styles.logged : "");
 
   return (

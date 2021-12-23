@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import InputText from "@/elements/inputText/inputText";
@@ -9,23 +9,10 @@ import { putUserInfo } from "@/api/clientRequests/postPutUserInfo";
 import FormHeader from "./formHeader";
 import { setUserNameAction } from "@/redux/store/reducers/userReducer";
 
-const useFields: () => [
-  string,
-  React.Dispatch<React.SetStateAction<string>>,
-  string,
-  React.Dispatch<React.SetStateAction<string>>,
-  string,
-  React.Dispatch<React.SetStateAction<string>>
-] = () => {
+const SignUp = (props: ISignFormProps) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-
-  return [login, setLogin, password, setPassword, password2, setPassword2];
-};
-
-const SignUp = (props: ISignFormProps) => {
-  const [login, setLogin, password, setPassword, password2, setPassword2] = useFields();
   const [successFlag, setSuccessFlag] = useState(false);
 
   const dispatch = useDispatch();

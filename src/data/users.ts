@@ -4,6 +4,16 @@ export interface IUserInfo {
   password: string;
   userName: string;
   description?: string;
+  picture?: string;
+  phone?: string;
+}
+
+// eslint-disable-next-line no-shadow
+export enum FieldNames {
+  NAME,
+  DESCRIPTION,
+  PICTURE,
+  PHONE,
 }
 
 export interface IUserNameControl {

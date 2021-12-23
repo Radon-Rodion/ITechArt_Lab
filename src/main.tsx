@@ -54,7 +54,6 @@ class AppContainer extends Component<AppProps, AppState> {
   }
 
   normalRouting() {
-    // You mentioned that it's better not to map routing, but due to RouteGuard size this function becomes too large. Maybe it's better to to use mapping in this case?
     return (
       <Routes>
         <Route path="/" element={<Home />} />

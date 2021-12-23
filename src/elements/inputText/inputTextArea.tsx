@@ -5,7 +5,7 @@ import { createChangeProcessor } from "./inputText";
 interface IInputTextAreaProps {
   field: FormField;
   text: string;
-  onChange: (value: React.SetStateAction<string>) => void;
+  onChange: ((value: React.SetStateAction<string>) => void) | ((value: string) => void);
 }
 
 const InputText = (props: IInputTextAreaProps) => (

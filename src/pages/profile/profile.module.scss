@@ -14,3 +14,52 @@
   padding: 5px;
   min-height: 800px;
 }
+
+$backgroundColor: #232323f0;
+$color: #ccc;
+$buttonColor: #8823ff;
+
+.block{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+@mixin section () {
+    align-self: flex-start;
+    padding: 10px;
+}
+
+.pictureSection{
+    @include section();
+    width: 30%;
+    min-width: 150px;
+    max-width: 400px;
+}
+
+.inputSection{
+    @include section();
+    width: 40%;
+}
+
+.buttonsSection{
+    @include section();
+    width: 30%;
+}
+
+.button{
+    margin-top: 25px;
+    min-width: 150px;
+    width: 25%;
+    height: 55px;
+    border: none;
+    background-color: $buttonColor;
+    border-radius: 15px;
+    color: #ccc;
+    align-self: center;
+    font-size: 14pt;
+    cursor: pointer;
+}
+
+.button:active{
+    box-shadow: 0 0 7px 2px $buttonColor;
+}

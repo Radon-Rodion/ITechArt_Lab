@@ -48,11 +48,20 @@ const formFields: Array<FormField> = [
   {
     name: "Profile description",
     inputType: "textArea",
-    required: true,
+    required: false,
     minLength: undefined,
     maxLength: undefined,
     pattern: undefined,
     title: undefined,
+  },
+  {
+    name: "Phone number",
+    inputType: "text",
+    required: true,
+    minLength: undefined,
+    maxLength: undefined,
+    pattern: "[+][0-9]{10,12}",
+    title: "Must contain only from 10 to 12 numbes and start with '+' symbol.",
   },
 ];
 

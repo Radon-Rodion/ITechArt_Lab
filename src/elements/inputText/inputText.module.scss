@@ -8,10 +8,6 @@
     font-size: 14pt;
 }
 
-.labelName{
-    align-self: flex-start;
-}
-
 @mixin inputWithBorder () {
     border: 1px solid #ccc;
     padding: 5px;
@@ -20,6 +16,11 @@
 @mixin colors () {
     background-color: #0000;
     color: #ccc;
+}
+
+.labelName{
+    align-self: flex-start;
+    @include colors();
 }
 
 .inputWithIcon{
@@ -41,4 +42,8 @@
     @include colors();
     width: 100%;
     min-height: 100px;
+}
+
+.icon{
+    @include colors();
 }
