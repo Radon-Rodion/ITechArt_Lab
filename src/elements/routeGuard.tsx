@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Modal from "@/components/modal/modal";
-import SignIn from "@/pages/users/signIn";
+import SignIn from "@/components/forms/signIn";
 import { RootState } from "@/redux/store/store";
 
 interface IGuardedRouteProps {

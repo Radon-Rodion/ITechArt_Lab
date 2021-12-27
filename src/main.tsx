@@ -8,9 +8,9 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Home from "@/pages/home/home";
 import Products from "@/pages/products/products";
-import About from "@/pages/about";
+import About from "@/pages/about/about";
 import Profile from "@/pages/profile/profile";
-import Buscket from "@/pages/buscket";
+import Cart from "@/pages/cart/cart";
 import RouteGuard from "@/elements/routeGuard";
 import store from "@/redux/store/store";
 
@@ -54,7 +54,6 @@ class AppContainer extends Component<AppProps, AppState> {
   }
 
   normalRouting() {
-    // You mentioned that it's better not to map routing, but due to RouteGuard size this function becomes too large. Maybe it's better to to use mapping in this case?
     return (
       <Routes>
         <Route path="/" element={<Home />} />
@@ -112,7 +111,7 @@ class AppContainer extends Component<AppProps, AppState> {
           path="/buscket"
           element={
             <RouteGuard redirectTo="/">
-              <Buscket />
+              <Cart />
             </RouteGuard>
           }
         />

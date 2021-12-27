@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ProductInfo } from "@/data/productInfos";
+import { Filters } from "@/data/filtrationFields";
 
 function sendRequestAndHandleResponse(
   request: string,
@@ -25,7 +26,19 @@ export function filterProductInfos(
   setSpinner: (spinnerState: boolean) => void
 ) {
   sendRequestAndHandleResponse(
-    `/api/search/?name=${name ?? ""}&category=${category ?? ""}`,
+    `/api/products/?name=${name ?? ""}&category=${category ?? ""}`,
+    responseSetMethod,
+    setSpinner
+  );
+}
+
+export function filterAndSortProductInfos(
+  filters: Filters,
+  responseSetMethod: (response: Array<ProductInfo>) => void,
+  setSpinner: (spinnerState: boolean) => void
+) {
+  sendRequestAndHandleResponse(
+    `/api/products/?name=${filters.name}&category=${filters.category}&age=${filters.age}&genre=${filters.genres}&criteria=${filters.criteria}&order=${filters.order}`,
     responseSetMethod,
     setSpinner
   );
@@ -38,7 +51,7 @@ export function selectProductInfos(
   setSpinner: (spinnerState: boolean) => void
 ) {
   sendRequestAndHandleResponse(
-    `/api/getTopProducts/?amount=${amount}&category=${category}`,
+    `/api/topProducts/?amount=${amount}&category=${category}`,
     responseSetMethod,
     setSpinner
   );

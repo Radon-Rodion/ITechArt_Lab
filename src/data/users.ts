@@ -4,7 +4,17 @@ export interface IUserInfo {
   password: string;
   userName: string;
   description?: string;
+  picture?: string;
+  phone?: string;
 }
+
+export const defaultUser: IUserInfo = {
+  id: -1,
+  login: "",
+  password: "",
+  userName: "",
+  description: "",
+};
 
 export interface IUserNameControl {
   userName: string | undefined;

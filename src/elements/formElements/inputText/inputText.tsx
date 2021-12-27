@@ -11,14 +11,15 @@ interface IInputTextProps {
   field: FormField;
   icon: IconProp;
   text: string;
-  onChange: (value: React.SetStateAction<string>) => void;
+  onChange: ((value: React.SetStateAction<string>) => void) | ((value: string) => void);
 }
 
-export function createChangeProcessor(setter: (value: React.SetStateAction<string>) => void) {
-  const changeProcessor = (e: FormEvent) => {
+export function createChangeProcessor(
+  setter: ((value: React.SetStateAction<string>) => void) | ((value: string) => void)
+) {
+  return (e: FormEvent) => {
     setter((e.target as HTMLInputElement).value);
   };
-  return changeProcessor;
 }
 
 const InputText = (props: IInputTextProps) => (
@@ -37,7 +38,7 @@ const InputText = (props: IInputTextProps) => (
         value={props.text}
         onChange={createChangeProcessor(props.onChange)}
       />
-      <FontAwesomeIcon icon={props.icon} />
+      <FontAwesomeIcon icon={props.icon} className={styles.icon} />
     </div>
   </label>
 );
