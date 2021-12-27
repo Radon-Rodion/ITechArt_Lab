@@ -8,9 +8,9 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Home from "@/pages/home/home";
 import Products from "@/pages/products/products";
-import About from "@/pages/about";
+import About from "@/pages/about/about";
 import Profile from "@/pages/profile/profile";
-import Buscket from "@/pages/buscket";
+import Cart from "@/pages/cart/cart";
 import RouteGuard from "@/elements/routeGuard";
 import store from "@/redux/store/store";
 
@@ -111,7 +111,7 @@ class AppContainer extends Component<AppProps, AppState> {
           path="/buscket"
           element={
             <RouteGuard redirectTo="/">
-              <Buscket />
+              <Cart />
             </RouteGuard>
           }
         />

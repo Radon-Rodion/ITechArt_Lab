@@ -1,5 +1,5 @@
 .allPage {
-  background-image: url(images/darkestDungeon.png);
+  background-image: url(images/Motorbike.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -8,24 +8,13 @@
   -o-background-size: cover;
   background-size: cover;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   padding: 5px;
-  min-height: 800px;
+  min-height: 750px;
 }
 
-.filtrationBlock{
-  width: 30%;
-  height: 100%;
-}
-
-.rightPart{
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-}
-
-.gamesBlock {
-    display: inline;
+.block{
+  width: 100%;
 }

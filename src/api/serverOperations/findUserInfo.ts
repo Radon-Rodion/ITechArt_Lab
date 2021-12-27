@@ -10,7 +10,7 @@ export function findUserInfoByName(userName: string, usersList: Array<IUserInfo>
 
 export function findIndexById(id: number, usersList: Array<IUserInfo>): number {
   // binary search with a specific
-  if (usersList.length === 0) return -1;
+  if (!usersList.length) return -1;
   let minIndex = 0;
   let index = id < usersList.length ? id : usersList.length - 1;
   let maxIndex = index;

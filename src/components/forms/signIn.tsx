@@ -1,12 +1,13 @@
 import { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
-import InputText from "@/elements/inputText/inputText";
+import InputText from "@/elements/formElements/inputText/inputText";
 import styles from "./signForm.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import postUserInfo from "@/api/clientRequests/postPutUserInfo";
 import FormHeader from "./formHeader";
 import { setUserNameAction } from "@/redux/store/reducers/userReducer";
+import PurpleButton from "@/elements/purpleButton/purpleButton";
 
 export interface ISignFormProps {
   onExit: (() => void) | undefined;
@@ -39,7 +40,7 @@ const SignIn = (props: ISignFormProps) => {
       <FormHeader name="Authorization" onExit={props.onExit} />
       <InputText icon="ellipsis-h" field={formFieldByName("Login")} text={login} onChange={setLogin} />
       <InputText icon="ellipsis-h" field={formFieldByName("Password")} text={password} onChange={setPassword} />
-      <input type="submit" value="Submit" className={styles.button} />
+      <PurpleButton name="Submit" type="submit" className={styles.button} />
     </form>
   );
 };
