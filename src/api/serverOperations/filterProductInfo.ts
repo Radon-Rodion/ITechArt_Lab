@@ -14,12 +14,16 @@ function checkFittingCategory(categoryName: string, productInfo: ProductInfo): b
   }
 }
 
-function filter(name: string, category: string, arr: Array<ProductInfo>) {
+function filter(name: string, category: string, genre: string, age: number, arr: Array<ProductInfo>) {
   return arr.filter(
     (productInfo) =>
       checkFittingCategory(category, productInfo) &&
-      (name === "" || productInfo.name.toLowerCase().includes(name.toLowerCase()))
+      productInfo.name.toLowerCase().includes(name.toLowerCase()) &&
+      productInfo.description.toLowerCase().includes(genre.toLowerCase()) &&
+      (age === 0 || productInfo.ageCategory === age)
   );
 }
+
+/*  */
 
 export default filter;

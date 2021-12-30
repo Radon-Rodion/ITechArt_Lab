@@ -2,6 +2,7 @@ import { ProductInfo } from "@/data/productInfos";
 import getCard from "./getCard";
 import StarsMark from "@/elements/starsMark/starsMark";
 import CategoryMarkers from "@/elements/gameCategoryMarkers/categoryMarkers";
+import PurpleButton from "@/elements/purpleButton/purpleButton";
 
 import styles from "./gameCard.module.scss";
 
@@ -25,9 +26,7 @@ const GameCard = (props: IGameCardProps) => (
       <div className={styles.backContent}>
         <div className={styles.description}>{props.gameInfo.description}</div>
         <div className={styles.ageCategory}>{`${props.gameInfo.ageCategory}+`}</div>
-        <button className={styles.buttonAdd} type="button" onClick={getCard}>
-          Add to cart
-        </button>
+        <PurpleButton name="Add to cart" type="button" className={styles.buttonAdd} onClick={getCard} />
       </div>
     </div>
   </div>

@@ -1,0 +1,27 @@
+.allElement{
+    display: inline-block;
+    color: #ccc;
+    width: 100%;
+}
+
+.label{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 3.5px;
+}
+
+.select{
+    display: inline;
+    outline: none;
+    color: #ccc;
+    background-color: #23232375;
+    padding-left: 5px;
+    width: 150px;
+    border-color: #ccc;
+}
+
+.option{
+    color: #ccc;
+    background-color: #232323dd;
+}

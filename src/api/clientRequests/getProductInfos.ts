@@ -1,45 +1,62 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import { Filters } from "@/data/filtrationFields";
 import { ProductInfo } from "@/data/productInfos";
+import delay from "@/utils/delay";
 
-function sendRequestAndHandleResponse(
-  request: string,
-  responseSetMethod: (response: Array<ProductInfo>) => void,
-  setSpinner: (spinnerState: boolean) => void
-) {
-  axios
-    .get(request)
-    .then((response) => {
-      responseSetMethod(response.data.products);
-      setSpinner(false);
-    })
-    .catch((error) => {
-      console.error(error);
-      setSpinner(false);
-    });
+function wrapPromise(promise: Promise<AxiosResponse<unknown, unknown>>) {
+  let status = "pending";
+  let result: AxiosResponse<unknown, unknown>;
+  const suspender = promise.then(
+    (r) => {
+      result = r;
+      status = "success";
+    },
+    (e) => {
+      console.error(e);
+      result = e;
+      status = "error";
+    }
+  );
+  return {
+    read(): Array<ProductInfo> | AxiosResponse<unknown, unknown> {
+      switch (status) {
+        case "pending":
+          throw suspender;
+        case "success":
+          return result;
+        default:
+          throw result;
+      }
+    },
+    promise,
+  };
 }
 
-export function filterProductInfos(
-  name: string | undefined,
-  category: string | undefined,
-  responseSetMethod: (response: Array<ProductInfo>) => void,
-  setSpinner: (spinnerState: boolean) => void
-) {
-  sendRequestAndHandleResponse(
-    `/api/search/?name=${name ?? ""}&category=${category ?? ""}`,
-    responseSetMethod,
-    setSpinner
+export interface ProductsResource {
+  products: {
+    read(): Array<ProductInfo> | AxiosResponse<unknown, unknown>; // for suspense
+    promise: Promise<AxiosResponse<unknown, unknown>>; // for custom hook
+  };
+}
+
+function getProductsResource(request: string): ProductsResource {
+  return {
+    products: wrapPromise(delay(500).then(() => axios.get(request).then((response) => response.data.products))),
+  };
+}
+
+export function selectProductInfos(amount: number, category: string): ProductsResource {
+  return getProductsResource(`/api/topProducts/?amount=${amount}&category=${category}`);
+}
+
+export function filterProductInfos(name: string | undefined, category: string | undefined): ProductsResource {
+  return getProductsResource(`/api/products/?name=${name ?? ""}&category=${category ?? ""}&age=0`);
+}
+
+export function filterAndSortProductInfos(filters: Filters): ProductsResource {
+  return getProductsResource(
+    `/api/products/?name=${filters.name}&category=${filters.category}&age=${filters.age}&genre=${filters.genres}&criteria=${filters.criteria}&order=${filters.order}`
   );
 }
 
-export function selectProductInfos(
-  amount: number,
-  category: string,
-  responseSetMethod: (response: Array<ProductInfo>) => void,
-  setSpinner: (spinnerState: boolean) => void
-) {
-  sendRequestAndHandleResponse(
-    `/api/getTopProducts/?amount=${amount}&category=${category}`,
-    responseSetMethod,
-    setSpinner
-  );
-}
+export default getProductsResource;

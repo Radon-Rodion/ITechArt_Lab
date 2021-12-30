@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import SignIn from "@/pages/users/signIn";
+import SignIn from "@/components/forms/signIn";
 import SignButton from "@/elements/signButton/signButton";
 import { RootState } from "@/redux/store/store";
 

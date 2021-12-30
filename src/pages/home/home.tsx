@@ -1,30 +1,29 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import styles from "./home.module.scss";
 import GamesBlock from "@/components/blocks/gameCardsBlock";
 import CategoriesBlock from "@/components/blocks/categoriesBlock";
 import Search from "@/elements/search/search";
-import { ProductInfo } from "@/data/productInfos";
-import { selectProductInfos } from "@/api/clientRequests/getProductInfos";
+import { filterProductInfos, selectProductInfos } from "@/api/clientRequests/getProductInfos";
 import debounce from "@/utils/debounce";
+import Spinner from "@/elements/spinner/spinner";
 
 const Home = () => {
-  const [infos, setInfos] = useState<Array<ProductInfo>>([]);
-  const [gamesLoaded, setGamesLoadedBool] = useState(false);
-  const [spinner, setSpinner] = useState(true);
+  const [searchText, setSearchText] = useState("");
 
-  if (!gamesLoaded) {
-    selectProductInfos(3, "date", setInfos, setSpinner);
-    setGamesLoadedBool(true);
-  }
-  const debouncedSetInfos = debounce(setInfos, 330);
+  const resource = !searchText.length ? selectProductInfos(3, "date") : filterProductInfos(searchText, undefined);
+
+  const onChange = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value);
+  }, 330);
 
   return (
     <div className={styles.allPage}>
-      <Search setResponse={debouncedSetInfos} setSpinner={setSpinner} />
+      <Search onChange={onChange} />
 
       <CategoriesBlock blockName="Game categories" />
-
-      <GamesBlock blockName="New games" blockContent={infos} spinner={spinner} />
+      <Suspense fallback={<Spinner />}>
+        <GamesBlock blockName="New games" resource={resource} />
+      </Suspense>
     </div>
   );
 };

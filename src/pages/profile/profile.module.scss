@@ -34,16 +34,22 @@ $buttonColor: #8823ff;
     width: 30%;
     min-width: 150px;
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 .inputSection{
     @include section();
     width: 40%;
+    display: flex;
+    flex-direction: column;
 }
 
 .buttonsSection{
     @include section();
     width: 30%;
+    display: flex;
+    flex-direction: column;
 }
 
 .button{

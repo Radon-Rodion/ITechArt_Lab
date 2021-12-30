@@ -11,15 +11,21 @@ interface IPictureChooseProps {
 
 const PictureChoose = (props: IPictureChooseProps) => {
   const changeProcessor = (e: ChangeEvent) => {
-    const reader = new FileReader();
+    e.preventDefault();
+
+    if (!e.target) return;
     const { files } = e.target as HTMLInputElement;
-    reader.onloadend = (event: ProgressEvent<FileReader>) => {
-      if (event?.target?.result != null) props.onChange(event?.target?.result as string);
+    const reader = new FileReader();
+    if (files && files[0]) reader.readAsDataURL(files[0]);
+    reader.onloadend = () => {
+      if (typeof reader.result === "string") {
+        localStorage.setItem("photo", reader.result);
+      }
+      props.onChange(reader.result as string);
     };
-    if (files != null) reader.readAsDataURL(files[0]);
   };
 
-  const pictureSrc = props.picture === "" ? noImg : props.picture;
+  const pictureSrc = localStorage.getItem("photo") ?? (props.picture === "" ? noImg : props.picture);
 
   return (
     <div className={props.className}>

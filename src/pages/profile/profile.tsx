@@ -5,61 +5,34 @@ import styles from "./profile.module.scss";
 import { RootState } from "@/redux/store/store";
 
 import Block from "@/components/blocks/block";
-import PictureChoose from "@/elements/pictureChoose/pictureChoose";
-import InputText from "@/elements/inputText/inputText";
-import InputTextArea from "@/elements/inputText/inputTextArea";
+import PictureChoose from "@/elements/formElements/pictureChoose/pictureChoose";
+import InputText from "@/elements/formElements/inputText/inputText";
+import InputTextArea from "@/elements/formElements/inputText/inputTextArea";
 import { formFieldByName } from "@/data/formFields";
 import SignButton from "@/elements/signButton/signButton";
-import ChangePassword from "@/pages/users/changePassword";
-import { FieldNames, IUserInfo } from "@/data/users";
+import ChangePassword from "@/components/forms/changePassword";
+import { defaultUser, IUserInfo } from "@/data/users";
 import Spinner from "@/elements/spinner/spinner";
 import { getProfile, postProfile } from "@/api/clientRequests/profileRequests";
 import { setUserNameAction } from "@/redux/store/reducers/userReducer";
-
-const userInfoActionCreator = (prevInfo: IUserInfo, fieldName: FieldNames, value: string): IUserInfo => {
-  const newInfo = { ...prevInfo };
-  switch (fieldName) {
-    case FieldNames.NAME:
-      newInfo.userName = value;
-      break;
-    case FieldNames.DESCRIPTION:
-      newInfo.description = value;
-      break;
-    case FieldNames.PHONE:
-      newInfo.phone = value;
-      break;
-    case FieldNames.PICTURE:
-      newInfo.picture = value;
-      break;
-    default:
-      break;
-  }
-  return newInfo;
-};
 
 const Profile = () => {
   const userName = useSelector((state) => (state as RootState).user.userName);
   const blockName = `${userName} profile page`;
 
   // user info and its fields
-  const [userInfo, setUserInfo] = useState<IUserInfo>({
-    id: -1,
-    login: "",
-    password: "",
-    userName: "",
-    description: "",
-  });
+  const [userInfo, setUserInfo] = useState<IUserInfo>(defaultUser);
   const setUserName = (name: string) => {
-    setUserInfo(userInfoActionCreator(userInfo, FieldNames.NAME, name));
+    setUserInfo((prevState: IUserInfo) => ({ ...prevState, userName: name }));
   };
   const setDescription = (description: string) => {
-    setUserInfo(userInfoActionCreator(userInfo, FieldNames.DESCRIPTION, description));
+    setUserInfo((prevState: IUserInfo) => ({ ...prevState, description }));
   };
   const setPicture = (picture: string) => {
-    setUserInfo(userInfoActionCreator(userInfo, FieldNames.PICTURE, picture));
+    setUserInfo((prevState: IUserInfo) => ({ ...prevState, picture }));
   };
   const setPhone = (phone: string) => {
-    setUserInfo(userInfoActionCreator(userInfo, FieldNames.PHONE, phone));
+    setUserInfo((prevState: IUserInfo) => ({ ...prevState, phone }));
   };
 
   const [spinner, setSpinner] = useState(true);
@@ -110,7 +83,7 @@ const Profile = () => {
             <SignButton
               name="Change password"
               className={styles.button}
-              form={<ChangePassword onExit={() => {}} userId={userInfo.id} />}
+              form={<ChangePassword onExit={() => {}} userId={userInfo.id} curPassword={userInfo.password} />}
             />
           </div>
         </form>

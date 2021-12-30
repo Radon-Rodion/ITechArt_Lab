@@ -37,6 +37,15 @@ const formFields: Array<FormField> = [
     title: "Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters",
   },
   {
+    name: "New password",
+    inputType: "password",
+    required: true,
+    minLength: undefined,
+    maxLength: undefined,
+    pattern: "[A-Za-z0-9]{8,}",
+    title: "Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters",
+  },
+  {
     name: "User name",
     inputType: "text",
     required: true,
@@ -57,7 +66,7 @@ const formFields: Array<FormField> = [
   {
     name: "Phone number",
     inputType: "text",
-    required: true,
+    required: false,
     minLength: undefined,
     maxLength: undefined,
     pattern: "[+][0-9]{10,12}",

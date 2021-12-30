@@ -8,13 +8,13 @@ export interface IUserInfo {
   phone?: string;
 }
 
-// eslint-disable-next-line no-shadow
-export enum FieldNames {
-  NAME,
-  DESCRIPTION,
-  PICTURE,
-  PHONE,
-}
+export const defaultUser: IUserInfo = {
+  id: -1,
+  login: "",
+  password: "",
+  userName: "",
+  description: "",
+};
 
 export interface IUserNameControl {
   userName: string | undefined;

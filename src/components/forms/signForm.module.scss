@@ -35,13 +35,9 @@ $buttonColor: #8823ff;
     min-width: 150px;
     width: 25%;
     height: 55px;
-    border: none;
-    background-color: $buttonColor;
     border-radius: 15px;
-    color: #ccc;
     align-self: center;
     font-size: 14pt;
-    cursor: pointer;
 }
 
 .button:active{
