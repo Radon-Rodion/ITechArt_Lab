@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import GamesBlock from "@/components/blocks/gameCardsBlock";
 import styles from "./products.module.scss";
+import { filterAndSortProductInfos } from "@/api/clientRequests/getProductInfos";
 import ProductsFiltration from "@/components/forms/productsFiltration/productsFiltration";
 import { defaultFilters } from "@/data/filtrationFields";
 import Search from "@/elements/search/search";
@@ -22,7 +23,7 @@ const Products = (props: IProductsPageProps) => {
     }),
     330
   );
-
+          
   const [responseGot, products, updateFilters] = useResource(filters);
 
   useEffect(() => {
