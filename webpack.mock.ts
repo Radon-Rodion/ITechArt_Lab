@@ -3,7 +3,12 @@ import webpackMockServer from "webpack-mock-server";
 import { productInfos } from "@/data/productInfos";
 import filter from "@/api/serverOperations/filterProductInfo";
 import select, { sort } from "@/api/serverOperations/selectProductInfo";
-import { findUserInfoByLogin, findUserInfoByName, findIndexById } from "@/api/serverOperations/findUserInfo";
+import {
+  findUserInfoByLogin,
+  findUserInfoByName,
+  findIndexById,
+  findIndexByName,
+} from "@/api/serverOperations/findUserInfo";
 import users from "@/data/users";
 
 const usersList = users;
@@ -53,6 +58,7 @@ export default webpackMockServer.add((app, helper) => {
         login: req.body.login,
         password: req.body.password,
         userName: req.body.login,
+        balance: 3500,
       });
       res.json({ body: req.body || null, success: true });
     } else res.status(400).json({ body: undefined || null, success: false });
@@ -79,6 +85,14 @@ export default webpackMockServer.add((app, helper) => {
     if (index >= 0 && index < usersList.length) {
       usersList[index].password = req.body.password;
       res.json({ body: usersList[index].password || null, success: true });
+    } else res.status(400).json({ body: undefined || null, success: false });
+  });
+
+  app.post("/api/changeBalance", (req, res) => {
+    const index = findIndexByName(req.body.userName, usersList);
+    if (index !== -1) {
+      usersList[index].balance = req.body.balance;
+      res.json({ body: usersList[index].balance || null, success: true });
     } else res.status(400).json({ body: undefined || null, success: false });
   });
 });

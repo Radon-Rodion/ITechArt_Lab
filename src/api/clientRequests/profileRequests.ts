@@ -3,25 +3,39 @@ import { IUserInfo } from "@/data/users";
 
 let requestSent = false;
 
-export function getProfile(
-  userName: string,
-  responseSetMethod: (response: IUserInfo) => void,
-  setSpinner: (spinnerState: boolean) => void
-) {
+function getRequest(request: string, callBack: (responseData: IUserInfo) => void) {
   if (!requestSent) {
     requestSent = true;
     axios
-      .get(`api/getProfile?user=${userName}`)
+      .get(request)
       .then((response) => {
-        setSpinner(false);
         requestSent = false;
-        responseSetMethod(response.data);
+        callBack(response.data);
       })
       .catch((error) => {
         requestSent = false;
         console.error(error);
       });
   }
+}
+
+export function getProfile(
+  userName: string,
+  responseSetMethod: (response: IUserInfo) => void,
+  setSpinner: (spinnerState: boolean) => void
+) {
+  const callBack = (responseData: IUserInfo) => {
+    setSpinner(false);
+    responseSetMethod(responseData);
+  };
+  getRequest(`api/getProfile?user=${userName}`, callBack);
+}
+
+export function getBalance(userName: string, responseSetMethod: (response: number) => void) {
+  const callBack = (responseData: IUserInfo) => {
+    responseSetMethod(responseData.balance);
+  };
+  getRequest(`api/getProfile?user=${userName}`, callBack);
 }
 
 function postRequest(request: string, params: unknown, callBack: ((param: string) => void) | undefined) {
@@ -47,4 +61,8 @@ export function postProfile(info: IUserInfo, callBack: (param: string) => void) 
 
 export function postPassword(id: number, password: string) {
   postRequest("api/changePassword", { id, password }, undefined);
+}
+
+export function postBalance(userName: string, balance: number) {
+  postRequest("api/changeBalance", { userName, balance }, undefined);
 }

@@ -15,7 +15,7 @@ import { RootState } from "@/redux/store/store";
 
 library.add(fas);
 
-function getNavbarElement(link: NavLinkInfo, userName: string | undefined) {
+function getNavbarElement(link: NavLinkInfo, userName: string | undefined, amountInCart: number | undefined) {
   switch (link.name) {
     case "Home":
       return <NavLinkWithElement to={link.url}>Home</NavLinkWithElement>;
@@ -54,7 +54,7 @@ function getNavbarElement(link: NavLinkInfo, userName: string | undefined) {
       return (
         <NavLinkWithElement to={link.url}>
           <>
-            <FontAwesomeIcon icon="shopping-cart" /> 0
+            <FontAwesomeIcon icon="shopping-cart" /> {amountInCart}
           </>
         </NavLinkWithElement>
       );
@@ -64,7 +64,7 @@ function getNavbarElement(link: NavLinkInfo, userName: string | undefined) {
   }
 }
 
-function showLinks(userName: string | undefined) {
+function showLinks(userName: string | undefined, amountInCart: number | undefined) {
   const showComponent = (link: NavLinkInfo) =>
     link.shownAfterLogIn === undefined || (userName !== undefined) === link.shownAfterLogIn;
 
@@ -72,7 +72,7 @@ function showLinks(userName: string | undefined) {
     (link: NavLinkInfo) =>
       showComponent(link) && (
         <li key={link.id} className={styles.navbutton}>
-          {getNavbarElement(link, userName)}
+          {getNavbarElement(link, userName, amountInCart)}
         </li>
       )
   );
@@ -80,11 +80,12 @@ function showLinks(userName: string | undefined) {
 
 const NavBar = () => {
   const userName = useSelector((state: RootState) => state.user.userName);
+  const amountInCart = useSelector((state: RootState) => state.cart.elements.length);
   const className = styles.navbar + (userName !== undefined ? styles.logged : "");
 
   return (
     <ul className={className}>
-      <nav>{showLinks(userName)}</nav>
+      <nav>{showLinks(userName, amountInCart)}</nav>
     </ul>
   );
 };
