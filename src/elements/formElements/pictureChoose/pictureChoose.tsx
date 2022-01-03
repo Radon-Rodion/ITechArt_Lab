@@ -47,5 +47,4 @@ PictureChoose.defaultProps = {
   buttonClassName: "",
   localStorageKey: undefined,
 };
-
 export default PictureChoose;

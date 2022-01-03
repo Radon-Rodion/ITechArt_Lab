@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import { Filters } from "@/data/filtrationFields";
 import { ProductInfo } from "@/data/productInfos";
 import delay from "@/utils/delay";
+import { Filters } from "@/data/filtrationFields";
 
 function wrapPromise(promise: Promise<AxiosResponse<unknown, unknown>>) {
   let status = "pending";

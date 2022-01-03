@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import GamesBlock from "@/components/blocks/gameCardsBlock";
 import styles from "./products.module.scss";
+
 import ProductsFiltration from "@/components/forms/productsFiltration/productsFiltration";
 import { defaultFilters } from "@/data/filtrationFields";
 import Search from "@/elements/search/search";
@@ -18,7 +19,7 @@ interface IProductsPageProps {
 }
 
 const Products = (props: IProductsPageProps) => {
-  const [filters, setFilters] = useState({ ...defaultFilters, category: props.category ?? "" });
+const [filters, setFilters] = useState({ ...defaultFilters, category: props.category ?? "" });
 
   const onChange = debounce(
     createChangeProcessor((newName: string) => {
@@ -28,6 +29,13 @@ const Products = (props: IProductsPageProps) => {
   );
 
   const [responseGot, products, updateFilters] = useResource(filters);
+
+  const onChange = debounce(
+    createChangeProcessor((newName: string) => {
+      setFilters({ ...filters, name: newName });
+    }),
+    330
+  );
 
   useEffect(() => {
     setFilters({ ...filters, category: props.category ?? "" });

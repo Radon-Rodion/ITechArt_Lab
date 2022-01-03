@@ -24,4 +24,6 @@ function filter(name: string, category: string, genre: string, age: number, arr:
   );
 }
 
+/*  */
+
 export default filter;
