@@ -14,7 +14,7 @@ import ChangePassword from "@/components/forms/changePassword";
 import { defaultUser, IUserInfo } from "@/data/users";
 import Spinner from "@/elements/spinner/spinner";
 import { getProfile, postProfile } from "@/api/clientRequests/profileRequests";
-import { setUserNameAction } from "@/redux/store/reducers/userReducer";
+import { setUserNameAction } from "@/redux/actionCreators/userActionsCreator";
 
 const Profile = () => {
   const userName = useSelector((state) => (state as RootState).user.userName);

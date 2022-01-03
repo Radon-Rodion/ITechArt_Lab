@@ -6,7 +6,7 @@ import styles from "./signForm.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import postUserInfo from "@/api/clientRequests/postPutUserInfo";
 import FormHeader from "./formHeader";
-import { setUserNameAction } from "@/redux/store/reducers/userReducer";
+import { setUserNameAction } from "@/redux/actionCreators/userActionsCreator";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
 
 export interface ISignFormProps {

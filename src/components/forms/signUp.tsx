@@ -7,7 +7,7 @@ import { formFieldByName } from "@/data/formFields";
 import { ISignFormProps } from "./signIn";
 import { putUserInfo } from "@/api/clientRequests/postPutUserInfo";
 import FormHeader from "./formHeader";
-import { setUserNameAction } from "@/redux/store/reducers/userReducer";
+import { setUserNameAction } from "@/redux/actionCreators/userActionsCreator";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
 
 const SignUp = (props: ISignFormProps) => {

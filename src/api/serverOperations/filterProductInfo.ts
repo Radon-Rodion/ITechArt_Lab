@@ -20,10 +20,8 @@ function filter(name: string, category: string, genre: string, age: number, arr:
       checkFittingCategory(category, productInfo) &&
       productInfo.name.toLowerCase().includes(name.toLowerCase()) &&
       productInfo.description.toLowerCase().includes(genre.toLowerCase()) &&
-      (age === 0 || productInfo.ageCategory === age)
+      (age === 0 || productInfo.ageCategory >= age)
   );
 }
-
-/*  */
 
 export default filter;
