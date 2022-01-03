@@ -4,9 +4,10 @@ import styles from "./pictureChoose.module.scss";
 
 interface IPictureChooseProps {
   picture: string;
-  className: string;
-  buttonClassName: string;
+  className?: string;
+  buttonClassName?: string;
   onChange: ((value: React.SetStateAction<string>) => void) | ((value: string) => void);
+  localStorageKey?: string | undefined;
 }
 
 const PictureChoose = (props: IPictureChooseProps) => {
@@ -18,14 +19,15 @@ const PictureChoose = (props: IPictureChooseProps) => {
     const reader = new FileReader();
     if (files && files[0]) reader.readAsDataURL(files[0]);
     reader.onloadend = () => {
-      if (typeof reader.result === "string") {
-        localStorage.setItem("photo", reader.result);
+      if (typeof reader.result === "string" && props.localStorageKey) {
+        localStorage.setItem(props.localStorageKey, reader.result);
       }
       props.onChange(reader.result as string);
     };
   };
 
-  const pictureSrc = localStorage.getItem("photo") ?? (props.picture === "" ? noImg : props.picture);
+  const pictureFromStorage = props.localStorageKey ? localStorage.getItem(props.localStorageKey) : null;
+  const pictureSrc = pictureFromStorage ?? (props.picture === "" ? noImg : props.picture);
 
   return (
     <div className={props.className}>
@@ -38,6 +40,12 @@ const PictureChoose = (props: IPictureChooseProps) => {
       </div>
     </div>
   );
+};
+
+PictureChoose.defaultProps = {
+  className: "",
+  buttonClassName: "",
+  localStorageKey: undefined,
 };
 
 export default PictureChoose;

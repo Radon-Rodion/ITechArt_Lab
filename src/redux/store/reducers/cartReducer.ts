@@ -1,14 +1,10 @@
 /* eslint-disable default-param-last */
-import { ProductInfo } from "@/data/productInfos";
-import { findCartElement, createCartElement } from "@/redux/supportFunctions/cartFunctions";
+import { ADD_ELEMENT, EDIT_ELEMENT, DELETE_SELECTED, CLEAR_CART } from "@/redux/actions/cartActions";
+import { findCartElement } from "@/redux/supportFunctions/cartFunctions";
 import Cart, { CartElement } from "@/redux/types/cart";
 import CartAction, { CartParamsToChange } from "@/redux/types/cartAction";
 
 const CART = "cart";
-const ADD_ELEMENT = "ADD_ELEMENT";
-const EDIT_ELEMENT = "EDIT_ELEMENT";
-const DELETE_SELECTED = "DELETE_SELECTED";
-const CLEAR_CART = "CLEAR_CART";
 
 const defaultState: Cart = {
   elements: JSON.parse(localStorage.getItem(CART) ?? "[]"),
@@ -19,29 +15,29 @@ const serialize = (elements: CartElement[]): void => {
 };
 
 const cartReducer = (state = defaultState, action: CartAction): Cart => {
-  let elements = [...state.elements];
+  let tempArr = [...state.elements];
   switch (action.type) {
     case ADD_ELEMENT: {
       const newElement = action.payload as CartElement;
-      const elementIndex = findCartElement(elements, newElement.name, newElement.orderDate);
-      if (elementIndex === -1) elements.push(newElement);
-      else elements[elementIndex].amount += 1;
-      serialize(elements);
-      return { elements };
+      const elementIndex = findCartElement(tempArr, newElement.name, newElement.orderDate);
+      if (elementIndex === -1) tempArr.push(newElement);
+      else tempArr[elementIndex].amount += 1;
+      serialize(tempArr);
+      return { elements: tempArr };
     }
     case EDIT_ELEMENT: {
       const editParams = action.payload as CartParamsToChange;
-      if (editParams.newAmount) elements[editParams.index].amount = editParams.newAmount;
+      if (editParams.newAmount) tempArr[editParams.index].amount = editParams.newAmount;
       else if (editParams.newChosenPlatformIndex !== undefined)
-        elements[editParams.index].chosenPlatformIndex = editParams.newChosenPlatformIndex;
-      else elements[editParams.index].selected = !elements[editParams.index].selected;
-      serialize(elements);
-      return { elements };
+        tempArr[editParams.index].chosenPlatformIndex = editParams.newChosenPlatformIndex;
+      else tempArr[editParams.index].selected = !tempArr[editParams.index].selected;
+      serialize(tempArr);
+      return { elements: tempArr };
     }
     case DELETE_SELECTED:
-      elements = elements.filter((element) => !element.selected);
-      serialize(elements);
-      return { elements };
+      tempArr = tempArr.filter((element) => !element.selected);
+      serialize(tempArr);
+      return { elements: tempArr };
 
     case CLEAR_CART:
       localStorage.removeItem(CART);
@@ -52,32 +48,3 @@ const cartReducer = (state = defaultState, action: CartAction): Cart => {
 };
 
 export default cartReducer;
-
-export const addGame = (game: ProductInfo) => ({ type: ADD_ELEMENT, payload: createCartElement(game) });
-
-export const editAmount = (newAmount: number, index: number) => ({
-  type: EDIT_ELEMENT,
-  payload: {
-    newAmount,
-    index,
-  },
-});
-
-export const editChosenPlatform = (chosenPlatform: number, index: number) => ({
-  type: EDIT_ELEMENT,
-  payload: {
-    newChosenPlatformIndex: chosenPlatform,
-    index,
-  },
-});
-
-export const changeSelection = (index: number) => ({
-  type: EDIT_ELEMENT,
-  payload: {
-    index,
-  },
-});
-
-export const deleteSelected = () => ({ type: DELETE_SELECTED });
-
-export const clearCart = () => ({ type: CLEAR_CART });

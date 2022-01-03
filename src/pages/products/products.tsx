@@ -8,6 +8,10 @@ import debounce from "@/utils/debounce";
 import { createChangeProcessor } from "@/elements/formElements/inputText/inputText";
 import Spinner from "@/elements/spinner/spinner";
 import useResource from "@/utils/useResource";
+import SignButton from "@/elements/signButton/signButton";
+import AdminForm from "@/components/forms/adminForm";
+import { newProductInfo } from "@/data/productInfos";
+import { formByName } from "@/data/adminFormsParams";
 
 interface IProductsPageProps {
   category: string | undefined;
@@ -37,7 +41,15 @@ const Products = (props: IProductsPageProps) => {
     <div className={styles.allPage}>
       <ProductsFiltration filters={filters} setFilters={setFilters} className={styles.filtrationBlock} />
       <div className={styles.rightPart}>
-        <Search onChange={onChange} />
+        <div className={styles.topLine}>
+          <Search onChange={onChange} />
+          <SignButton
+            name="Create card"
+            className={styles.createButton}
+            // eslint-disable-next-line @typescript-eslint/no-empty-function
+            form={<AdminForm formInfo={formByName("Create card")} gameInfo={newProductInfo} onExit={() => {}} />}
+          />
+        </div>
         {responseGot ? <GamesBlock blockName="Games list" products={products} /> : <Spinner />}
       </div>
     </div>

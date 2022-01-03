@@ -2,7 +2,7 @@ import { Dispatch } from "redux";
 import CartTableRow from "./cartTableRow";
 import styles from "./cartComponents.module.scss";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
-import { deleteSelected } from "@/redux/store/reducers/cartReducer";
+import { deleteSelected } from "@/redux/actionCreators/cartActionsCreator";
 import { CartElement } from "@/redux/types/cart";
 
 const CartTable = (props: { productsInCart: CartElement[]; dispatch: Dispatch }) => {

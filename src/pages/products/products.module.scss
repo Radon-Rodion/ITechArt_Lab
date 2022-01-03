@@ -26,6 +26,24 @@
   width: 70%;
 }
 
+.topLine{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.createButton{
+  background-color: #8823ff;
+  color: #ccc;
+  border-radius: 5px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.createButton:active{
+  box-shadow: 0 0 7px 2px #8823ff;
+}
+
 .gamesBlock {
     display: inline;
 }

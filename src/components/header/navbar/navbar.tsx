@@ -7,11 +7,12 @@ import { NavLinkInfo, navLinks } from "@/data/links";
 import DropdownList from "@/elements/dropdownList/dropdownList";
 import SignButton from "@/elements/signButton/signButton";
 import SignIn from "@/components/forms/signIn";
-import SignUp from "@/components/forms/signUp";
+// import SignUp from "@/components/forms/signUp";
 import LogOut from "./logoutButton";
 import NavLinkWithElement from "./navlinkWithElement";
 import LinkGuard from "@/elements/linkGuard";
 import { RootState } from "@/redux/store/store";
+import SignUp from "@/components/forms/signUp";
 
 library.add(fas);
 

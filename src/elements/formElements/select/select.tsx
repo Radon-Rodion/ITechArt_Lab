@@ -5,14 +5,14 @@ import styles from "./select.module.scss";
 interface ISelectProps {
   name?: string;
   valuesWithText: FieldValue[];
-  selectedItemIndex?: number;
+  selectedItemValue?: string | undefined;
   onChange: (value: string) => void;
   className?: string;
 }
 
 const Select = (props: ISelectProps) => {
   const allElementClass = `${props.className} ${styles.allElement}`;
-  const selectedValue = props.valuesWithText[props.selectedItemIndex ?? 0].value;
+  const selectedValue = props.selectedItemValue;
   return (
     <div className={allElementClass}>
       <label htmlFor="select" className={styles.label}>
@@ -23,7 +23,7 @@ const Select = (props: ISelectProps) => {
           onChange={createChangeProcessor(props.onChange)}
           value={selectedValue}
         >
-          {props.valuesWithText.map((val, i) => (
+          {props.valuesWithText.map((val) => (
             <option value={val.value} key={val.value} className={styles.option}>
               {val.text}
             </option>
@@ -35,7 +35,7 @@ const Select = (props: ISelectProps) => {
 };
 Select.defaultProps = {
   name: "",
-  selectedItemIndex: 0,
+  selectedItemValue: undefined,
   className: "",
 };
 

@@ -4,7 +4,7 @@ import styles from "./purpleButton.module.scss";
 interface IPurpleButtonProps {
   name: string;
   className: string;
-  type: "button" | "submit" | "reset" | undefined;
+  type?: "button" | "submit" | "reset" | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -19,6 +19,7 @@ const PurpleButton = (props: IPurpleButtonProps) => {
 
 PurpleButton.defaultProps = {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
+  type: "button",
   onClick: () => {},
 };
 

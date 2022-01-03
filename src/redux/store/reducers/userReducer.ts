@@ -1,10 +1,9 @@
 /* eslint-disable default-param-last */
+import { SET_USERNAME, RESET_USERNAME } from "@/redux/actions/userActions";
 import User from "@/redux/types/user";
 import UserAction from "@/redux/types/userAction";
 
 const USERNAME = "userName";
-const SET_USERNAME = "SET_USERNAME";
-const RESET_USERNAME = "RESET_USERNAME";
 
 const defaultState: User = {
   userName: localStorage.getItem(USERNAME) ?? undefined,
@@ -22,8 +21,5 @@ const userReducer = (state = defaultState, action: UserAction): User => {
       return state;
   }
 };
-
-export const setUserNameAction = (payload: string) => ({ type: SET_USERNAME, payload });
-export const resetUserNameAction = () => ({ type: RESET_USERNAME });
 
 export default userReducer;

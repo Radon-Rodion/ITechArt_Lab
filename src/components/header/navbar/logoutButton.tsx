@@ -4,7 +4,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 import styles from "./navbar.module.scss";
-import { resetUserNameAction } from "@/redux/store/reducers/userReducer";
+import { resetUserNameAction } from "@/redux/actionCreators/userActionsCreator";
 
 library.add(fas);
 

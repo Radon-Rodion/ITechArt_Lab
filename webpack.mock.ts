@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import webpackMockServer from "webpack-mock-server";
-import { productInfos } from "@/data/productInfos";
+import { ProductInfo, productInfos } from "@/data/productInfos";
 import filter from "@/api/serverOperations/filterProductInfo";
 import select, { sort } from "@/api/serverOperations/selectProductInfo";
 import {
@@ -10,8 +10,10 @@ import {
   findIndexByName,
 } from "@/api/serverOperations/findUserInfo";
 import users from "@/data/users";
+import { checkNameExists, defineNewItemKey, findIndexByKey } from "@/api/serverOperations/editProductsList";
 
 const usersList = users;
+const gamesList = productInfos;
 
 export default webpackMockServer.add((app, helper) => {
   // products requests
@@ -24,11 +26,7 @@ export default webpackMockServer.add((app, helper) => {
     const sortAscOrder = (_req?.query?.order as string) === "asc";
 
     const response = {
-      products: sort(
-        sortCriteria,
-        sortAscOrder,
-        filter(nameFilter, categoryFilter, genreFilter, ageFilter, productInfos)
-      ),
+      products: sort(sortCriteria, sortAscOrder, filter(nameFilter, categoryFilter, genreFilter, ageFilter, gamesList)),
     };
     return res.json(response);
   });
@@ -37,7 +35,7 @@ export default webpackMockServer.add((app, helper) => {
     const fieldName = (_req?.query?.category as string) ?? "name";
     const amount = +(_req?.query?.amount as string) ?? 1;
     const response = {
-      products: select(fieldName, amount, productInfos),
+      products: select(fieldName, amount, gamesList),
     };
     return res.json(response);
   });
@@ -94,5 +92,50 @@ export default webpackMockServer.add((app, helper) => {
       usersList[index].balance = req.body.balance;
       res.json({ body: usersList[index].balance || null, success: true });
     } else res.status(400).json({ body: undefined || null, success: false });
+  });
+
+  // admin requests
+  app.post("/api/product", (req, res) => {
+    const newGame: ProductInfo = req.body;
+    if (checkNameExists(newGame.name, productInfos)) {
+      res.status(400).json({ body: undefined || null, success: false });
+      return;
+    }
+
+    newGame.additionDate = new Date();
+    newGame.key = defineNewItemKey(productInfos);
+    productInfos.push(newGame);
+    res.json({ body: newGame || null, success: true });
+  });
+
+  app.put("/api/product", (req, res) => {
+    const updatedGame: ProductInfo = req.body;
+    const index = findIndexByKey(updatedGame.key, productInfos);
+    if (index !== -1) {
+      productInfos[index] = updatedGame;
+      res.json({ body: productInfos[index] || null, success: true });
+    } else {
+      res.status(400).json({ body: undefined || null, success: false });
+    }
+  });
+
+  app.delete("/api/product/*", (req, res) => {
+    const reqSubdomains = req.url.split("/");
+    const key = +reqSubdomains[reqSubdomains.length - 1];
+    const index = findIndexByKey(key, productInfos);
+    if (index === -1) {
+      res.status(400).json({ body: undefined || null, success: false });
+      return;
+    }
+    // replace to make deleting element the last if necessary
+    if (index !== productInfos.length - 1) {
+      const temp = productInfos[index];
+      productInfos[index] = productInfos[productInfos.length - 1];
+      productInfos[productInfos.length - 1] = temp;
+    }
+
+    const removedElementKey = productInfos.pop()?.key;
+    if (removedElementKey) res.json({ body: removedElementKey || null, success: true });
+    else res.status(400).json({ body: undefined || null, success: false });
   });
 });

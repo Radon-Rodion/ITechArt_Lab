@@ -2,13 +2,48 @@ $backgroundColor: #232323f0;
 $color: #ccc;
 $buttonColor: #8823ff;
 
-.form{
+@mixin form () {
     background-color: $backgroundColor;
     color: $color;
     border-radius: 15px;
     padding: 20px;
+}
+
+@mixin row () {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@mixin column () {
     display: flex;
     flex-direction: column;
+}
+
+.form{
+    @include form();
+    @include column();
+}
+
+.row{
+    @include row();
+}
+
+.buttonsRow{
+    @include row();
+    width: 50%;
+    align-self: center;
+    margin-bottom: 30px;
+}
+
+.narrowColumn{
+    @include column();
+    width: 30%;
+}
+
+.wideColumn{
+    @include column();
+    width: 70%;
 }
 
 .header{
@@ -20,6 +55,10 @@ $buttonColor: #8823ff;
     justify-content: space-between;
     font-size: 18pt;
     color: lighten($color, 20%);
+}
+
+.paragraph{
+    
 }
 
 .closeBtn{

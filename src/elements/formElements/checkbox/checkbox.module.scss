@@ -1,0 +1,26 @@
+.allElement{
+    width: calc(100% - 40px);
+    margin: 10px 20px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    font-size: 14pt;
+}
+
+@mixin colors () {
+    background-color: #0000;
+    color: #ccc;
+}
+
+.name{
+    align-self: flex-start;
+    @include colors();
+}
+
+.checkbox{
+    border: 1px solid #ccc;
+    padding: 5px;
+    @include colors();
+    outline: none;
+}

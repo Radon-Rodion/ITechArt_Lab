@@ -4,7 +4,7 @@ import { FieldValue } from "@/data/filtrationFields";
 import Select from "@/elements/formElements/select/select";
 import { CartElement } from "@/redux/types/cart";
 import styles from "./cartComponents.module.scss";
-import { changeSelection, editAmount, editChosenPlatform } from "@/redux/store/reducers/cartReducer";
+import { changeSelection, editAmount, editChosenPlatform } from "@/redux/actionCreators/cartActionsCreator";
 
 interface IRowProps {
   element: CartElement;
@@ -38,7 +38,7 @@ const CartTableRow = (props: IRowProps) => {
         <Select
           valuesWithText={platformFieldValues(props.element.possiblePlatforms)}
           onChange={changeSelectedPlatform}
-          selectedItemIndex={props.element.chosenPlatformIndex}
+          selectedItemValue={`${props.element.chosenPlatformIndex}`}
         />
       </td>
       <td className={styles.mediumColumn}>{props.element.orderDate}</td>

@@ -6,7 +6,7 @@ import PurpleButton from "@/elements/purpleButton/purpleButton";
 import { RootState } from "@/redux/store/store";
 import { totalSum } from "@/redux/supportFunctions/cartFunctions";
 import { getBalance, postBalance } from "@/api/clientRequests/profileRequests";
-import { clearCart } from "@/redux/store/reducers/cartReducer";
+import { clearCart } from "@/redux/actionCreators/cartActionsCreator";
 
 const CartForm = () => {
   const productsInCart = useSelector((state: RootState) => state.cart.elements);

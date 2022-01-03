@@ -1,12 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ProductInfo } from "@/data/productInfos";
-import { addGame } from "@/redux/store/reducers/cartReducer";
+import { addGame } from "@/redux/actionCreators/cartActionsCreator";
 import StarsMark from "@/elements/starsMark/starsMark";
 import CategoryMarkers from "@/elements/gameCategoryMarkers/categoryMarkers";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
 
 import styles from "./gameCard.module.scss";
 import { RootState } from "@/redux/store/store";
+import SignButton from "@/elements/signButton/signButton";
+import AdminForm from "../forms/adminForm";
+import { formByName } from "@/data/adminFormsParams";
 
 interface IGameCardProps {
   gameInfo: ProductInfo;
@@ -41,7 +44,13 @@ const GameCard = (props: IGameCardProps) => {
         <div className={styles.backContent}>
           <div className={styles.description}>{props.gameInfo.description}</div>
           <div className={styles.ageCategory}>{`${props.gameInfo.ageCategory}+`}</div>
-          <PurpleButton name="Add to cart" type="button" className={styles.buttonAdd} onClick={getCard} />
+          <PurpleButton name="Add to cart" type="button" className={styles.button} onClick={getCard} />
+          <SignButton
+            name="Edit card"
+            className={styles.button}
+            // eslint-disable-next-line @typescript-eslint/no-empty-function
+            form={<AdminForm formInfo={formByName("Edit card")} gameInfo={props.gameInfo} onExit={() => {}} />}
+          />
         </div>
       </div>
     </div>

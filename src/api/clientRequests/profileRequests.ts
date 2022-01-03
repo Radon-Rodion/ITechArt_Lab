@@ -45,7 +45,7 @@ function postRequest(request: string, params: unknown, callBack: ((param: string
       .post(request, params)
       .then((response) => {
         requestSent = false;
-        if (callBack !== undefined) callBack(response.data.body.userName);
+        if (callBack) callBack(response.data.body.userName);
       })
       .catch((error) => {
         console.error(error);
