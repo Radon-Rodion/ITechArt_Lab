@@ -6,13 +6,7 @@ import UserAction from "@/redux/types/userAction";
 
 const USER = "userInfo";
 
-const getDefault = (): string => {
-  const res = JSON.stringify({ userName: undefined, isAdmin: false });
-  console.log(res);
-  return res;
-};
-
-const defaultState: User = JSON.parse(localStorage.getItem(USER) ?? getDefault());
+const defaultState: User = JSON.parse(localStorage.getItem(USER) ?? '{"isAdmin":false}');
 
 const userReducer = (state = defaultState, action: UserAction): User => {
   switch (action.type) {
