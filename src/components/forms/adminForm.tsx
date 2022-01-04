@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import FormHeader from "./formHeader";
 import InputText from "@/elements/formElements/inputText/inputText";
 import InputTextArea from "@/elements/formElements/inputText/inputTextArea";
-import styles from "./signForm.module.scss";
+import styles from "./form.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
 import { ProductInfo } from "@/data/productInfos";
@@ -50,12 +50,14 @@ const AdminForm = (props: IAdminFormProps) => {
 
   const dispatch = useDispatch();
 
-  const leftButtonAction = () => {
+  const leftButtonAction = (e: FormEvent) => {
+    e.preventDefault();
     props.formInfo.leftButtonAction(gameInfo, dispatch);
     props.onExit();
   };
 
-  const rightButtonAction = () => {
+  const rightButtonAction = (e: FormEvent) => {
+    e.preventDefault();
     if (props.formInfo.rightButtonAction) props.formInfo.rightButtonAction(gameInfo, dispatch);
     props.onExit();
   };
@@ -100,7 +102,7 @@ const AdminForm = (props: IAdminFormProps) => {
         </div>
       </div>
       <div className={styles.buttonsRow}>
-        <PurpleButton name={props.formInfo.leftButtonName} className={styles.button} onClick={leftButtonAction} />
+        <PurpleButton name={props.formInfo.leftButtonName} type="submit" className={styles.button} />
         <PurpleButton name={props.formInfo.rightButtonName} className={styles.button} onClick={rightButtonAction} />
       </div>
     </form>

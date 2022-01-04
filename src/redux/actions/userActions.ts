@@ -1,2 +1,2 @@
-export const SET_USERNAME = "SET_USERNAME";
-export const RESET_USERNAME = "RESET_USERNAME";
+export const SET_USER = "SET_USER";
+export const RESET = "RESET";

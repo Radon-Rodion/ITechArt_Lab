@@ -2,7 +2,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FormEvent, useState } from "react";
 import InputText from "@/elements/formElements/inputText/inputText";
-import styles from "./signForm.module.scss";
+import styles from "./form.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import FormHeader from "./formHeader";
 import { postPassword } from "@/api/clientRequests/profileRequests";

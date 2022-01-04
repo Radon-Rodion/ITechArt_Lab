@@ -58,7 +58,9 @@ $buttonColor: #8823ff;
 }
 
 .paragraph{
-    
+    font-size: 15pt;
+    color: lighten($color, 15%);
+    margin-left: 20px;
 }
 
 .closeBtn{

@@ -1,5 +1,8 @@
 import axios from "axios";
+import { Dispatch } from "redux";
 import { IUserInfo } from "@/data/users";
+import UserAction from "@/redux/types/userAction";
+import { setUserAction } from "@/redux/actionCreators/userActionsCreator";
 
 let requestSent = false;
 
@@ -38,14 +41,15 @@ export function getBalance(userName: string, responseSetMethod: (response: numbe
   getRequest(`api/getProfile?user=${userName}`, callBack);
 }
 
-function postRequest(request: string, params: unknown, callBack: ((param: string) => void) | undefined) {
+function postRequest(request: string, params: unknown, dispatch: Dispatch<UserAction> | undefined = undefined) {
   if (!requestSent) {
     requestSent = true;
     axios
       .post(request, params)
       .then((response) => {
         requestSent = false;
-        if (callBack) callBack(response.data.body.userName);
+        if (dispatch)
+          dispatch(setUserAction({ userName: response.data.body.userName, isAdmin: response.data.body.isAdmin }));
       })
       .catch((error) => {
         console.error(error);
@@ -55,8 +59,8 @@ function postRequest(request: string, params: unknown, callBack: ((param: string
   }
 }
 
-export function postProfile(info: IUserInfo, callBack: (param: string) => void) {
-  postRequest("api/saveProfile", info, callBack);
+export function postProfile(info: IUserInfo, dispatch: Dispatch<UserAction>) {
+  postRequest("api/saveProfile", info, dispatch);
 }
 
 export function postPassword(id: number, password: string) {

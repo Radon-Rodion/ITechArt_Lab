@@ -2,12 +2,11 @@ import { FormEvent, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import InputText from "@/elements/formElements/inputText/inputText";
-import styles from "./signForm.module.scss";
+import styles from "./form.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import { ISignFormProps } from "./signIn";
 import { putUserInfo } from "@/api/clientRequests/postPutUserInfo";
 import FormHeader from "./formHeader";
-import { setUserNameAction } from "@/redux/actionCreators/userActionsCreator";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
 
 const SignUp = (props: ISignFormProps) => {
@@ -18,16 +17,12 @@ const SignUp = (props: ISignFormProps) => {
 
   const dispatch = useDispatch();
 
-  const setUserName = (userName: string) => {
-    dispatch(setUserNameAction(userName));
-  };
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (password !== passwordRepeat) {
       alert("Passwords aren't equal!");
     } else {
-      putUserInfo({ login, password }, setUserName as (arg: string) => void, setSuccessFlag);
+      putUserInfo({ login, password }, dispatch, setSuccessFlag);
     }
   };
 

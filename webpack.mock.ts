@@ -57,6 +57,7 @@ export default webpackMockServer.add((app, helper) => {
         password: req.body.password,
         userName: req.body.login,
         balance: 3500,
+        isAdmin: false,
       });
       res.json({ body: req.body || null, success: true });
     } else res.status(400).json({ body: undefined || null, success: false });

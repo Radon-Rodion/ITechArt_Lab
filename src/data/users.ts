@@ -7,6 +7,7 @@ export interface IUserInfo {
   picture?: string;
   phone?: string;
   balance: number;
+  isAdmin: boolean;
 }
 
 export const defaultUser: IUserInfo = {
@@ -16,6 +17,7 @@ export const defaultUser: IUserInfo = {
   userName: "",
   description: "",
   balance: 500,
+  isAdmin: false,
 };
 
 export interface IUserNameControl {
@@ -30,6 +32,7 @@ const users: Array<IUserInfo> = [
     password: "QQQqqq111",
     userName: "TestUser",
     balance: 5500,
+    isAdmin: true,
   },
   {
     id: 1,
@@ -37,6 +40,7 @@ const users: Array<IUserInfo> = [
     password: "77735Sql",
     userName: "Pavel",
     balance: 2300,
+    isAdmin: true,
   },
   {
     id: 2,
@@ -44,6 +48,7 @@ const users: Array<IUserInfo> = [
     password: "Godgod333",
     userName: "Protoijerej",
     balance: 5700,
+    isAdmin: false,
   },
 ];
 

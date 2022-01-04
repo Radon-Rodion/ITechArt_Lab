@@ -1,6 +1,7 @@
 /* eslint-disable default-param-last */
 import { ADD_ELEMENT, EDIT_ELEMENT, DELETE_SELECTED, CLEAR_CART } from "@/redux/actions/cartActions";
 import { findCartElement } from "@/redux/supportFunctions/cartFunctions";
+import serialize from "@/redux/supportFunctions/serialize";
 import Cart, { CartElement } from "@/redux/types/cart";
 import CartAction, { CartParamsToChange } from "@/redux/types/cartAction";
 
@@ -8,10 +9,6 @@ const CART = "cart";
 
 const defaultState: Cart = {
   elements: JSON.parse(localStorage.getItem(CART) ?? "[]"),
-};
-
-const serialize = (elements: CartElement[]): void => {
-  localStorage.setItem(CART, JSON.stringify(elements));
 };
 
 const cartReducer = (state = defaultState, action: CartAction): Cart => {
@@ -22,7 +19,7 @@ const cartReducer = (state = defaultState, action: CartAction): Cart => {
       const elementIndex = findCartElement(tempArr, newElement.name, newElement.orderDate);
       if (elementIndex === -1) tempArr.push(newElement);
       else tempArr[elementIndex].amount += 1;
-      serialize(tempArr);
+      serialize<CartElement[]>(tempArr, CART);
       return { elements: tempArr };
     }
     case EDIT_ELEMENT: {
@@ -31,12 +28,12 @@ const cartReducer = (state = defaultState, action: CartAction): Cart => {
       else if (editParams.newChosenPlatformIndex !== undefined)
         tempArr[editParams.index].chosenPlatformIndex = editParams.newChosenPlatformIndex;
       else tempArr[editParams.index].selected = !tempArr[editParams.index].selected;
-      serialize(tempArr);
+      serialize<CartElement[]>(tempArr, CART);
       return { elements: tempArr };
     }
     case DELETE_SELECTED:
       tempArr = tempArr.filter((element) => !element.selected);
-      serialize(tempArr);
+      serialize<CartElement[]>(tempArr, CART);
       return { elements: tempArr };
 
     case CLEAR_CART:

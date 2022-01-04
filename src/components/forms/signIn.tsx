@@ -2,11 +2,10 @@ import { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import InputText from "@/elements/formElements/inputText/inputText";
-import styles from "./signForm.module.scss";
+import styles from "./form.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import postUserInfo from "@/api/clientRequests/postPutUserInfo";
 import FormHeader from "./formHeader";
-import { setUserNameAction } from "@/redux/actionCreators/userActionsCreator";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
 
 export interface ISignFormProps {
@@ -21,13 +20,9 @@ const SignIn = (props: ISignFormProps) => {
 
   const dispatch = useDispatch();
 
-  const setUserName = (userName: string) => {
-    dispatch(setUserNameAction(userName));
-  };
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    postUserInfo({ login, password }, setUserName as (arg: string) => void, setSuccessFlag);
+    postUserInfo({ login, password }, dispatch, setSuccessFlag);
   };
 
   // redirection to required page

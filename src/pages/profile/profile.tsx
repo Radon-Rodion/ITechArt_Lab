@@ -14,7 +14,7 @@ import ChangePassword from "@/components/forms/changePassword";
 import { defaultUser, IUserInfo } from "@/data/users";
 import Spinner from "@/elements/spinner/spinner";
 import { getProfile, postProfile } from "@/api/clientRequests/profileRequests";
-import { setUserNameAction } from "@/redux/actionCreators/userActionsCreator";
+import Switcher from "@/elements/formElements/switcher/switcher";
 
 const Profile = () => {
   const userName = useSelector((state) => (state as RootState).user.userName);
@@ -22,6 +22,7 @@ const Profile = () => {
 
   // user info and its fields
   const [userInfo, setUserInfo] = useState<IUserInfo>(defaultUser);
+
   const setUserName = (name: string) => {
     setUserInfo((prevState: IUserInfo) => ({ ...prevState, userName: name }));
   };
@@ -34,6 +35,9 @@ const Profile = () => {
   const setPhone = (phone: string) => {
     setUserInfo((prevState: IUserInfo) => ({ ...prevState, phone }));
   };
+  const changeAdminState = () => {
+    setUserInfo((prevState: IUserInfo) => ({ ...prevState, isAdmin: !userInfo.isAdmin }));
+  };
 
   const [spinner, setSpinner] = useState(true);
 
@@ -41,7 +45,7 @@ const Profile = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    postProfile(userInfo, (name: string) => dispatch(setUserNameAction(name)));
+    postProfile(userInfo, dispatch);
   };
 
   if (spinner) {
@@ -78,6 +82,7 @@ const Profile = () => {
               text={userInfo?.phone ?? ""}
               onChange={setPhone}
             />
+            <Switcher name="Is admin" value={userInfo.isAdmin} onChange={changeAdminState} />
           </div>
           <div className={styles.buttonsSection}>
             <input type="submit" value="Save profile" className={styles.button} />

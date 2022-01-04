@@ -4,7 +4,6 @@ import styles from "./home.module.scss";
 import GamesBlock from "@/components/blocks/gameCardsBlock";
 import CategoriesBlock from "@/components/blocks/categoriesBlock";
 import Search from "@/elements/search/search";
-import { ProductInfo } from "@/data/productInfos";
 import { filterProductInfos, selectProductInfos } from "@/api/clientRequests/getProductInfos";
 import debounce from "@/utils/debounce";
 import Spinner from "@/elements/spinner/spinner";
@@ -19,12 +18,6 @@ const Home = () => {
   const onChange = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
   }, 330);
-
-  const onChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value.length !== 0)
-      await filterProductInfos(event.target.value, undefined, debouncedSetInfos, setSpinner);
-    else await selectProductInfos(3, "date", debouncedSetInfos, setSpinner);
-  };
 
   return (
     <div className={styles.allPage}>

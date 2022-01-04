@@ -17,7 +17,7 @@ const Select = (props: ISelectProps) => {
     <div className={allElementClass}>
       <label htmlFor="select" className={styles.label}>
         {props.name}
-         <select
+        <select
           name="form_select"
           className={styles.select}
           onChange={createChangeProcessor(props.onChange)}
