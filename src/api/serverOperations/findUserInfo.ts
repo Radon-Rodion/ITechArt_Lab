@@ -8,6 +8,10 @@ export function findUserInfoByName(userName: string, usersList: Array<IUserInfo>
   return usersList.find(((user) => user.userName === userName) ?? undefined);
 }
 
+export function findIndexByName(name: string, usersList: Array<IUserInfo>): number {
+  return usersList.findIndex((user) => user.userName === name);
+}
+
 export function findIndexById(id: number, usersList: Array<IUserInfo>): number {
   // binary search with a specific
   if (!usersList.length) return -1;

@@ -88,8 +88,15 @@
     margin: 5px 0px 5px;
 }
 
-.buttonAdd{
+.button{
     width: 85px;
     height: 35px;
     border-radius: 3px;
+    color: #ccc;
+    background-color: #8823ff;
+    margin: 3px;
+}
+
+.button:active{
+    box-shadow: 0 0 7px 2px #8823ff;
 }

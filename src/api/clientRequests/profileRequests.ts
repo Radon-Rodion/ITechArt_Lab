@@ -1,50 +1,75 @@
 import axios from "axios";
+import { Dispatch } from "redux";
 import { IUserInfo } from "@/data/users";
+import UserAction from "@/redux/types/userAction";
+import { setUserAction } from "@/redux/actionCreators/userActionsCreator";
+import defaultShowError from "@/utils/defaultFunctions";
 
 let requestSent = false;
+
+function getRequest(request: string, callBack: (responseData: IUserInfo) => void) {
+  if (!requestSent) {
+    requestSent = true;
+    axios
+      .get(request)
+      .then((response) => {
+        requestSent = false;
+        callBack(response.data);
+      })
+      .catch((error) => {
+        requestSent = false;
+        console.error(error);
+      });
+  }
+}
 
 export function getProfile(
   userName: string,
   responseSetMethod: (response: IUserInfo) => void,
   setSpinner: (spinnerState: boolean) => void
 ) {
-  if (!requestSent) {
-    requestSent = true;
-    axios
-      .get(`api/getProfile?user=${userName}`)
-      .then((response) => {
-        setSpinner(false);
-        requestSent = false;
-        responseSetMethod(response.data);
-      })
-      .catch((error) => {
-        requestSent = false;
-        console.error(error);
-      });
-  }
+  const callBack = (responseData: IUserInfo) => {
+    setSpinner(false);
+    responseSetMethod(responseData);
+  };
+  getRequest(`api/getProfile?user=${userName}`, callBack);
 }
 
-function postRequest(request: string, params: unknown, callBack: ((param: string) => void) | undefined) {
+export function getBalance(userName: string, responseSetMethod: (response: number) => void) {
+  const callBack = (responseData: IUserInfo) => {
+    responseSetMethod(responseData.balance);
+  };
+  getRequest(`api/getProfile?user=${userName}`, callBack);
+}
+
+const defaultDispatch: Dispatch<UserAction> | undefined = undefined;
+
+function postRequest(request: string, params: unknown, dispatch = defaultDispatch, setErr = defaultShowError) {
   if (!requestSent) {
     requestSent = true;
     axios
       .post(request, params)
       .then((response) => {
         requestSent = false;
-        if (callBack !== undefined) callBack(response.data.body.userName);
+        if (dispatch)
+          dispatch(setUserAction({ userName: response.data.body.userName, isAdmin: response.data.body.isAdmin }));
       })
       .catch((error) => {
         console.error(error);
+        setErr("Error during changing profile info!");
         requestSent = false;
-        alert("Error during changing profile info!");
       });
   }
 }
 
-export function postProfile(info: IUserInfo, callBack: (param: string) => void) {
-  postRequest("api/saveProfile", info, callBack);
+export function postProfile(info: IUserInfo, dispatch: Dispatch<UserAction>, setError = defaultShowError) {
+  postRequest("api/saveProfile", info, dispatch, setError);
 }
 
 export function postPassword(id: number, password: string) {
   postRequest("api/changePassword", { id, password }, undefined);
+}
+
+export function postBalance(userName: string, balance: number) {
+  postRequest("api/changeBalance", { userName, balance }, undefined);
 }

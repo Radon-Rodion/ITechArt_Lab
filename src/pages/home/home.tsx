@@ -1,36 +1,32 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "./home.module.scss";
 import GamesBlock from "@/components/blocks/gameCardsBlock";
 import CategoriesBlock from "@/components/blocks/categoriesBlock";
 import Search from "@/elements/search/search";
-import { ProductInfo } from "@/data/productInfos";
 import { filterProductInfos, selectProductInfos } from "@/api/clientRequests/getProductInfos";
 import debounce from "@/utils/debounce";
+import Spinner from "@/elements/spinner/spinner";
+import { RootState } from "@/redux/store/store";
 
 const Home = () => {
-  const [infos, setInfos] = useState<Array<ProductInfo>>([]);
-  const [gamesLoaded, setGamesLoadedBool] = useState(false);
-  const [spinner, setSpinner] = useState(true);
+  const [searchText, setSearchText] = useState("");
+  useSelector((state: RootState) => state.products.elements);
 
-  if (!gamesLoaded) {
-    selectProductInfos(3, "date", setInfos, setSpinner);
-    setGamesLoadedBool(true);
-  }
-  const debouncedSetInfos = debounce(setInfos, 330);
+  const resource = !searchText.length ? selectProductInfos(3, "date") : filterProductInfos(searchText, undefined);
 
-  const onChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value.length !== 0)
-      await filterProductInfos(event.target.value, undefined, debouncedSetInfos, setSpinner);
-    else await selectProductInfos(3, "date", debouncedSetInfos, setSpinner);
-  };
+  const onChange = debounce((event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value);
+  }, 330);
 
   return (
     <div className={styles.allPage}>
       <Search onChange={onChange} />
 
       <CategoriesBlock blockName="Game categories" />
-
-      <GamesBlock blockName="New games" blockContent={infos} spinner={spinner} />
+      <Suspense fallback={<Spinner />}>
+        <GamesBlock blockName="New games" resource={resource} />
+      </Suspense>
     </div>
   );
 };

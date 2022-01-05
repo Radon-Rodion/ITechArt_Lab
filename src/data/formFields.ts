@@ -72,6 +72,33 @@ const formFields: Array<FormField> = [
     pattern: "[+][0-9]{10,12}",
     title: "Must contain only from 10 to 12 numbes and start with '+' symbol.",
   },
+  {
+    name: "Game name",
+    inputType: "text",
+    required: true,
+    minLength: 4,
+    maxLength: 30,
+    pattern: undefined,
+    title: undefined,
+  },
+  {
+    name: "Price",
+    inputType: "number",
+    required: true,
+    minLength: undefined,
+    maxLength: undefined,
+    pattern: undefined,
+    title: undefined,
+  },
+  {
+    name: "Game description",
+    inputType: "textArea",
+    required: false,
+    minLength: undefined,
+    maxLength: undefined,
+    pattern: undefined,
+    title: undefined,
+  },
 ];
 
 export function formFieldByName(name: string): FormField {

@@ -12,6 +12,20 @@ export interface ProductInfo {
   key: number;
 }
 
+export const newProductInfo: ProductInfo = {
+  name: "",
+  price: 0.01,
+  mark: 0,
+  image: "images/noimg.png",
+  description: "",
+  ageCategory: 0,
+  isPC: false,
+  isXBox: false,
+  isPS: false,
+  additionDate: new Date(),
+  key: -1,
+};
+
 const productInfos = [
   {
     name: "Overwatch2",

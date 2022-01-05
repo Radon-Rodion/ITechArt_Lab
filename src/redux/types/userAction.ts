@@ -1,6 +1,8 @@
+import User from "./user";
+
 interface UserAction {
   type: string;
-  payload?: string | undefined;
+  payload?: User | undefined;
 }
 
 export default UserAction;

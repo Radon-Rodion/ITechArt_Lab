@@ -4,7 +4,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 import styles from "./navbar.module.scss";
-import { resetUserNameAction } from "@/redux/store/reducers/userReducer";
+import { resetUserAction } from "@/redux/actionCreators/userActionsCreator";
 
 library.add(fas);
 
@@ -12,7 +12,7 @@ const LogOut = () => {
   const dispatch = useDispatch();
 
   const logOut = () => {
-    dispatch(resetUserNameAction());
+    dispatch(resetUserAction());
   };
   return (
     <NavLink className={styles.navlink} to="/" onClick={logOut}>

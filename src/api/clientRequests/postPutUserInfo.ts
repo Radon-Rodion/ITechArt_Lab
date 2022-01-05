@@ -1,37 +1,40 @@
 import axios from "axios";
+import { Dispatch } from "redux";
+import UserAction from "@/redux/types/userAction";
+import { setUserAction } from "@/redux/actionCreators/userActionsCreator";
 
 interface ISignInfo {
   login: string;
   password: string;
 }
 
-function postUserInfo(info: ISignInfo, callBack: (param: string) => void, setFlag: (param: boolean) => void) {
+export const SUCCESS = "success";
+
+function postUserInfo(info: ISignInfo, dispatch: Dispatch<UserAction>, setResponseMessage: (m: string) => void) {
   axios
     .post("/api/auth/signIn/", info)
     .then((response) => {
-      console.log(response);
-      setFlag(true);
-      callBack(response.data.body.userName);
+      setResponseMessage(SUCCESS);
+      dispatch(setUserAction({ userName: response.data.body.userName, isAdmin: response.data.body.isAdmin }));
     })
     .catch((error) => {
       console.error(error);
-      alert("Incorrect login or password!");
+      setResponseMessage("Incorrect login or password!");
     });
 }
 
-export function putUserInfo(info: ISignInfo, callBack: (param: string) => void, setFlag: (param: boolean) => void) {
+export function putUserInfo(info: ISignInfo, dispatch: Dispatch<UserAction>, setResponseMessage: (m: string) => void) {
   axios
     .put("/api/auth/signUp/", info)
     .then((response) => {
-      console.log(response);
       if (response.data.success) {
-        setFlag(true);
-        callBack(info.login);
+        setResponseMessage(SUCCESS);
+        dispatch(setUserAction({ userName: info.login, isAdmin: false }));
       }
     })
     .catch((error) => {
       console.error(error);
-      alert("User with this login already exists!");
+      setResponseMessage("User with this login already exists!");
     });
 }
 

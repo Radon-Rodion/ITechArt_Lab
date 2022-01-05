@@ -2,26 +2,35 @@ import GameCard from "@/components/gameCard/gameCard";
 import { ProductInfo } from "@/data/productInfos";
 import styles from "./blocks.module.scss";
 import Block from "@/components/blocks/block";
-import Spinner from "@/elements/spinner/spinner";
+import { ProductsResource } from "@/api/clientRequests/getProductInfos";
 
 interface IGamesBlockProps {
   blockName: string;
-  blockContent: Array<ProductInfo>;
-  spinner: boolean;
+  resource?: ProductsResource | undefined;
+  products?: Array<ProductInfo> | undefined;
 }
 
 const GamesBlock = (props: IGamesBlockProps) => {
-  if (props.spinner) return <Spinner />;
-  if (props.blockContent.length === 0) return <h1>Nothing found(</h1>;
+  const productsArr =
+    (props.products === undefined && props.resource !== undefined
+      ? (props.resource.products.read() as Array<ProductInfo>) // products with suspense
+      : props.products) ?? []; // or from custom hook
+
+  if (!productsArr.length) return <h1>Nothing found(..</h1>;
   return (
     <Block blockName={props.blockName}>
-      {props.blockContent.map((info: ProductInfo) => (
+      {productsArr.map((info: ProductInfo) => (
         <div className={styles.blockContentElement} key={info.key}>
           <GameCard gameInfo={info} />
         </div>
       ))}
     </Block>
   );
+};
+
+GamesBlock.defaultProps = {
+  resource: undefined,
+  products: undefined,
 };
 
 export default GamesBlock;

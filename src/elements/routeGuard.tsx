@@ -12,7 +12,7 @@ interface IGuardedRouteProps {
 }
 
 const RouteGuard = (props: IGuardedRouteProps) => {
-  const userName = useSelector((state) => (state as RootState).user.userName);
+  const userName = useSelector((state) => (state as RootState).user.info.userName);
   const [modalShown, setShown] = useState(true);
   const hide = () => setShown(false);
 

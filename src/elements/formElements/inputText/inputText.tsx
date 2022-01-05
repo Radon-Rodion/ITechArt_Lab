@@ -12,6 +12,7 @@ interface IInputTextProps {
   icon: IconProp;
   text: string;
   onChange: ((value: React.SetStateAction<string>) => void) | ((value: string) => void);
+  errorMessage?: string;
 }
 
 export function createChangeProcessor(
@@ -25,7 +26,7 @@ export function createChangeProcessor(
 const InputText = (props: IInputTextProps) => (
   <label htmlFor={props.field.name} className={styles.label}>
     <div className={styles.labelName}>{props.field.name}:</div>
-    <div className={styles.inputWithIcon}>
+    <div className={`${styles.inputWithIcon} ${props.errorMessage ? styles.invalidInput : ""}`}>
       <input
         type={props.field.inputType}
         name={props.field.name}
@@ -40,7 +41,12 @@ const InputText = (props: IInputTextProps) => (
       />
       <FontAwesomeIcon icon={props.icon} className={styles.icon} />
     </div>
+    <div className={styles.errorMessage}>{props.errorMessage}</div>
   </label>
 );
+
+InputText.defaultProps = {
+  errorMessage: undefined,
+};
 
 export default InputText;

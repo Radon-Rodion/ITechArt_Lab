@@ -1,25 +1,29 @@
 import { useState, useEffect } from "react";
-import { ProductInfo } from "@/data/productInfos";
+import { useSelector } from "react-redux";
 import GamesBlock from "@/components/blocks/gameCardsBlock";
 import styles from "./products.module.scss";
-import { filterAndSortProductInfos } from "@/api/clientRequests/getProductInfos";
+
 import ProductsFiltration from "@/components/forms/productsFiltration/productsFiltration";
 import { defaultFilters } from "@/data/filtrationFields";
 import Search from "@/elements/search/search";
 import debounce from "@/utils/debounce";
 import { createChangeProcessor } from "@/elements/formElements/inputText/inputText";
+import Spinner from "@/elements/spinner/spinner";
+import useResource from "@/utils/useResource";
+import SignButton from "@/elements/signButton/signButton";
+import AdminForm from "@/components/forms/adminForm";
+import { newProductInfo } from "@/data/productInfos";
+import { formByName } from "@/data/adminFormsParams";
+import { RootState } from "@/redux/store/store";
 
 interface IProductsPageProps {
   category: string | undefined;
 }
+
 const Products = (props: IProductsPageProps) => {
-  const [infos, setInfos] = useState<Array<ProductInfo>>([]);
-  const [spinner, setSpinner] = useState(true);
   const [filters, setFilters] = useState({ ...defaultFilters, category: props.category ?? "" });
 
-  if (spinner) {
-    filterAndSortProductInfos(filters, setInfos, setSpinner);
-  }
+  const [responseGot, products, updateFilters] = useResource(filters);
 
   const onChange = debounce(
     createChangeProcessor((newName: string) => {
@@ -33,18 +37,24 @@ const Products = (props: IProductsPageProps) => {
   }, [props.category]);
 
   useEffect(() => {
-    filterAndSortProductInfos(filters, setInfos, setSpinner);
+    updateFilters(filters);
   }, [filters]);
+
+  const isAdmin = useSelector((state: RootState) => state.user.info.isAdmin);
+
+  const adminForm = <AdminForm formInfo={formByName("Create card")} gameInfo={newProductInfo} />;
 
   return (
     <div className={styles.allPage}>
       <ProductsFiltration filters={filters} setFilters={setFilters} className={styles.filtrationBlock} />
       <div className={styles.rightPart}>
-        <Search onChange={onChange} />
-        <GamesBlock blockName="Games list" blockContent={infos} spinner={spinner} />
+        <div className={styles.topLine}>
+          <Search onChange={onChange} />
+          {isAdmin ? <SignButton name="Create card" className={styles.createButton} form={adminForm} /> : undefined}
+        </div>
+        {responseGot ? <GamesBlock blockName="Games list" products={products} /> : <Spinner />}
       </div>
     </div>
   );
 };
-
 export default Products;

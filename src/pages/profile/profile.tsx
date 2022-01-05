@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import { useSelector, useDispatch } from "react-redux";
 import { FormEvent, useState } from "react";
 import styles from "./profile.module.scss";
@@ -14,14 +13,17 @@ import ChangePassword from "@/components/forms/changePassword";
 import { defaultUser, IUserInfo } from "@/data/users";
 import Spinner from "@/elements/spinner/spinner";
 import { getProfile, postProfile } from "@/api/clientRequests/profileRequests";
-import { setUserNameAction } from "@/redux/store/reducers/userReducer";
+import Switcher from "@/elements/formElements/switcher/switcher";
+import Modal from "@/components/modal/modal";
+import ErrorForm from "@/components/forms/errorForm";
 
 const Profile = () => {
-  const userName = useSelector((state) => (state as RootState).user.userName);
+  const userName = useSelector((state) => (state as RootState).user.info.userName);
   const blockName = `${userName} profile page`;
 
   // user info and its fields
   const [userInfo, setUserInfo] = useState<IUserInfo>(defaultUser);
+
   const setUserName = (name: string) => {
     setUserInfo((prevState: IUserInfo) => ({ ...prevState, userName: name }));
   };
@@ -34,14 +36,18 @@ const Profile = () => {
   const setPhone = (phone: string) => {
     setUserInfo((prevState: IUserInfo) => ({ ...prevState, phone }));
   };
+  const changeAdminState = () => {
+    setUserInfo((prevState: IUserInfo) => ({ ...prevState, isAdmin: !userInfo.isAdmin }));
+  };
 
   const [spinner, setSpinner] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    postProfile(userInfo, (name: string) => dispatch(setUserNameAction(name)));
+    postProfile(userInfo, dispatch, setErrorMessage);
   };
 
   if (spinner) {
@@ -50,45 +56,54 @@ const Profile = () => {
   }
 
   return (
-    <div className={styles.allPage}>
-      <Block blockName={blockName} className={styles.block}>
-        <form className={styles.block} onSubmit={handleSubmit}>
-          <PictureChoose
-            picture={userInfo?.picture ?? ""}
-            className={styles.pictureSection}
-            buttonClassName={styles.button}
-            onChange={setPicture}
-          />
-          <div className={styles.inputSection}>
-            <InputText
-              icon="ellipsis-h"
-              field={formFieldByName("User name")}
-              text={userInfo?.userName ?? ""}
-              onChange={setUserName}
+    <>
+      {errorMessage ? (
+        <Modal>
+          <ErrorForm message={errorMessage} onExit={() => setErrorMessage("")} />
+        </Modal>
+      ) : undefined}
+      <div className={styles.allPage}>
+        <Block blockName={blockName} className={styles.block}>
+          <form className={styles.block} onSubmit={handleSubmit}>
+            <PictureChoose
+              picture={userInfo?.picture ?? ""}
+              className={styles.pictureSection}
+              buttonClassName={styles.button}
+              onChange={setPicture}
+              localStorageKey="photo"
             />
-            <InputTextArea
-              field={formFieldByName("Profile description")}
-              text={userInfo?.description ?? ""}
-              onChange={setDescription}
-            />
-            <InputText
-              icon="phone"
-              field={formFieldByName("Phone number")}
-              text={userInfo?.phone ?? ""}
-              onChange={setPhone}
-            />
-          </div>
-          <div className={styles.buttonsSection}>
-            <input type="submit" value="Save profile" className={styles.button} />
-            <SignButton
-              name="Change password"
-              className={styles.button}
-              form={<ChangePassword onExit={() => {}} userId={userInfo.id} curPassword={userInfo.password} />}
-            />
-          </div>
-        </form>
-      </Block>
-    </div>
+            <div className={styles.inputSection}>
+              <InputText
+                icon="ellipsis-h"
+                field={formFieldByName("User name")}
+                text={userInfo?.userName ?? ""}
+                onChange={setUserName}
+              />
+              <InputTextArea
+                field={formFieldByName("Profile description")}
+                text={userInfo?.description ?? ""}
+                onChange={setDescription}
+              />
+              <InputText
+                icon="phone"
+                field={formFieldByName("Phone number")}
+                text={userInfo?.phone ?? ""}
+                onChange={setPhone}
+              />
+              <Switcher name="Is admin" value={userInfo.isAdmin} onChange={changeAdminState} />
+            </div>
+            <div className={styles.buttonsSection}>
+              <input type="submit" value="Save profile" className={styles.button} />
+              <SignButton
+                name="Change password"
+                className={styles.button}
+                form={<ChangePassword userId={userInfo.id} curPassword={userInfo.password} />}
+              />
+            </div>
+          </form>
+        </Block>
+      </div>
+    </>
   );
 };
 

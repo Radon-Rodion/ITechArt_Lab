@@ -1,12 +1,19 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import webpackMockServer from "webpack-mock-server";
-import { productInfos } from "@/data/productInfos";
+import { ProductInfo, productInfos } from "@/data/productInfos";
 import filter from "@/api/serverOperations/filterProductInfo";
 import select, { sort } from "@/api/serverOperations/selectProductInfo";
-import { findUserInfoByLogin, findUserInfoByName, findIndexById } from "@/api/serverOperations/findUserInfo";
+import {
+  findUserInfoByLogin,
+  findUserInfoByName,
+  findIndexById,
+  findIndexByName,
+} from "@/api/serverOperations/findUserInfo";
 import users from "@/data/users";
+import { checkNameExists, defineNewItemKey, findIndexByKey } from "@/api/serverOperations/editProductsList";
 
 const usersList = users;
+const gamesList = productInfos;
 
 export default webpackMockServer.add((app, helper) => {
   // products requests
@@ -19,11 +26,7 @@ export default webpackMockServer.add((app, helper) => {
     const sortAscOrder = (_req?.query?.order as string) === "asc";
 
     const response = {
-      products: sort(
-        sortCriteria,
-        sortAscOrder,
-        filter(nameFilter, categoryFilter, genreFilter, ageFilter, productInfos)
-      ),
+      products: sort(sortCriteria, sortAscOrder, filter(nameFilter, categoryFilter, genreFilter, ageFilter, gamesList)),
     };
     return res.json(response);
   });
@@ -32,7 +35,7 @@ export default webpackMockServer.add((app, helper) => {
     const fieldName = (_req?.query?.category as string) ?? "name";
     const amount = +(_req?.query?.amount as string) ?? 1;
     const response = {
-      products: select(fieldName, amount, productInfos),
+      products: select(fieldName, amount, gamesList),
     };
     return res.json(response);
   });
@@ -53,6 +56,8 @@ export default webpackMockServer.add((app, helper) => {
         login: req.body.login,
         password: req.body.password,
         userName: req.body.login,
+        balance: 3500,
+        isAdmin: false,
       });
       res.json({ body: req.body || null, success: true });
     } else res.status(400).json({ body: undefined || null, success: false });
@@ -80,5 +85,59 @@ export default webpackMockServer.add((app, helper) => {
       usersList[index].password = req.body.password;
       res.json({ body: usersList[index].password || null, success: true });
     } else res.status(400).json({ body: undefined || null, success: false });
+  });
+
+  app.post("/api/changeBalance", (req, res) => {
+    const index = findIndexByName(req.body.userName, usersList);
+    if (index !== -1) {
+      usersList[index].balance = req.body.balance;
+      res.json({ body: usersList[index].balance || null, success: true });
+    } else res.status(400).json({ body: undefined || null, success: false });
+  });
+
+  // admin requests
+  app.post("/api/product", (req, res) => {
+    const newGame: ProductInfo = req.body;
+
+    if (checkNameExists(newGame.name, gamesList)) {
+      res.status(400).json({ body: undefined || null, success: false });
+      return;
+    }
+
+    newGame.additionDate = new Date();
+    newGame.key = defineNewItemKey(gamesList);
+    gamesList.push(newGame);
+    res.json({ body: newGame || null, success: true });
+  });
+
+  app.put("/api/product", (req, res) => {
+    const updatedGame: ProductInfo = req.body;
+    const index = findIndexByKey(updatedGame.key, gamesList);
+    if (index !== -1) {
+      gamesList[index] = updatedGame;
+      res.json({ body: gamesList[index] || null, success: true });
+    } else {
+      res.status(400).json({ body: undefined || null, success: false });
+    }
+  });
+
+  app.delete("/api/product/*", (req, res) => {
+    const reqSubdomains = req.url.split("/");
+    const key = +reqSubdomains[reqSubdomains.length - 1];
+    const index = findIndexByKey(key, gamesList);
+    if (index === -1) {
+      res.status(400).json({ body: undefined || null, success: false });
+      return;
+    }
+    // replace to make deleting element the last if necessary
+    if (index !== gamesList.length - 1) {
+      const temp = gamesList[index];
+      gamesList[index] = gamesList[gamesList.length - 1];
+      gamesList[gamesList.length - 1] = temp;
+    }
+
+    const removedElementKey = gamesList.pop()?.key;
+    if (removedElementKey) res.json({ body: removedElementKey || null, success: true });
+    else res.status(400).json({ body: undefined || null, success: false });
   });
 });

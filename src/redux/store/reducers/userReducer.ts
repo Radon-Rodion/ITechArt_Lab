@@ -1,29 +1,26 @@
 /* eslint-disable default-param-last */
+import { SET_USER, RESET } from "@/redux/actions/userActions";
+import serialize from "@/redux/supportFunctions/serialize";
 import User from "@/redux/types/user";
 import UserAction from "@/redux/types/userAction";
 
-const USERNAME = "userName";
-const SET_USERNAME = "SET_USERNAME";
-const RESET_USERNAME = "RESET_USERNAME";
+const USER = "userInfo";
 
-const defaultState: User = {
-  userName: localStorage.getItem(USERNAME) ?? undefined,
+const defaultState: { info: User } = {
+  info: JSON.parse(localStorage.getItem(USER) ?? '{"isAdmin":false}'),
 };
 
-const userReducer = (state = defaultState, action: UserAction): User => {
+const userReducer = (state = defaultState, action: UserAction) => {
   switch (action.type) {
-    case SET_USERNAME:
-      localStorage.setItem(USERNAME, action.payload as string);
-      return { userName: action.payload };
-    case RESET_USERNAME:
+    case SET_USER:
+      serialize<User>(action.payload as User, USER);
+      return { ...state, info: action.payload as User };
+    case RESET:
       localStorage.clear();
-      return { userName: undefined };
+      return { ...state, info: { userName: undefined, isAdmin: false } };
     default:
       return state;
   }
 };
-
-export const setUserNameAction = (payload: string) => ({ type: SET_USERNAME, payload });
-export const resetUserNameAction = () => ({ type: RESET_USERNAME });
 
 export default userReducer;
