@@ -8,7 +8,7 @@ import defaultShowError from "@/utils/defaultFunctions";
 const REQUEST = "api/product";
 
 export function createCard(gameInfo: ProductInfo, showError = defaultShowError) {
-  return ((dispatch: Dispatch<ProductsAction>) => {
+  return (dispatch: Dispatch<ProductsAction>) => {
     axios
       .post(REQUEST, gameInfo)
       .then((response) => {
@@ -19,11 +19,11 @@ export function createCard(gameInfo: ProductInfo, showError = defaultShowError) 
         console.error(error);
         showError("Error during creating game card!");
       });
-  }) as unknown as ProductsAction; // is it acceptable?
+  };
 }
 
 export function updateCard(gameInfo: ProductInfo, showError = defaultShowError) {
-  return ((dispatch: Dispatch<ProductsAction>) => {
+  return (dispatch: Dispatch<ProductsAction>) => {
     axios
       .put(REQUEST, gameInfo)
       .then((response) => {
@@ -33,11 +33,11 @@ export function updateCard(gameInfo: ProductInfo, showError = defaultShowError) 
         console.error(error);
         showError("Error during editing game card!");
       });
-  }) as unknown as ProductsAction;
+  };
 }
 
 export function removeCard(gameInfo: ProductInfo, showError = defaultShowError) {
-  return ((dispatch: Dispatch<ProductsAction>) => {
+  return (dispatch: Dispatch<ProductsAction>) => {
     axios
       .delete(`${REQUEST}/${gameInfo.key}`)
       .then((response) => {
@@ -47,5 +47,5 @@ export function removeCard(gameInfo: ProductInfo, showError = defaultShowError) 
         console.error(error);
         showError("Error during deleting game card!");
       });
-  }) as unknown as ProductsAction;
+  };
 }
