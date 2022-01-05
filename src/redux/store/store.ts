@@ -11,8 +11,7 @@ const rootReducer = combineReducers({
   products: productsReducer,
 });
 
-const composeEnhancers = composeWithDevTools({ realtime: true, port: 8000 });
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export type RootState = ReturnType<typeof rootReducer>;
 

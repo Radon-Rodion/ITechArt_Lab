@@ -17,22 +17,16 @@ interface IGameCardProps {
 
 const GameCard = (props: IGameCardProps) => {
   const dispatch = useDispatch();
-  const user = useSelector((state: RootState) => state.user);
+  const user = useSelector((state: RootState) => state.user.info);
 
   const isLogged = user.userName !== undefined;
   const { isAdmin } = user;
 
   const getCard = () => {
-    if (isLogged) {
-      dispatch(addGame(props.gameInfo));
-      alert("Got product");
-    } else {
-      alert("Sign in first!");
-    }
+    dispatch(addGame(props.gameInfo));
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const adminForm = <AdminForm formInfo={formByName("Edit card")} gameInfo={props.gameInfo} onExit={() => {}} />;
+  const adminForm = <AdminForm formInfo={formByName("Edit card")} gameInfo={props.gameInfo} />;
 
   return (
     <div className={styles.card}>
@@ -50,7 +44,7 @@ const GameCard = (props: IGameCardProps) => {
         <div className={styles.backContent}>
           <div className={styles.description}>{props.gameInfo.description}</div>
           <div className={styles.ageCategory}>{`${props.gameInfo.ageCategory}+`}</div>
-          <PurpleButton name="Add to cart" type="button" className={styles.button} onClick={getCard} />
+          {isLogged ? <PurpleButton name="Add to cart" className={styles.button} onClick={getCard} /> : undefined}
           {isAdmin ? <SignButton name="Edit card" className={styles.button} form={adminForm} /> : undefined}
         </div>
       </div>

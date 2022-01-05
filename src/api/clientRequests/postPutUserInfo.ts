@@ -8,33 +8,33 @@ interface ISignInfo {
   password: string;
 }
 
-function postUserInfo(info: ISignInfo, dispatch: Dispatch<UserAction>, setFlag: (param: boolean) => void) {
+export const SUCCESS = "success";
+
+function postUserInfo(info: ISignInfo, dispatch: Dispatch<UserAction>, setResponseMessage: (m: string) => void) {
   axios
     .post("/api/auth/signIn/", info)
     .then((response) => {
-      console.log(response);
-      setFlag(true);
+      setResponseMessage(SUCCESS);
       dispatch(setUserAction({ userName: response.data.body.userName, isAdmin: response.data.body.isAdmin }));
     })
     .catch((error) => {
       console.error(error);
-      alert("Incorrect login or password!");
+      setResponseMessage("Incorrect login or password!");
     });
 }
 
-export function putUserInfo(info: ISignInfo, dispatch: Dispatch<UserAction>, setFlag: (param: boolean) => void) {
+export function putUserInfo(info: ISignInfo, dispatch: Dispatch<UserAction>, setResponseMessage: (m: string) => void) {
   axios
     .put("/api/auth/signUp/", info)
     .then((response) => {
-      console.log(response);
       if (response.data.success) {
-        setFlag(true);
+        setResponseMessage(SUCCESS);
         dispatch(setUserAction({ userName: info.login, isAdmin: false }));
       }
     })
     .catch((error) => {
       console.error(error);
-      alert("User with this login already exists!");
+      setResponseMessage("User with this login already exists!");
     });
 }
 

@@ -1,27 +1,29 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 import { ProductInfo } from "@/data/productInfos";
-import { addCard, editCard, deleteCard } from "@/redux/actionCreators/productsActionsCreator";
+import { addCard, deleteCard, editCard } from "@/redux/actionCreators/productsActionsCreator";
 import ProductsAction from "@/redux/types/productsAction";
+import defaultShowError from "@/utils/defaultFunctions";
 
 const REQUEST = "api/product";
 
-export function createCard(gameInfo: ProductInfo) {
-  return (dispatch: Dispatch<ProductsAction>) => {
+export function createCard(gameInfo: ProductInfo, showError = defaultShowError) {
+  return ((dispatch: Dispatch<ProductsAction>) => {
     axios
       .post(REQUEST, gameInfo)
       .then((response) => {
+        console.log(response);
         dispatch(addCard(response.data.body));
       })
       .catch((error) => {
         console.error(error);
-        alert("Error during creating game card!");
+        showError("Error during creating game card!");
       });
-  };
+  }) as unknown as ProductsAction; // is it acceptable?
 }
 
-export function updateCard(gameInfo: ProductInfo) {
-  return (dispatch: Dispatch<ProductsAction>) => {
+export function updateCard(gameInfo: ProductInfo, showError = defaultShowError) {
+  return ((dispatch: Dispatch<ProductsAction>) => {
     axios
       .put(REQUEST, gameInfo)
       .then((response) => {
@@ -29,13 +31,13 @@ export function updateCard(gameInfo: ProductInfo) {
       })
       .catch((error) => {
         console.error(error);
-        alert("Error during editing game card!");
+        showError("Error during editing game card!");
       });
-  };
+  }) as unknown as ProductsAction;
 }
 
-export function removeCard(gameInfo: ProductInfo) {
-  return (dispatch: Dispatch<ProductsAction>) => {
+export function removeCard(gameInfo: ProductInfo, showError = defaultShowError) {
+  return ((dispatch: Dispatch<ProductsAction>) => {
     axios
       .delete(`${REQUEST}/${gameInfo.key}`)
       .then((response) => {
@@ -43,7 +45,7 @@ export function removeCard(gameInfo: ProductInfo) {
       })
       .catch((error) => {
         console.error(error);
-        alert("Error during deleting game card!");
+        showError("Error during deleting game card!");
       });
-  };
+  }) as unknown as ProductsAction;
 }

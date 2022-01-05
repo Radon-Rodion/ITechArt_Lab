@@ -4,9 +4,10 @@ import { Navigate } from "react-router-dom";
 import InputText from "@/elements/formElements/inputText/inputText";
 import styles from "./form.module.scss";
 import { formFieldByName } from "@/data/formFields";
-import postUserInfo from "@/api/clientRequests/postPutUserInfo";
+import postUserInfo, { SUCCESS } from "@/api/clientRequests/postPutUserInfo";
 import FormHeader from "./formHeader";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
+import ErrorForm from "./errorForm";
 
 export interface ISignFormProps {
   onExit: (() => void) | undefined;
@@ -16,18 +17,22 @@ export interface ISignFormProps {
 const SignIn = (props: ISignFormProps) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [successFlag, setSuccessFlag] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    postUserInfo({ login, password }, dispatch, setSuccessFlag);
+    postUserInfo({ login, password }, dispatch, setResponseMessage);
   };
 
   // redirection to required page
-  if (successFlag) {
+  if (responseMessage === SUCCESS) {
     return <Navigate to={props.redirectAfterSign} />;
+  }
+
+  if (responseMessage) {
+    return <ErrorForm message={responseMessage} onExit={() => setResponseMessage("")} />;
   }
 
   return (

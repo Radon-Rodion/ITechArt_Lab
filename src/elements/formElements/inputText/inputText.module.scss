@@ -47,3 +47,12 @@
 .icon{
     @include colors();
 }
+
+.invalidInput{
+    border-color: red;
+}
+
+.errorMessage{
+    font-size: 10pt;
+    color: red;
+}

@@ -7,25 +7,28 @@ import { ProductInfo } from "./productInfos";
 export interface AdminFormParams {
   formName: string;
   leftButtonName: string;
-  leftButtonAction: (info: ProductInfo, dispatch: Dispatch<ProductsAction>) => void;
+  leftButtonAction: (info: ProductInfo, dispatch: Dispatch<ProductsAction>, showError: (e: string) => void) => void;
   rightButtonName: string;
-  rightButtonAction: ((info: ProductInfo, dispatch: Dispatch<ProductsAction>) => void) | undefined; // if undefined - modal form will just be closed
+  rightButtonAction:
+    | ((info: ProductInfo, dispatch: Dispatch<ProductsAction>, showError: (e: string) => void) => void)
+    | undefined; // if undefined - modal form will just be closed
 }
 
 const formsParamsArr: AdminFormParams[] = [
   {
     formName: "Create card",
     leftButtonName: "Create",
-    leftButtonAction: (info: ProductInfo, dispatch) => createCard(info)(dispatch),
+    leftButtonAction: (info: ProductInfo, dispatch, showError) => dispatch(createCard(info, showError)),
     rightButtonName: "Cancel",
     rightButtonAction: undefined,
   },
   {
     formName: "Edit card",
     leftButtonName: "Submit",
-    leftButtonAction: (info: ProductInfo, dispatch) => updateCard(info)(dispatch),
+    leftButtonAction: (info: ProductInfo, dispatch, showError) => dispatch(updateCard(info, showError)),
     rightButtonName: "Delete card",
-    rightButtonAction: (info: ProductInfo, dispatch) => confirmAction(() => removeCard(info)(dispatch)),
+    rightButtonAction: (info: ProductInfo, dispatch, showError) =>
+      confirmAction(() => dispatch(removeCard(info, showError))),
   },
 ];
 

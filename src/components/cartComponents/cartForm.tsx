@@ -13,29 +13,30 @@ const CartForm = () => {
   const dispatch = useDispatch();
   const gamesCost = totalSum(productsInCart);
 
-  const userName = useSelector((state: RootState) => state.user.userName) ?? "";
+  const userName = useSelector((state: RootState) => state.user.info.userName) ?? "";
   const [balance, setBalance] = useState(-1);
 
   if (balance === -1) getBalance(userName, setBalance);
 
+  const enoughMoney = balance >= gamesCost;
+
   const buy = (): void => {
-    if (balance < gamesCost) {
-      alert("Not enough money!");
-      return;
-    }
+    if (!enoughMoney) return;
     const newBalance = balance - gamesCost;
     setBalance(newBalance);
     dispatch(clearCart());
     postBalance(userName, newBalance);
-    alert("Products bought!");
   };
+
+  const balanceMessage = `Your balance: ${balance.toFixed(2)}$ (${!enoughMoney ? "Not enough" : "Enough"})`;
+  const priceMessage = `Games cost: ${gamesCost.toFixed(2)}$`;
 
   return (
     <form className={styles.allWide}>
       <CartTable productsInCart={productsInCart} dispatch={dispatch} />
       <div className={styles.bottom}>
-        <div className={styles.bottomElement}>Games cost: {gamesCost.toFixed(2)}$</div>
-        <div className={styles.bottomElement}>Your balance: {balance.toFixed(2)}$</div>
+        <div className={styles.bottomElement}>{priceMessage}</div>
+        <div className={`${styles.bottomElement} ${!enoughMoney ? styles.notEnough : ""}`}>{balanceMessage}</div>
         <div className={styles.bottomElement}>
           <PurpleButton name="Buy" type="button" className={styles.button} onClick={buy} />
         </div>

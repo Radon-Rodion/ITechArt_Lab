@@ -40,10 +40,9 @@ const Products = (props: IProductsPageProps) => {
     updateFilters(filters);
   }, [filters]);
 
-  const isAdmin = useSelector((state: RootState) => state.user.isAdmin);
+  const isAdmin = useSelector((state: RootState) => state.user.info.isAdmin);
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const adminForm = <AdminForm formInfo={formByName("Create card")} gameInfo={newProductInfo} onExit={() => {}} />;
+  const adminForm = <AdminForm formInfo={formByName("Create card")} gameInfo={newProductInfo} />;
 
   return (
     <div className={styles.allPage}>

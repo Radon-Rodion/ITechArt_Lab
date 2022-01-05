@@ -98,23 +98,24 @@ export default webpackMockServer.add((app, helper) => {
   // admin requests
   app.post("/api/product", (req, res) => {
     const newGame: ProductInfo = req.body;
-    if (checkNameExists(newGame.name, productInfos)) {
+
+    if (checkNameExists(newGame.name, gamesList)) {
       res.status(400).json({ body: undefined || null, success: false });
       return;
     }
 
     newGame.additionDate = new Date();
-    newGame.key = defineNewItemKey(productInfos);
-    productInfos.push(newGame);
+    newGame.key = defineNewItemKey(gamesList);
+    gamesList.push(newGame);
     res.json({ body: newGame || null, success: true });
   });
 
   app.put("/api/product", (req, res) => {
     const updatedGame: ProductInfo = req.body;
-    const index = findIndexByKey(updatedGame.key, productInfos);
+    const index = findIndexByKey(updatedGame.key, gamesList);
     if (index !== -1) {
-      productInfos[index] = updatedGame;
-      res.json({ body: productInfos[index] || null, success: true });
+      gamesList[index] = updatedGame;
+      res.json({ body: gamesList[index] || null, success: true });
     } else {
       res.status(400).json({ body: undefined || null, success: false });
     }
@@ -123,19 +124,19 @@ export default webpackMockServer.add((app, helper) => {
   app.delete("/api/product/*", (req, res) => {
     const reqSubdomains = req.url.split("/");
     const key = +reqSubdomains[reqSubdomains.length - 1];
-    const index = findIndexByKey(key, productInfos);
+    const index = findIndexByKey(key, gamesList);
     if (index === -1) {
       res.status(400).json({ body: undefined || null, success: false });
       return;
     }
     // replace to make deleting element the last if necessary
-    if (index !== productInfos.length - 1) {
-      const temp = productInfos[index];
-      productInfos[index] = productInfos[productInfos.length - 1];
-      productInfos[productInfos.length - 1] = temp;
+    if (index !== gamesList.length - 1) {
+      const temp = gamesList[index];
+      gamesList[index] = gamesList[gamesList.length - 1];
+      gamesList[gamesList.length - 1] = temp;
     }
 
-    const removedElementKey = productInfos.pop()?.key;
+    const removedElementKey = gamesList.pop()?.key;
     if (removedElementKey) res.json({ body: removedElementKey || null, success: true });
     else res.status(400).json({ body: undefined || null, success: false });
   });

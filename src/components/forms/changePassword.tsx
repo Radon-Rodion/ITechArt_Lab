@@ -12,7 +12,7 @@ library.add(fas);
 
 interface IChangePasswordProps {
   curPassword: string;
-  onExit: () => void;
+  onExit?: () => void;
   userId: number;
 }
 
@@ -24,18 +24,30 @@ const ChangePassword = (props: IChangePasswordProps) => {
     e.preventDefault();
     if (oldPassword === props.curPassword) {
       postPassword(props.userId, newPassword);
-      props.onExit();
-    } else alert("Incorrect password!");
+      if (props.onExit) props.onExit();
+    }
   };
+
+  const errorMessage = oldPassword !== props.curPassword ? "Incorrect password!" : undefined;
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <FormHeader name="Change password" onExit={props.onExit} />
-      <InputText icon="lock" field={formFieldByName("Password")} text={oldPassword} onChange={setOldPassword} />
+      <InputText
+        icon="lock"
+        field={formFieldByName("Password")}
+        text={oldPassword}
+        onChange={setOldPassword}
+        errorMessage={errorMessage}
+      />
       <InputText icon="redo" field={formFieldByName("New password")} text={newPassword} onChange={setNewPassword} />
       <PurpleButton name="Submit" type="submit" className={styles.button} />
     </form>
   );
+};
+
+ChangePassword.defaultProps = {
+  onExit: undefined,
 };
 
 export default ChangePassword;

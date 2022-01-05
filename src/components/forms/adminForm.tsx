@@ -12,10 +12,11 @@ import fieldsValues from "@/data/filtrationFields";
 import Checkbox from "@/elements/formElements/checkbox/checkbox";
 import PictureChoose from "@/elements/formElements/pictureChoose/pictureChoose";
 import { AdminFormParams } from "@/data/adminFormsParams";
+import ErrorForm from "./errorForm";
 
 interface IAdminFormProps {
   gameInfo: ProductInfo;
-  onExit: () => void;
+  onExit?: () => void;
   formInfo: AdminFormParams;
 }
 
@@ -50,17 +51,20 @@ const AdminForm = (props: IAdminFormProps) => {
 
   const dispatch = useDispatch();
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const leftButtonAction = (e: FormEvent) => {
     e.preventDefault();
-    props.formInfo.leftButtonAction(gameInfo, dispatch);
-    props.onExit();
+    props.formInfo.leftButtonAction(gameInfo, dispatch, setErrorMessage);
   };
 
   const rightButtonAction = (e: FormEvent) => {
     e.preventDefault();
-    if (props.formInfo.rightButtonAction) props.formInfo.rightButtonAction(gameInfo, dispatch);
-    props.onExit();
+    if (props.formInfo.rightButtonAction) props.formInfo.rightButtonAction(gameInfo, dispatch, setErrorMessage);
+    if (props.onExit) props.onExit();
   };
+
+  if (errorMessage) return <ErrorForm message={errorMessage} onExit={() => setErrorMessage("")} />;
 
   return (
     <form className={styles.form} onSubmit={leftButtonAction}>
@@ -107,6 +111,10 @@ const AdminForm = (props: IAdminFormProps) => {
       </div>
     </form>
   );
+};
+
+AdminForm.defaultProps = {
+  onExit: undefined,
 };
 
 export default AdminForm;

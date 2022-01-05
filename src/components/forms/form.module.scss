@@ -25,6 +25,15 @@ $buttonColor: #8823ff;
     @include column();
 }
 
+.smallForm{
+    @include form();
+    @include column();
+    width: 350px;
+    margin-left: calc(50% - 175px);
+    margin-top: 75px;
+    background-color: darken( $backgroundColor, 10%);
+}
+
 .row{
     @include row();
 }
@@ -83,4 +92,11 @@ $buttonColor: #8823ff;
 
 .button:active{
     box-shadow: 0 0 7px 2px $buttonColor;
+}
+
+.errorMessage{
+    font-size: 15pt;
+    color: red;
+    text-align: center;
+    align-self: center;
 }

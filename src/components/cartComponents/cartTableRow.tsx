@@ -23,7 +23,7 @@ const CartTableRow = (props: IRowProps) => {
     props.dispatch(editChosenPlatform(+value, props.index));
   };
   const onAmountChange = (e: FormEvent) => {
-    const amount = +(e.target as HTMLInputElement).value;
+    const amount = Math.round(+(e.target as HTMLInputElement).value);
     if (amount > 0) props.dispatch(editAmount(amount, props.index));
   };
 

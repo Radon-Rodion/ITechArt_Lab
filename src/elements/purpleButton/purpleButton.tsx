@@ -18,9 +18,8 @@ const PurpleButton = (props: IPurpleButtonProps) => {
 };
 
 PurpleButton.defaultProps = {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   type: "button",
-  onClick: () => {},
+  onClick: undefined,
 };
 
 export default PurpleButton;

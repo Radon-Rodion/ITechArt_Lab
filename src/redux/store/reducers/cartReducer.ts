@@ -20,7 +20,7 @@ const cartReducer = (state = defaultState, action: CartAction): Cart => {
       if (elementIndex === -1) tempArr.push(newElement);
       else tempArr[elementIndex].amount += 1;
       serialize<CartElement[]>(tempArr, CART);
-      return { elements: tempArr };
+      return { ...state, elements: tempArr };
     }
     case EDIT_ELEMENT: {
       const editParams = action.payload as CartParamsToChange;
@@ -29,16 +29,16 @@ const cartReducer = (state = defaultState, action: CartAction): Cart => {
         tempArr[editParams.index].chosenPlatformIndex = editParams.newChosenPlatformIndex;
       else tempArr[editParams.index].selected = !tempArr[editParams.index].selected;
       serialize<CartElement[]>(tempArr, CART);
-      return { elements: tempArr };
+      return { ...state, elements: tempArr };
     }
     case DELETE_SELECTED:
       tempArr = tempArr.filter((element) => !element.selected);
       serialize<CartElement[]>(tempArr, CART);
-      return { elements: tempArr };
+      return { ...state, elements: tempArr };
 
     case CLEAR_CART:
       localStorage.removeItem(CART);
-      return { elements: new Array<CartElement>() };
+      return { ...state, elements: new Array<CartElement>() };
     default:
       return state;
   }

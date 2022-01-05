@@ -5,30 +5,33 @@ import InputText from "@/elements/formElements/inputText/inputText";
 import styles from "./form.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import { ISignFormProps } from "./signIn";
-import { putUserInfo } from "@/api/clientRequests/postPutUserInfo";
+import { putUserInfo, SUCCESS } from "@/api/clientRequests/postPutUserInfo";
 import FormHeader from "./formHeader";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
+import ErrorForm from "./errorForm";
 
 const SignUp = (props: ISignFormProps) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [successFlag, setSuccessFlag] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (password !== passwordRepeat) {
-      alert("Passwords aren't equal!");
-    } else {
-      putUserInfo({ login, password }, dispatch, setSuccessFlag);
-    }
+    if (password === passwordRepeat) putUserInfo({ login, password }, dispatch, setResponseMessage);
   };
 
+  const errorMessageAboutPasswords = password !== passwordRepeat ? "Passwords aren't equal!" : undefined;
+
   // redirection to required page
-  if (successFlag) {
+  if (responseMessage === SUCCESS) {
     return <Navigate to={props.redirectAfterSign} />;
+  }
+
+  if (responseMessage) {
+    return <ErrorForm message={responseMessage} onExit={() => setResponseMessage("")} />;
   }
 
   return (
@@ -41,6 +44,7 @@ const SignUp = (props: ISignFormProps) => {
         field={formFieldByName("Repeat password")}
         text={passwordRepeat}
         onChange={setPasswordRepeat}
+        errorMessage={errorMessageAboutPasswords}
       />
       <PurpleButton name="Submit" type="submit" className={styles.button} />
     </form>

@@ -13,7 +13,7 @@ interface IGuardedLinkProps {
 }
 
 const LinkGuard = (props: IGuardedLinkProps) => {
-  const userName = useSelector((state) => (state as RootState).user.userName);
+  const userName = useSelector((state) => (state as RootState).user.info.userName);
 
   if (userName === undefined) {
     return (

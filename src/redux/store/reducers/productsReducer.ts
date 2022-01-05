@@ -12,32 +12,32 @@ const defaultState: Products = {
 };
 
 const productsReducer = (state = defaultState, action: ProductsAction): Products => {
-  let tempArr: ProductInfo[] = [...state.elements];
+  let products: ProductInfo[] = [...state.elements];
   switch (action.type) {
     case ADD_GAME: {
-      tempArr.push(action.payload as ProductInfo);
-      serialize<ProductInfo[]>(tempArr, PRODUCTS);
-      return { elements: tempArr };
+      products.push(action.payload as ProductInfo);
+      serialize<ProductInfo[]>(products, PRODUCTS);
+      return { ...state, elements: products };
     }
     case EDIT_GAME: {
       const updatedGame = action.payload as ProductInfo;
-      const index = tempArr.findIndex((el) => el.key === updatedGame.key);
-      tempArr[index] = updatedGame;
-      serialize<ProductInfo[]>(tempArr, PRODUCTS);
-      return { elements: tempArr };
+      const index = products.findIndex((product) => product.key === updatedGame.key);
+      products[index] = updatedGame;
+      serialize<ProductInfo[]>(products, PRODUCTS);
+      return { ...state, elements: products };
     }
     case DELETE_GAME: {
       const key = action.payload as number;
-      tempArr = tempArr.filter((el) => el.key !== key);
-      serialize<ProductInfo[]>(tempArr, PRODUCTS);
-      return { elements: tempArr };
+      products = products.filter((product) => product.key !== key);
+      serialize<ProductInfo[]>(products, PRODUCTS);
+      return { ...state, elements: products };
     }
     case REFRESH_ALL:
       serialize<ProductInfo[]>(action.payload as ProductInfo[], PRODUCTS);
-      return { elements: action.payload as ProductInfo[] };
+      return { ...state, elements: action.payload as ProductInfo[] };
     case CLEAR_ALL:
       serialize<ProductInfo[]>(new Array<ProductInfo>(), PRODUCTS);
-      return { elements: [] };
+      return { ...state, elements: [] };
     default:
       return state;
   }

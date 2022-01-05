@@ -6,16 +6,18 @@ import UserAction from "@/redux/types/userAction";
 
 const USER = "userInfo";
 
-const defaultState: User = JSON.parse(localStorage.getItem(USER) ?? '{"isAdmin":false}');
+const defaultState: { info: User } = {
+  info: JSON.parse(localStorage.getItem(USER) ?? '{"isAdmin":false}'),
+};
 
-const userReducer = (state = defaultState, action: UserAction): User => {
+const userReducer = (state = defaultState, action: UserAction) => {
   switch (action.type) {
     case SET_USER:
       serialize<User>(action.payload as User, USER);
-      return action.payload as User;
+      return { ...state, info: action.payload as User };
     case RESET:
       localStorage.clear();
-      return { userName: undefined, isAdmin: false };
+      return { ...state, info: { userName: undefined, isAdmin: false } };
     default:
       return state;
   }

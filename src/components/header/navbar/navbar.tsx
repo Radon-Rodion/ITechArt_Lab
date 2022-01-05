@@ -79,7 +79,7 @@ function showLinks(userName: string | undefined, amountInCart: number | undefine
 }
 
 const NavBar = () => {
-  const userName = useSelector((state: RootState) => state.user.userName);
+  const userName = useSelector((state: RootState) => state.user.info.userName);
   const amountInCart = useSelector((state: RootState) => state.cart.elements.length);
   const className = styles.navbar + (userName !== undefined ? styles.logged : "");
 

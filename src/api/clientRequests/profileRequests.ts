@@ -3,6 +3,7 @@ import { Dispatch } from "redux";
 import { IUserInfo } from "@/data/users";
 import UserAction from "@/redux/types/userAction";
 import { setUserAction } from "@/redux/actionCreators/userActionsCreator";
+import defaultShowError from "@/utils/defaultFunctions";
 
 let requestSent = false;
 
@@ -41,7 +42,9 @@ export function getBalance(userName: string, responseSetMethod: (response: numbe
   getRequest(`api/getProfile?user=${userName}`, callBack);
 }
 
-function postRequest(request: string, params: unknown, dispatch: Dispatch<UserAction> | undefined = undefined) {
+const defaultDispatch: Dispatch<UserAction> | undefined = undefined;
+
+function postRequest(request: string, params: unknown, dispatch = defaultDispatch, setErr = defaultShowError) {
   if (!requestSent) {
     requestSent = true;
     axios
@@ -53,14 +56,14 @@ function postRequest(request: string, params: unknown, dispatch: Dispatch<UserAc
       })
       .catch((error) => {
         console.error(error);
+        setErr("Error during changing profile info!");
         requestSent = false;
-        alert("Error during changing profile info!");
       });
   }
 }
 
-export function postProfile(info: IUserInfo, dispatch: Dispatch<UserAction>) {
-  postRequest("api/saveProfile", info, dispatch);
+export function postProfile(info: IUserInfo, dispatch: Dispatch<UserAction>, setError = defaultShowError) {
+  postRequest("api/saveProfile", info, dispatch, setError);
 }
 
 export function postPassword(id: number, password: string) {
