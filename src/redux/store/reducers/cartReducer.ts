@@ -12,29 +12,29 @@ const defaultState: Cart = {
 };
 
 const cartReducer = (state = defaultState, action: CartAction): Cart => {
-  let tempArr = [...state.elements];
+  let cartElements = [...state.elements];
   switch (action.type) {
     case ADD_ELEMENT: {
       const newElement = action.payload as CartElement;
-      const elementIndex = findCartElement(tempArr, newElement.name, newElement.orderDate);
-      if (elementIndex === -1) tempArr.push(newElement);
-      else tempArr[elementIndex].amount += 1;
-      serialize<CartElement[]>(tempArr, CART);
-      return { ...state, elements: tempArr };
+      const elementIndex = findCartElement(cartElements, newElement.name, newElement.orderDate);
+      if (elementIndex === -1) cartElements.push(newElement);
+      else cartElements[elementIndex].amount += 1;
+      serialize<CartElement[]>(cartElements, CART);
+      return { ...state, elements: cartElements };
     }
     case EDIT_ELEMENT: {
       const editParams = action.payload as CartParamsToChange;
-      if (editParams.newAmount) tempArr[editParams.index].amount = editParams.newAmount;
+      if (editParams.newAmount) cartElements[editParams.index].amount = editParams.newAmount;
       else if (editParams.newChosenPlatformIndex !== undefined)
-        tempArr[editParams.index].chosenPlatformIndex = editParams.newChosenPlatformIndex;
-      else tempArr[editParams.index].selected = !tempArr[editParams.index].selected;
-      serialize<CartElement[]>(tempArr, CART);
-      return { ...state, elements: tempArr };
+        cartElements[editParams.index].chosenPlatformIndex = editParams.newChosenPlatformIndex;
+      else cartElements[editParams.index].selected = !cartElements[editParams.index].selected;
+      serialize<CartElement[]>(cartElements, CART);
+      return { ...state, elements: cartElements };
     }
     case DELETE_SELECTED:
-      tempArr = tempArr.filter((element) => !element.selected);
-      serialize<CartElement[]>(tempArr, CART);
-      return { ...state, elements: tempArr };
+      cartElements = cartElements.filter((element) => !element.selected);
+      serialize<CartElement[]>(cartElements, CART);
+      return { ...state, elements: cartElements };
 
     case CLEAR_CART:
       localStorage.removeItem(CART);
