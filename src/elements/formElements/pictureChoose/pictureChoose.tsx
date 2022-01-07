@@ -19,6 +19,7 @@ const PictureChoose = (props: IPictureChooseProps) => {
     const reader = new FileReader();
     if (files && files[0]) reader.readAsDataURL(files[0]);
     reader.onloadend = () => {
+      // console.log(reader.result);
       if (typeof reader.result === "string" && props.localStorageKey) {
         localStorage.setItem(props.localStorageKey, reader.result);
       }

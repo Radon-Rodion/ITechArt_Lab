@@ -18,7 +18,7 @@ const CartForm = () => {
 
   if (balance === -1) getBalance(userName, setBalance);
 
-  const enoughMoney = balance >= gamesCost;
+  const enoughMoney = balance >= gamesCost || balance === -1;
 
   const buy = (): void => {
     if (!enoughMoney) return;
@@ -27,8 +27,9 @@ const CartForm = () => {
     dispatch(clearCart());
     postBalance(userName, newBalance);
   };
-
-  const balanceMessage = `Your balance: ${balance.toFixed(2)}$ (${!enoughMoney ? "Not enough" : "Enough"})`;
+  const balanceValue =
+    balance === -1 ? "loading..." : `${balance.toFixed(2)}$ (${!enoughMoney ? "Not enough" : "Enough"})`;
+  const balanceMessage = `Your balance: ${balanceValue}`;
   const priceMessage = `Games cost: ${gamesCost.toFixed(2)}$`;
 
   return (

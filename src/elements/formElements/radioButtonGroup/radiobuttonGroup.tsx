@@ -1,3 +1,4 @@
+import React from "react";
 import { FieldValue } from "@/data/filtrationFields";
 import { createChangeProcessor } from "../inputText/inputText";
 import styles from "./radiobuttonGroup.module.scss";
@@ -35,4 +36,4 @@ RadioButtonGroup.defaultProps = {
   className: "",
 };
 
-export default RadioButtonGroup;
+export default React.memo(RadioButtonGroup);

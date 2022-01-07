@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import FormHeader from "./formHeader";
 import InputText from "@/elements/formElements/inputText/inputText";
@@ -21,32 +21,35 @@ interface IAdminFormProps {
 }
 
 const AdminForm = (props: IAdminFormProps) => {
+  console.log("rerender!!!");
+
   const [gameInfo, setGameInfo] = useState(props.gameInfo);
+  const newGameInfo = useRef(gameInfo);
 
   const setGameName = (name: string): void => {
-    setGameInfo((prevState: ProductInfo) => ({ ...prevState, name }));
+    newGameInfo.current.name = name;
   };
   const setGamePrice = (priceString: string): void => {
-    const price = +priceString > 0.01 ? +priceString : 0.01;
-    setGameInfo((prevState: ProductInfo) => ({ ...prevState, price }));
+    newGameInfo.current.price = +priceString > 0.01 ? +priceString : 0.01;
   };
   const setGameDescription = (description: string): void => {
-    setGameInfo((prevState: ProductInfo) => ({ ...prevState, description }));
+    newGameInfo.current.description = description;
   };
   const setGamePicture = (picture: string): void => {
     setGameInfo((prevState: ProductInfo) => ({ ...prevState, image: picture }));
+    newGameInfo.current.image = picture;
   };
   const setAgeCategory = (age: string): void => {
-    setGameInfo((prevState: ProductInfo) => ({ ...prevState, ageCategory: +age }));
+    newGameInfo.current.ageCategory = +age;
   };
   const changeIsPC = (): void => {
-    setGameInfo((prevState: ProductInfo) => ({ ...prevState, isPC: !prevState.isPC }));
+    newGameInfo.current.isPC = !newGameInfo.current.isPC;
   };
   const changeIsPS = (): void => {
-    setGameInfo((prevState: ProductInfo) => ({ ...prevState, isPS: !prevState.isPS }));
+    newGameInfo.current.isPS = !newGameInfo.current.isPS;
   };
   const changeIsXbox = (): void => {
-    setGameInfo((prevState: ProductInfo) => ({ ...prevState, isXBox: !prevState.isXBox }));
+    newGameInfo.current.isXBox = !newGameInfo.current.isXBox;
   };
 
   const dispatch = useDispatch();
@@ -55,7 +58,8 @@ const AdminForm = (props: IAdminFormProps) => {
 
   const leftButtonAction = (e: FormEvent) => {
     e.preventDefault();
-    props.formInfo.leftButtonAction(gameInfo, dispatch, setErrorMessage);
+    setGameInfo(newGameInfo.current);
+    props.formInfo.leftButtonAction(newGameInfo.current, dispatch, setErrorMessage);
   };
 
   const rightButtonAction = (e: FormEvent) => {

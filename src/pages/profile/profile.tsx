@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { FormEvent, useState } from "react";
+import React, { FormEvent, useRef, useState } from "react";
 import styles from "./profile.module.scss";
 import { RootState } from "@/redux/store/store";
 
@@ -17,56 +17,70 @@ import Switcher from "@/elements/formElements/switcher/switcher";
 import Modal from "@/components/modal/modal";
 import ErrorForm from "@/components/forms/errorForm";
 
+interface IProfilePageState {
+  userInfo: IUserInfo;
+  spinner: boolean;
+  errorMessage: string;
+}
+
 const Profile = () => {
   const userName = useSelector((state) => (state as RootState).user.info.userName);
   const blockName = `${userName} profile page`;
 
-  // user info and its fields
-  const [userInfo, setUserInfo] = useState<IUserInfo>(defaultUser);
+  const [state, setState] = useState<IProfilePageState>({ userInfo: defaultUser, spinner: true, errorMessage: "" });
+  const newUserInfo = useRef<IUserInfo>(state.userInfo);
 
+  const setErrorMessage = (errorMessage: string) => {
+    setState((prevState: IProfilePageState) => ({ ...prevState, errorMessage }));
+  };
+
+  const setUserInfo = (userInfo: IUserInfo) => {
+    setState((prevState: IProfilePageState) => ({ ...prevState, userInfo, spinner: false }));
+    newUserInfo.current = userInfo;
+  };
+
+  // changable fields
   const setUserName = (name: string) => {
-    setUserInfo((prevState: IUserInfo) => ({ ...prevState, userName: name }));
+    newUserInfo.current.userName = name;
   };
   const setDescription = (description: string) => {
-    setUserInfo((prevState: IUserInfo) => ({ ...prevState, description }));
+    newUserInfo.current.description = description;
   };
   const setPicture = (picture: string) => {
-    setUserInfo((prevState: IUserInfo) => ({ ...prevState, picture }));
+    setState((prevState: IProfilePageState) => ({ ...prevState, userInfo: { ...prevState.userInfo, picture } }));
+    newUserInfo.current.picture = picture;
   };
   const setPhone = (phone: string) => {
-    setUserInfo((prevState: IUserInfo) => ({ ...prevState, phone }));
+    newUserInfo.current.phone = phone;
   };
   const changeAdminState = () => {
-    setUserInfo((prevState: IUserInfo) => ({ ...prevState, isAdmin: !userInfo.isAdmin }));
+    newUserInfo.current.isAdmin = !newUserInfo.current.isAdmin;
   };
-
-  const [spinner, setSpinner] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    postProfile(userInfo, dispatch, setErrorMessage);
+    postProfile(newUserInfo.current, dispatch, setErrorMessage);
   };
 
-  if (spinner) {
-    getProfile(userName ?? "", setUserInfo, setSpinner);
+  if (state.spinner) {
+    getProfile(userName ?? "", setUserInfo);
     return <Spinner />;
   }
 
   return (
     <>
-      {errorMessage ? (
+      {state.errorMessage ? (
         <Modal>
-          <ErrorForm message={errorMessage} onExit={() => setErrorMessage("")} />
+          <ErrorForm message={state.errorMessage} onExit={() => setErrorMessage("")} />
         </Modal>
       ) : undefined}
       <div className={styles.allPage}>
         <Block blockName={blockName} className={styles.block}>
           <form className={styles.block} onSubmit={handleSubmit}>
             <PictureChoose
-              picture={userInfo?.picture ?? ""}
+              picture={state.userInfo?.picture ?? ""}
               className={styles.pictureSection}
               buttonClassName={styles.button}
               onChange={setPicture}
@@ -76,28 +90,28 @@ const Profile = () => {
               <InputText
                 icon="ellipsis-h"
                 field={formFieldByName("User name")}
-                text={userInfo?.userName ?? ""}
+                text={state.userInfo?.userName ?? ""}
                 onChange={setUserName}
               />
               <InputTextArea
                 field={formFieldByName("Profile description")}
-                text={userInfo?.description ?? ""}
+                text={state.userInfo?.description ?? ""}
                 onChange={setDescription}
               />
               <InputText
                 icon="phone"
                 field={formFieldByName("Phone number")}
-                text={userInfo?.phone ?? ""}
+                text={state.userInfo?.phone ?? ""}
                 onChange={setPhone}
               />
-              <Switcher name="Is admin" value={userInfo.isAdmin} onChange={changeAdminState} />
+              <Switcher name="Is admin" value={state.userInfo.isAdmin} onChange={changeAdminState} />
             </div>
             <div className={styles.buttonsSection}>
               <input type="submit" value="Save profile" className={styles.button} />
               <SignButton
                 name="Change password"
                 className={styles.button}
-                form={<ChangePassword userId={userInfo.id} curPassword={userInfo.password} />}
+                form={<ChangePassword userId={state.userInfo.id} curPassword={state.userInfo.password} />}
               />
             </div>
           </form>

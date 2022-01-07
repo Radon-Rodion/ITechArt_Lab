@@ -1,14 +1,15 @@
+import React from "react";
 import styles from "./inputText.module.scss";
 import { FormField } from "@/data/formFields";
 import { createChangeProcessor } from "./inputText";
 
 interface IInputTextAreaProps {
   field: FormField;
-  text: string;
+  text?: string;
   onChange: ((value: React.SetStateAction<string>) => void) | ((value: string) => void);
 }
 
-const InputText = (props: IInputTextAreaProps) => (
+const InputTextArea = (props: IInputTextAreaProps) => (
   <label htmlFor={props.field.name} className={styles.label}>
     <div className={styles.labelName}>{props.field.name}:</div>
     <textarea
@@ -18,10 +19,14 @@ const InputText = (props: IInputTextAreaProps) => (
       minLength={props.field.minLength}
       maxLength={props.field.maxLength}
       title={props.field.title}
-      value={props.text}
+      defaultValue={props.text}
       onChange={createChangeProcessor(props.onChange)}
     />
   </label>
 );
 
-export default InputText;
+InputTextArea.defaultProps = {
+  text: undefined,
+};
+
+export default React.memo(InputTextArea, (prevProps, nextProps) => prevProps.text === nextProps.text);

@@ -1,18 +1,25 @@
 import "./styles/main.css";
 import "./styles/main.scss";
-import { Component, ErrorInfo, StrictMode } from "react";
+import React, { Component, ErrorInfo, StrictMode } from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { Provider } from "react-redux";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Home from "@/pages/home/home";
-import Products from "@/pages/products/products";
-import About from "@/pages/about/about";
-import Profile from "@/pages/profile/profile";
-import Cart from "@/pages/cart/cart";
 import RouteGuard from "@/elements/routeGuard";
 import store from "@/redux/store/store";
+// import loadLazy from "./utils/loadLazy";
+
+/* import Products from "@/pages/products/products";
+import About from "@/pages/about/about";
+import Profile from "@/pages/profile/profile";
+import Cart from "@/pages/cart/cart";*/
+
+const Products = React.lazy(() => import("@/pages/products/products"));
+const About = React.lazy(() => import("@/pages/about/about"));
+const Profile = React.lazy(() => import("@/pages/profile/profile"));
+const Cart = React.lazy(() => import("@/pages/cart/cart"));
 
 interface AppProps {
   nothing: boolean;

@@ -24,7 +24,7 @@ const CartTable = (props: { productsInCart: CartElement[]; dispatch: Dispatch })
       </thead>
       <tbody>
         {props.productsInCart.map((product, index) => (
-          <CartTableRow element={product} key={product.name} dispatch={props.dispatch} index={index} />
+          <CartTableRow key={product.name} dispatch={props.dispatch} index={index} />
         ))}
         <tr className={styles.bodyRow}>
           <td className={styles.wideColumn} colSpan={5}>

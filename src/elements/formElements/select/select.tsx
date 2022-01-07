@@ -1,3 +1,4 @@
+import React from "react";
 import { FieldValue } from "@/data/filtrationFields";
 import { createChangeProcessor } from "../inputText/inputText";
 import styles from "./select.module.scss";
@@ -12,7 +13,7 @@ interface ISelectProps {
 
 const Select = (props: ISelectProps) => {
   const allElementClass = `${props.className} ${styles.allElement}`;
-  const selectedValue = props.selectedItemValue;
+
   return (
     <div className={allElementClass}>
       <label htmlFor="select" className={styles.label}>
@@ -21,7 +22,7 @@ const Select = (props: ISelectProps) => {
           name="form_select"
           className={styles.select}
           onChange={createChangeProcessor(props.onChange)}
-          value={selectedValue}
+          defaultValue={props.selectedItemValue}
         >
           {props.valuesWithText.map((val) => (
             <option value={val.value} key={val.value} className={styles.option}>
@@ -39,4 +40,4 @@ Select.defaultProps = {
   className: "",
 };
 
-export default Select;
+export default React.memo(Select);

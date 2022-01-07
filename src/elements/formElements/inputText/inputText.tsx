@@ -1,7 +1,7 @@
 import { library, IconProp } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FormEvent } from "react";
+import React, { FormEvent } from "react";
 import styles from "./inputText.module.scss";
 import { FormField } from "@/data/formFields";
 
@@ -10,7 +10,7 @@ library.add(fas);
 interface IInputTextProps {
   field: FormField;
   icon: IconProp;
-  text: string;
+  text?: string;
   onChange: ((value: React.SetStateAction<string>) => void) | ((value: string) => void);
   errorMessage?: string;
 }
@@ -36,7 +36,7 @@ const InputText = (props: IInputTextProps) => (
         maxLength={props.field.maxLength}
         pattern={props.field.pattern}
         title={props.field.title}
-        value={props.text}
+        defaultValue={props.text}
         onChange={createChangeProcessor(props.onChange)}
       />
       <FontAwesomeIcon icon={props.icon} className={styles.icon} />
@@ -44,9 +44,9 @@ const InputText = (props: IInputTextProps) => (
     <div className={styles.errorMessage}>{props.errorMessage}</div>
   </label>
 );
-
 InputText.defaultProps = {
+  text: undefined,
   errorMessage: undefined,
 };
 
-export default InputText;
+export default React.memo(InputText, (prevProps, nextProps) => prevProps.text === nextProps.text);

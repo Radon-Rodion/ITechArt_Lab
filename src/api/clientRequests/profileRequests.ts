@@ -23,16 +23,8 @@ function getRequest(request: string, callBack: (responseData: IUserInfo) => void
   }
 }
 
-export function getProfile(
-  userName: string,
-  responseSetMethod: (response: IUserInfo) => void,
-  setSpinner: (spinnerState: boolean) => void
-) {
-  const callBack = (responseData: IUserInfo) => {
-    setSpinner(false);
-    responseSetMethod(responseData);
-  };
-  getRequest(`api/getProfile?user=${userName}`, callBack);
+export function getProfile(userName: string, responseSetMethod: (response: IUserInfo) => void) {
+  getRequest(`api/getProfile?user=${userName}`, responseSetMethod);
 }
 
 export function getBalance(userName: string, responseSetMethod: (response: number) => void) {
