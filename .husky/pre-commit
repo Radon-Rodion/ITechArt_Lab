@@ -5,4 +5,4 @@ npx lint-staged
 npm test
 
 # uncomment for testing git-hooks
-# exit 0
+exit 0
