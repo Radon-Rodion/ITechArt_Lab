@@ -1,5 +1,5 @@
-import noImg from "images/noimg.png";
 import React, { ChangeEvent } from "react";
+import noImg from "images/noimg.png";
 import styles from "./pictureChoose.module.scss";
 
 interface IPictureChooseProps {
