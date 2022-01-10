@@ -1,0 +1,1268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pages snapshots About page: AboutPageSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="allPage"
+      >
+        <h2>
+          About page
+        </h2>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="allPage"
+    >
+      <h2>
+        About page
+      </h2>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Pages snapshots Cart page: CartPageSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="allPage"
+      >
+        <div
+          class="block"
+        >
+          <div
+            class="blockHeader"
+          >
+            Cart page
+          </div>
+          <div
+            class="blockContent block"
+          >
+            <form
+              class="allWide"
+            >
+              <table
+                class="allWide"
+              >
+                <thead>
+                  <tr
+                    class="headRow"
+                  >
+                    <th
+                      class="wideColumn"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="mediumColumn"
+                    >
+                      Platform
+                    </th>
+                    <th
+                      class="mediumColumn"
+                    >
+                      Order date
+                    </th>
+                    <th
+                      class="narrowColumn"
+                    >
+                      Amount
+                    </th>
+                    <th
+                      class="narrowColumn"
+                    >
+                      Price($)
+                    </th>
+                    <th
+                      class="narrowColumn"
+                    >
+                       
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    class="bodyRow"
+                  >
+                    <td
+                      class="wideColumn"
+                      colspan="5"
+                    >
+                       
+                    </td>
+                    <td
+                      class="narrowColumn"
+                    >
+                      <button
+                        class="button button"
+                        type="button"
+                      >
+                        Remove
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div
+                class="bottom"
+              >
+                <div
+                  class="bottomElement"
+                >
+                  Games cost: 0.00$
+                </div>
+                <div
+                  class="bottomElement "
+                >
+                  Your balance: loading...
+                </div>
+                <div
+                  class="bottomElement"
+                >
+                  <button
+                    class="button button"
+                    type="button"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="allPage"
+    >
+      <div
+        class="block"
+      >
+        <div
+          class="blockHeader"
+        >
+          Cart page
+        </div>
+        <div
+          class="blockContent block"
+        >
+          <form
+            class="allWide"
+          >
+            <table
+              class="allWide"
+            >
+              <thead>
+                <tr
+                  class="headRow"
+                >
+                  <th
+                    class="wideColumn"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="mediumColumn"
+                  >
+                    Platform
+                  </th>
+                  <th
+                    class="mediumColumn"
+                  >
+                    Order date
+                  </th>
+                  <th
+                    class="narrowColumn"
+                  >
+                    Amount
+                  </th>
+                  <th
+                    class="narrowColumn"
+                  >
+                    Price($)
+                  </th>
+                  <th
+                    class="narrowColumn"
+                  >
+                     
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="bodyRow"
+                >
+                  <td
+                    class="wideColumn"
+                    colspan="5"
+                  >
+                     
+                  </td>
+                  <td
+                    class="narrowColumn"
+                  >
+                    <button
+                      class="button button"
+                      type="button"
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div
+              class="bottom"
+            >
+              <div
+                class="bottomElement"
+              >
+                Games cost: 0.00$
+              </div>
+              <div
+                class="bottomElement "
+              >
+                Your balance: loading...
+              </div>
+              <div
+                class="bottomElement"
+              >
+                <button
+                  class="button button"
+                  type="button"
+                >
+                  Buy
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Pages snapshots Home page: HomePageSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="allPage"
+      >
+        <form
+          class="search"
+        >
+          <input
+            class="searchLine"
+            placeholder="Search"
+          />
+        </form>
+        <div
+          class="block"
+        >
+          <div
+            class="blockHeader"
+          >
+            Game categories
+          </div>
+          <div
+            class="blockContent "
+          >
+            <div
+              class="blockContentElement"
+            >
+              <button
+                class="notButton gameCategory"
+                type="button"
+              >
+                <img
+                  alt=""
+                  class="categoryImage"
+                  src=""
+                />
+                <p
+                  class="categoryName"
+                >
+                  PC
+                </p>
+                
+              </button>
+            </div>
+            <div
+              class="blockContentElement"
+            >
+              <button
+                class="notButton gameCategory"
+                type="button"
+              >
+                <img
+                  alt=""
+                  class="categoryImage"
+                  src=""
+                />
+                <p
+                  class="categoryName"
+                >
+                  Playstation
+                </p>
+                
+              </button>
+            </div>
+            <div
+              class="blockContentElement"
+            >
+              <button
+                class="notButton gameCategory"
+                type="button"
+              >
+                <img
+                  alt=""
+                  class="categoryImage"
+                  src=""
+                />
+                <p
+                  class="categoryName"
+                >
+                  Xbox
+                </p>
+                
+              </button>
+            </div>
+          </div>
+        </div>
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-7x spinner"
+          data-icon="spinner"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="allPage"
+    >
+      <form
+        class="search"
+      >
+        <input
+          class="searchLine"
+          placeholder="Search"
+        />
+      </form>
+      <div
+        class="block"
+      >
+        <div
+          class="blockHeader"
+        >
+          Game categories
+        </div>
+        <div
+          class="blockContent "
+        >
+          <div
+            class="blockContentElement"
+          >
+            <button
+              class="notButton gameCategory"
+              type="button"
+            >
+              <img
+                alt=""
+                class="categoryImage"
+                src=""
+              />
+              <p
+                class="categoryName"
+              >
+                PC
+              </p>
+              
+            </button>
+          </div>
+          <div
+            class="blockContentElement"
+          >
+            <button
+              class="notButton gameCategory"
+              type="button"
+            >
+              <img
+                alt=""
+                class="categoryImage"
+                src=""
+              />
+              <p
+                class="categoryName"
+              >
+                Playstation
+              </p>
+              
+            </button>
+          </div>
+          <div
+            class="blockContentElement"
+          >
+            <button
+              class="notButton gameCategory"
+              type="button"
+            >
+              <img
+                alt=""
+                class="categoryImage"
+                src=""
+              />
+              <p
+                class="categoryName"
+              >
+                Xbox
+              </p>
+              
+            </button>
+          </div>
+        </div>
+      </div>
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-7x spinner"
+        data-icon="spinner"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Pages snapshots Products page: ProductsPageSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="allPage"
+      >
+        <div
+          class="filtrationBlock"
+        >
+          <div
+            class="block"
+          >
+            <div
+              class="blockHeader"
+            >
+              All games
+            </div>
+            <div
+              class="blockContent "
+            >
+              <form>
+                <div
+                  class="filtersSubBlock"
+                >
+                  <div
+                    class="blockHeader"
+                  >
+                    Filter by
+                  </div>
+                  <div
+                    class=" allElement"
+                  >
+                    <label
+                      class="label"
+                      for="select"
+                    >
+                      Criteria
+                      <select
+                        class="select"
+                        name="form_select"
+                      >
+                        <option
+                          class="option"
+                          value="name"
+                        >
+                          Name
+                        </option>
+                        <option
+                          class="option"
+                          value="date"
+                        >
+                          Publication date
+                        </option>
+                        <option
+                          class="option"
+                          value="mark"
+                        >
+                          Rating
+                        </option>
+                        <option
+                          class="option"
+                          value="price"
+                        >
+                          Price
+                        </option>
+                      </select>
+                    </label>
+                  </div>
+                  <div
+                    class=" allElement"
+                  >
+                    <label
+                      class="label"
+                      for="select"
+                    >
+                      Type
+                      <select
+                        class="select"
+                        name="form_select"
+                      >
+                        <option
+                          class="option"
+                          value="asc"
+                        >
+                          Ascending
+                        </option>
+                        <option
+                          class="option"
+                          value="desc"
+                        >
+                          Descending
+                        </option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  class=" allElement"
+                >
+                  <label
+                    for="radio"
+                  >
+                    <div
+                      class="title"
+                    >
+                      Genres
+                    </div>
+                    <div
+                      class="rbWithName"
+                    >
+                      <input
+                        checked=""
+                        name="Genres"
+                        type="radio"
+                        value=""
+                      />
+                      All genres
+                    </div>
+                    <div
+                      class="rbWithName"
+                    >
+                      <input
+                        name="Genres"
+                        type="radio"
+                        value="shooter"
+                      />
+                      Shooter
+                    </div>
+                    <div
+                      class="rbWithName"
+                    >
+                      <input
+                        name="Genres"
+                        type="radio"
+                        value="action"
+                      />
+                      Action
+                    </div>
+                    <div
+                      class="rbWithName"
+                    >
+                      <input
+                        name="Genres"
+                        type="radio"
+                        value="survival"
+                      />
+                      Survival
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class=" allElement"
+                >
+                  <label
+                    for="radio"
+                  >
+                    <div
+                      class="title"
+                    >
+                      Ages
+                    </div>
+                    <div
+                      class="rbWithName"
+                    >
+                      <input
+                        checked=""
+                        name="Ages"
+                        type="radio"
+                        value="0"
+                      />
+                      All ages
+                    </div>
+                    <div
+                      class="rbWithName"
+                    >
+                      <input
+                        name="Ages"
+                        type="radio"
+                        value="3"
+                      />
+                      3+
+                    </div>
+                    <div
+                      class="rbWithName"
+                    >
+                      <input
+                        name="Ages"
+                        type="radio"
+                        value="6"
+                      />
+                      6+
+                    </div>
+                    <div
+                      class="rbWithName"
+                    >
+                      <input
+                        name="Ages"
+                        type="radio"
+                        value="12"
+                      />
+                      12+
+                    </div>
+                    <div
+                      class="rbWithName"
+                    >
+                      <input
+                        name="Ages"
+                        type="radio"
+                        value="18"
+                      />
+                      18+
+                    </div>
+                  </label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rightPart"
+        >
+          <div
+            class="topLine"
+          >
+            <form
+              class="search"
+            >
+              <input
+                class="searchLine"
+                placeholder="Search"
+              />
+            </form>
+          </div>
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-7x spinner"
+            data-icon="spinner"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="allPage"
+    >
+      <div
+        class="filtrationBlock"
+      >
+        <div
+          class="block"
+        >
+          <div
+            class="blockHeader"
+          >
+            All games
+          </div>
+          <div
+            class="blockContent "
+          >
+            <form>
+              <div
+                class="filtersSubBlock"
+              >
+                <div
+                  class="blockHeader"
+                >
+                  Filter by
+                </div>
+                <div
+                  class=" allElement"
+                >
+                  <label
+                    class="label"
+                    for="select"
+                  >
+                    Criteria
+                    <select
+                      class="select"
+                      name="form_select"
+                    >
+                      <option
+                        class="option"
+                        value="name"
+                      >
+                        Name
+                      </option>
+                      <option
+                        class="option"
+                        value="date"
+                      >
+                        Publication date
+                      </option>
+                      <option
+                        class="option"
+                        value="mark"
+                      >
+                        Rating
+                      </option>
+                      <option
+                        class="option"
+                        value="price"
+                      >
+                        Price
+                      </option>
+                    </select>
+                  </label>
+                </div>
+                <div
+                  class=" allElement"
+                >
+                  <label
+                    class="label"
+                    for="select"
+                  >
+                    Type
+                    <select
+                      class="select"
+                      name="form_select"
+                    >
+                      <option
+                        class="option"
+                        value="asc"
+                      >
+                        Ascending
+                      </option>
+                      <option
+                        class="option"
+                        value="desc"
+                      >
+                        Descending
+                      </option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div
+                class=" allElement"
+              >
+                <label
+                  for="radio"
+                >
+                  <div
+                    class="title"
+                  >
+                    Genres
+                  </div>
+                  <div
+                    class="rbWithName"
+                  >
+                    <input
+                      checked=""
+                      name="Genres"
+                      type="radio"
+                      value=""
+                    />
+                    All genres
+                  </div>
+                  <div
+                    class="rbWithName"
+                  >
+                    <input
+                      name="Genres"
+                      type="radio"
+                      value="shooter"
+                    />
+                    Shooter
+                  </div>
+                  <div
+                    class="rbWithName"
+                  >
+                    <input
+                      name="Genres"
+                      type="radio"
+                      value="action"
+                    />
+                    Action
+                  </div>
+                  <div
+                    class="rbWithName"
+                  >
+                    <input
+                      name="Genres"
+                      type="radio"
+                      value="survival"
+                    />
+                    Survival
+                  </div>
+                </label>
+              </div>
+              <div
+                class=" allElement"
+              >
+                <label
+                  for="radio"
+                >
+                  <div
+                    class="title"
+                  >
+                    Ages
+                  </div>
+                  <div
+                    class="rbWithName"
+                  >
+                    <input
+                      checked=""
+                      name="Ages"
+                      type="radio"
+                      value="0"
+                    />
+                    All ages
+                  </div>
+                  <div
+                    class="rbWithName"
+                  >
+                    <input
+                      name="Ages"
+                      type="radio"
+                      value="3"
+                    />
+                    3+
+                  </div>
+                  <div
+                    class="rbWithName"
+                  >
+                    <input
+                      name="Ages"
+                      type="radio"
+                      value="6"
+                    />
+                    6+
+                  </div>
+                  <div
+                    class="rbWithName"
+                  >
+                    <input
+                      name="Ages"
+                      type="radio"
+                      value="12"
+                    />
+                    12+
+                  </div>
+                  <div
+                    class="rbWithName"
+                  >
+                    <input
+                      name="Ages"
+                      type="radio"
+                      value="18"
+                    />
+                    18+
+                  </div>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="rightPart"
+      >
+        <div
+          class="topLine"
+        >
+          <form
+            class="search"
+          >
+            <input
+              class="searchLine"
+              placeholder="Search"
+            />
+          </form>
+        </div>
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-7x spinner"
+          data-icon="spinner"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Pages snapshots Profile page: ProfilePageSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-7x spinner"
+        data-icon="spinner"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg
+      aria-hidden="true"
+      class="svg-inline--fa fa-spinner fa-w-16 fa-spin fa-7x spinner"
+      data-icon="spinner"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

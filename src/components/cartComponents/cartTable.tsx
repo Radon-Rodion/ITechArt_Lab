@@ -1,4 +1,5 @@
 import { Dispatch } from "redux";
+import React from "react";
 import CartTableRow from "./cartTableRow";
 import styles from "./cartComponents.module.scss";
 import PurpleButton from "@/elements/purpleButton/purpleButton";

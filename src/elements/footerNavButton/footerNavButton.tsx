@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./footerNavButton.module.scss";
 import { FooterNavLink } from "@/data/links";
 

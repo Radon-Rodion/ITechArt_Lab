@@ -1,4 +1,4 @@
-import { FormEvent, useRef, useState } from "react";
+import React, { FormEvent, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import FormHeader from "./formHeader";
 import InputText from "@/elements/formElements/inputText/inputText";
@@ -21,8 +21,6 @@ interface IAdminFormProps {
 }
 
 const AdminForm = (props: IAdminFormProps) => {
-  console.log("rerender!!!");
-
   const [gameInfo, setGameInfo] = useState(props.gameInfo);
   const newGameInfo = useRef(gameInfo);
 

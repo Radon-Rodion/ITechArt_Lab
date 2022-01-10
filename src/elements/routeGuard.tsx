@@ -1,5 +1,4 @@
-import { Suspense, useState } from "react";
-
+import React, { Suspense, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Modal from "@/components/modal/modal";

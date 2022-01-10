@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import React, { Suspense, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./home.module.scss";
 import GamesBlock from "@/components/blocks/gameCardsBlock";

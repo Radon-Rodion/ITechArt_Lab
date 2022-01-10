@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import GamesBlock from "@/components/blocks/gameCardsBlock";
 import styles from "./products.module.scss";

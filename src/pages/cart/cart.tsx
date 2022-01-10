@@ -1,3 +1,4 @@
+import React from "react";
 import Block from "@/components/blocks/block";
 import CartForm from "@/components/cartComponents/cartForm";
 import styles from "./cart.module.scss";

@@ -9,12 +9,6 @@ import Footer from "./components/footer/footer";
 import Home from "@/pages/home/home";
 import RouteGuard from "@/elements/routeGuard";
 import store from "@/redux/store/store";
-// import loadLazy from "./utils/loadLazy";
-
-/* import Products from "@/pages/products/products";
-import About from "@/pages/about/about";
-import Profile from "@/pages/profile/profile";
-import Cart from "@/pages/cart/cart";*/
 
 const Products = React.lazy(() => import("@/pages/products/products"));
 const About = React.lazy(() => import("@/pages/about/about"));

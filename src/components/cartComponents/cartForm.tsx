@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "./cartComponents.module.scss";
 import CartTable from "@/components/cartComponents/cartTable";
 import PurpleButton from "@/elements/purpleButton/purpleButton";

@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./purpleButton.module.scss";
 
 /* eslint-disable react/button-has-type */

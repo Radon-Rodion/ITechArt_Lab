@@ -2,6 +2,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
+import React from "react";
 import styles from "./navbar.module.scss";
 import { NavLinkInfo, navLinks } from "@/data/links";
 import DropdownList from "@/elements/dropdownList/dropdownList";

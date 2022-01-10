@@ -16,6 +16,8 @@ const svgToMiniDataURI = require("mini-svg-data-uri");
 const path = require("path");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+
 const srcPath = path.resolve(__dirname, "./src/");
 const destPath = path.resolve(__dirname, "./build/"); // ('../Api/wwwroot')
 const assetsPath = "./public";
@@ -275,6 +277,8 @@ module.exports = function (env, argv) {
         // it adds to obsolete-plugin-script 'async' tag (for perfomance puprpose)
         async: "obsolete",
       }),
+
+      new BundleAnalyzerPlugin(),
       // optional: new BundleAnalyzerPlugin() // creates bundles-map in browser https://github.com/webpack-contrib/webpack-bundle-analyzer
     ],
   };

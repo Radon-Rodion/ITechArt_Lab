@@ -1,3 +1,4 @@
+import React from "react";
 import { CategoryInfo, categoryInfos } from "@/data/categoriesInfo";
 import styles from "./dropdownList.module.scss";
 import LinkGuard from "@/elements/linkGuard";

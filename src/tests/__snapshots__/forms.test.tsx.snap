@@ -1,0 +1,2397 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Forms snapshots admin creating form: AdminCreatingFormSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="form"
+      >
+        <div
+          class="header"
+        >
+          Create card
+          <button
+            class="closeBtn"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-w-11 fa-3x "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 352 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="row"
+        >
+          <div
+            class="narrowColumn"
+          >
+            <p
+              class="paragraph"
+            >
+              Card Image
+            </p>
+            <div
+              class=""
+            >
+              <img
+                alt="NoImage.png"
+                class="image"
+                src="images/noimg.png"
+              />
+              <div
+                class="inputWrapper"
+              >
+                <label
+                  class="button label"
+                  for="picture"
+                >
+                  <input
+                    class="button button"
+                    type="file"
+                  />
+                  <div
+                    class="buttonName"
+                  >
+                    Select image
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="wideColumn"
+          >
+            <p
+              class="paragraph"
+            >
+              Information
+            </p>
+            <label
+              class="label"
+              for="Game name"
+            >
+              <div
+                class="labelName"
+              >
+                Game name
+                :
+              </div>
+              <div
+                class="inputWithIcon "
+              >
+                <input
+                  class="input"
+                  maxlength="30"
+                  minlength="4"
+                  name="Game name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-address-card fa-w-18 icon"
+                  data-icon="address-card"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 576 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-352 96c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm112 236.8c0 10.6-10 19.2-22.4 19.2H86.4C74 384 64 375.4 64 364.8v-19.2c0-31.8 30.1-57.6 67.2-57.6h5c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h5c37.1 0 67.2 25.8 67.2 57.6v19.2zM512 312c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <div
+                class="errorMessage"
+              />
+            </label>
+            <label
+              class="label"
+              for="Price"
+            >
+              <div
+                class="labelName"
+              >
+                Price
+                :
+              </div>
+              <div
+                class="inputWithIcon "
+              >
+                <input
+                  class="input"
+                  name="Price"
+                  required=""
+                  type="number"
+                  value="0.01"
+                />
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-dollar-sign fa-w-9 icon"
+                  data-icon="dollar-sign"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 288 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <div
+                class="errorMessage"
+              />
+            </label>
+            <label
+              class="label"
+              for="Game description"
+            >
+              <div
+                class="labelName"
+              >
+                Game description
+                :
+              </div>
+              <textarea
+                class="inputMultiline"
+                name="Game description"
+              />
+            </label>
+            <div
+              class=" allElement"
+            >
+              <label
+                class="label"
+                for="select"
+              >
+                Age
+                <select
+                  class="select"
+                  name="form_select"
+                >
+                  <option
+                    class="option"
+                    selected=""
+                    value="0"
+                  >
+                    All ages
+                  </option>
+                  <option
+                    class="option"
+                    value="3"
+                  >
+                    3+
+                  </option>
+                  <option
+                    class="option"
+                    value="6"
+                  >
+                    6+
+                  </option>
+                  <option
+                    class="option"
+                    value="12"
+                  >
+                    12+
+                  </option>
+                  <option
+                    class="option"
+                    value="18"
+                  >
+                    18+
+                  </option>
+                </select>
+              </label>
+            </div>
+            <p
+              class="paragraph"
+            >
+              Platform
+            </p>
+            <label
+              class="allElement"
+              for="PC"
+            >
+              <div
+                class="name"
+              >
+                PC
+                :
+              </div>
+              <input
+                class="checkbox"
+                type="checkbox"
+              />
+            </label>
+            <label
+              class="allElement"
+              for="Playstation 5"
+            >
+              <div
+                class="name"
+              >
+                Playstation 5
+                :
+              </div>
+              <input
+                class="checkbox"
+                type="checkbox"
+              />
+            </label>
+            <label
+              class="allElement"
+              for="Xbox One"
+            >
+              <div
+                class="name"
+              >
+                Xbox One
+                :
+              </div>
+              <input
+                class="checkbox"
+                type="checkbox"
+              />
+            </label>
+          </div>
+        </div>
+        <div
+          class="buttonsRow"
+        >
+          <button
+            class="button button"
+            type="submit"
+          >
+            Create
+          </button>
+          <button
+            class="button button"
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="form"
+    >
+      <div
+        class="header"
+      >
+        Create card
+        <button
+          class="closeBtn"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-w-11 fa-3x "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="narrowColumn"
+        >
+          <p
+            class="paragraph"
+          >
+            Card Image
+          </p>
+          <div
+            class=""
+          >
+            <img
+              alt="NoImage.png"
+              class="image"
+              src="images/noimg.png"
+            />
+            <div
+              class="inputWrapper"
+            >
+              <label
+                class="button label"
+                for="picture"
+              >
+                <input
+                  class="button button"
+                  type="file"
+                />
+                <div
+                  class="buttonName"
+                >
+                  Select image
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="wideColumn"
+        >
+          <p
+            class="paragraph"
+          >
+            Information
+          </p>
+          <label
+            class="label"
+            for="Game name"
+          >
+            <div
+              class="labelName"
+            >
+              Game name
+              :
+            </div>
+            <div
+              class="inputWithIcon "
+            >
+              <input
+                class="input"
+                maxlength="30"
+                minlength="4"
+                name="Game name"
+                required=""
+                type="text"
+                value=""
+              />
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-address-card fa-w-18 icon"
+                data-icon="address-card"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 576 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-352 96c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm112 236.8c0 10.6-10 19.2-22.4 19.2H86.4C74 384 64 375.4 64 364.8v-19.2c0-31.8 30.1-57.6 67.2-57.6h5c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h5c37.1 0 67.2 25.8 67.2 57.6v19.2zM512 312c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="errorMessage"
+            />
+          </label>
+          <label
+            class="label"
+            for="Price"
+          >
+            <div
+              class="labelName"
+            >
+              Price
+              :
+            </div>
+            <div
+              class="inputWithIcon "
+            >
+              <input
+                class="input"
+                name="Price"
+                required=""
+                type="number"
+                value="0.01"
+              />
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-dollar-sign fa-w-9 icon"
+                data-icon="dollar-sign"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 288 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="errorMessage"
+            />
+          </label>
+          <label
+            class="label"
+            for="Game description"
+          >
+            <div
+              class="labelName"
+            >
+              Game description
+              :
+            </div>
+            <textarea
+              class="inputMultiline"
+              name="Game description"
+            />
+          </label>
+          <div
+            class=" allElement"
+          >
+            <label
+              class="label"
+              for="select"
+            >
+              Age
+              <select
+                class="select"
+                name="form_select"
+              >
+                <option
+                  class="option"
+                  selected=""
+                  value="0"
+                >
+                  All ages
+                </option>
+                <option
+                  class="option"
+                  value="3"
+                >
+                  3+
+                </option>
+                <option
+                  class="option"
+                  value="6"
+                >
+                  6+
+                </option>
+                <option
+                  class="option"
+                  value="12"
+                >
+                  12+
+                </option>
+                <option
+                  class="option"
+                  value="18"
+                >
+                  18+
+                </option>
+              </select>
+            </label>
+          </div>
+          <p
+            class="paragraph"
+          >
+            Platform
+          </p>
+          <label
+            class="allElement"
+            for="PC"
+          >
+            <div
+              class="name"
+            >
+              PC
+              :
+            </div>
+            <input
+              class="checkbox"
+              type="checkbox"
+            />
+          </label>
+          <label
+            class="allElement"
+            for="Playstation 5"
+          >
+            <div
+              class="name"
+            >
+              Playstation 5
+              :
+            </div>
+            <input
+              class="checkbox"
+              type="checkbox"
+            />
+          </label>
+          <label
+            class="allElement"
+            for="Xbox One"
+          >
+            <div
+              class="name"
+            >
+              Xbox One
+              :
+            </div>
+            <input
+              class="checkbox"
+              type="checkbox"
+            />
+          </label>
+        </div>
+      </div>
+      <div
+        class="buttonsRow"
+      >
+        <button
+          class="button button"
+          type="submit"
+        >
+          Create
+        </button>
+        <button
+          class="button button"
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Forms snapshots admin editing form: AdminEditingFormSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="form"
+      >
+        <div
+          class="header"
+        >
+          Edit card
+          <button
+            class="closeBtn"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-w-11 fa-3x "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 352 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="row"
+        >
+          <div
+            class="narrowColumn"
+          >
+            <p
+              class="paragraph"
+            >
+              Card Image
+            </p>
+            <div
+              class=""
+            >
+              <img
+                alt="NoImage.png"
+                class="image"
+                src="images/noimg.png"
+              />
+              <div
+                class="inputWrapper"
+              >
+                <label
+                  class="button label"
+                  for="picture"
+                >
+                  <input
+                    class="button button"
+                    type="file"
+                  />
+                  <div
+                    class="buttonName"
+                  >
+                    Select image
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="wideColumn"
+          >
+            <p
+              class="paragraph"
+            >
+              Information
+            </p>
+            <label
+              class="label"
+              for="Game name"
+            >
+              <div
+                class="labelName"
+              >
+                Game name
+                :
+              </div>
+              <div
+                class="inputWithIcon "
+              >
+                <input
+                  class="input"
+                  maxlength="30"
+                  minlength="4"
+                  name="Game name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-address-card fa-w-18 icon"
+                  data-icon="address-card"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 576 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-352 96c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm112 236.8c0 10.6-10 19.2-22.4 19.2H86.4C74 384 64 375.4 64 364.8v-19.2c0-31.8 30.1-57.6 67.2-57.6h5c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h5c37.1 0 67.2 25.8 67.2 57.6v19.2zM512 312c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <div
+                class="errorMessage"
+              />
+            </label>
+            <label
+              class="label"
+              for="Price"
+            >
+              <div
+                class="labelName"
+              >
+                Price
+                :
+              </div>
+              <div
+                class="inputWithIcon "
+              >
+                <input
+                  class="input"
+                  name="Price"
+                  required=""
+                  type="number"
+                  value="0.01"
+                />
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-dollar-sign fa-w-9 icon"
+                  data-icon="dollar-sign"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 288 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <div
+                class="errorMessage"
+              />
+            </label>
+            <label
+              class="label"
+              for="Game description"
+            >
+              <div
+                class="labelName"
+              >
+                Game description
+                :
+              </div>
+              <textarea
+                class="inputMultiline"
+                name="Game description"
+              />
+            </label>
+            <div
+              class=" allElement"
+            >
+              <label
+                class="label"
+                for="select"
+              >
+                Age
+                <select
+                  class="select"
+                  name="form_select"
+                >
+                  <option
+                    class="option"
+                    selected=""
+                    value="0"
+                  >
+                    All ages
+                  </option>
+                  <option
+                    class="option"
+                    value="3"
+                  >
+                    3+
+                  </option>
+                  <option
+                    class="option"
+                    value="6"
+                  >
+                    6+
+                  </option>
+                  <option
+                    class="option"
+                    value="12"
+                  >
+                    12+
+                  </option>
+                  <option
+                    class="option"
+                    value="18"
+                  >
+                    18+
+                  </option>
+                </select>
+              </label>
+            </div>
+            <p
+              class="paragraph"
+            >
+              Platform
+            </p>
+            <label
+              class="allElement"
+              for="PC"
+            >
+              <div
+                class="name"
+              >
+                PC
+                :
+              </div>
+              <input
+                class="checkbox"
+                type="checkbox"
+              />
+            </label>
+            <label
+              class="allElement"
+              for="Playstation 5"
+            >
+              <div
+                class="name"
+              >
+                Playstation 5
+                :
+              </div>
+              <input
+                class="checkbox"
+                type="checkbox"
+              />
+            </label>
+            <label
+              class="allElement"
+              for="Xbox One"
+            >
+              <div
+                class="name"
+              >
+                Xbox One
+                :
+              </div>
+              <input
+                class="checkbox"
+                type="checkbox"
+              />
+            </label>
+          </div>
+        </div>
+        <div
+          class="buttonsRow"
+        >
+          <button
+            class="button button"
+            type="submit"
+          >
+            Submit
+          </button>
+          <button
+            class="button button"
+            type="button"
+          >
+            Delete card
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="form"
+    >
+      <div
+        class="header"
+      >
+        Edit card
+        <button
+          class="closeBtn"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-w-11 fa-3x "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="narrowColumn"
+        >
+          <p
+            class="paragraph"
+          >
+            Card Image
+          </p>
+          <div
+            class=""
+          >
+            <img
+              alt="NoImage.png"
+              class="image"
+              src="images/noimg.png"
+            />
+            <div
+              class="inputWrapper"
+            >
+              <label
+                class="button label"
+                for="picture"
+              >
+                <input
+                  class="button button"
+                  type="file"
+                />
+                <div
+                  class="buttonName"
+                >
+                  Select image
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="wideColumn"
+        >
+          <p
+            class="paragraph"
+          >
+            Information
+          </p>
+          <label
+            class="label"
+            for="Game name"
+          >
+            <div
+              class="labelName"
+            >
+              Game name
+              :
+            </div>
+            <div
+              class="inputWithIcon "
+            >
+              <input
+                class="input"
+                maxlength="30"
+                minlength="4"
+                name="Game name"
+                required=""
+                type="text"
+                value=""
+              />
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-address-card fa-w-18 icon"
+                data-icon="address-card"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 576 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-352 96c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm112 236.8c0 10.6-10 19.2-22.4 19.2H86.4C74 384 64 375.4 64 364.8v-19.2c0-31.8 30.1-57.6 67.2-57.6h5c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h5c37.1 0 67.2 25.8 67.2 57.6v19.2zM512 312c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="errorMessage"
+            />
+          </label>
+          <label
+            class="label"
+            for="Price"
+          >
+            <div
+              class="labelName"
+            >
+              Price
+              :
+            </div>
+            <div
+              class="inputWithIcon "
+            >
+              <input
+                class="input"
+                name="Price"
+                required=""
+                type="number"
+                value="0.01"
+              />
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-dollar-sign fa-w-9 icon"
+                data-icon="dollar-sign"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 288 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="errorMessage"
+            />
+          </label>
+          <label
+            class="label"
+            for="Game description"
+          >
+            <div
+              class="labelName"
+            >
+              Game description
+              :
+            </div>
+            <textarea
+              class="inputMultiline"
+              name="Game description"
+            />
+          </label>
+          <div
+            class=" allElement"
+          >
+            <label
+              class="label"
+              for="select"
+            >
+              Age
+              <select
+                class="select"
+                name="form_select"
+              >
+                <option
+                  class="option"
+                  selected=""
+                  value="0"
+                >
+                  All ages
+                </option>
+                <option
+                  class="option"
+                  value="3"
+                >
+                  3+
+                </option>
+                <option
+                  class="option"
+                  value="6"
+                >
+                  6+
+                </option>
+                <option
+                  class="option"
+                  value="12"
+                >
+                  12+
+                </option>
+                <option
+                  class="option"
+                  value="18"
+                >
+                  18+
+                </option>
+              </select>
+            </label>
+          </div>
+          <p
+            class="paragraph"
+          >
+            Platform
+          </p>
+          <label
+            class="allElement"
+            for="PC"
+          >
+            <div
+              class="name"
+            >
+              PC
+              :
+            </div>
+            <input
+              class="checkbox"
+              type="checkbox"
+            />
+          </label>
+          <label
+            class="allElement"
+            for="Playstation 5"
+          >
+            <div
+              class="name"
+            >
+              Playstation 5
+              :
+            </div>
+            <input
+              class="checkbox"
+              type="checkbox"
+            />
+          </label>
+          <label
+            class="allElement"
+            for="Xbox One"
+          >
+            <div
+              class="name"
+            >
+              Xbox One
+              :
+            </div>
+            <input
+              class="checkbox"
+              type="checkbox"
+            />
+          </label>
+        </div>
+      </div>
+      <div
+        class="buttonsRow"
+      >
+        <button
+          class="button button"
+          type="submit"
+        >
+          Submit
+        </button>
+        <button
+          class="button button"
+          type="button"
+        >
+          Delete card
+        </button>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Forms snapshots change password form: ChangePasswordFormSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="form"
+      >
+        <div
+          class="header"
+        >
+          Change password
+          <button
+            class="closeBtn"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-w-11 fa-3x "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 352 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <label
+          class="label"
+          for="Password"
+        >
+          <div
+            class="labelName"
+          >
+            Password
+            :
+          </div>
+          <div
+            class="inputWithIcon invalidInput"
+          >
+            <input
+              class="input"
+              name="Password"
+              pattern="[A-Za-z0-9]{8,}"
+              required=""
+              title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+              type="password"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-lock fa-w-14 icon"
+              data-icon="lock"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div
+            class="errorMessage"
+          >
+            Incorrect password!
+          </div>
+        </label>
+        <label
+          class="label"
+          for="New password"
+        >
+          <div
+            class="labelName"
+          >
+            New password
+            :
+          </div>
+          <div
+            class="inputWithIcon "
+          >
+            <input
+              class="input"
+              name="New password"
+              pattern="[A-Za-z0-9]{8,}"
+              required=""
+              title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+              type="password"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-redo fa-w-16 icon"
+              data-icon="redo"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div
+            class="errorMessage"
+          />
+        </label>
+        <button
+          class="button button"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="form"
+    >
+      <div
+        class="header"
+      >
+        Change password
+        <button
+          class="closeBtn"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-w-11 fa-3x "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <label
+        class="label"
+        for="Password"
+      >
+        <div
+          class="labelName"
+        >
+          Password
+          :
+        </div>
+        <div
+          class="inputWithIcon invalidInput"
+        >
+          <input
+            class="input"
+            name="Password"
+            pattern="[A-Za-z0-9]{8,}"
+            required=""
+            title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+            type="password"
+            value=""
+          />
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-lock fa-w-14 icon"
+            data-icon="lock"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="errorMessage"
+        >
+          Incorrect password!
+        </div>
+      </label>
+      <label
+        class="label"
+        for="New password"
+      >
+        <div
+          class="labelName"
+        >
+          New password
+          :
+        </div>
+        <div
+          class="inputWithIcon "
+        >
+          <input
+            class="input"
+            name="New password"
+            pattern="[A-Za-z0-9]{8,}"
+            required=""
+            title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+            type="password"
+            value=""
+          />
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-redo fa-w-16 icon"
+            data-icon="redo"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="errorMessage"
+        />
+      </label>
+      <button
+        class="button button"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Forms snapshots error form: ErrorFormSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="smallForm"
+      >
+        <div
+          class="header"
+        >
+          Error
+          <button
+            class="closeBtn"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-w-11 fa-3x "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 352 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="errorMessage"
+        >
+          fake message
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="smallForm"
+    >
+      <div
+        class="header"
+      >
+        Error
+        <button
+          class="closeBtn"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-w-11 fa-3x "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="errorMessage"
+      >
+        fake message
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Forms snapshots sign in form: SignInFormSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="form"
+      >
+        <div
+          class="header"
+        >
+          Authorization
+          <button
+            class="closeBtn"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-w-11 fa-3x "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 352 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <label
+          class="label"
+          for="Login"
+        >
+          <div
+            class="labelName"
+          >
+            Login
+            :
+          </div>
+          <div
+            class="inputWithIcon "
+          >
+            <input
+              class="input"
+              maxlength="30"
+              minlength="6"
+              name="Login"
+              required=""
+              type="text"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-ellipsis-h fa-w-16 icon"
+              data-icon="ellipsis-h"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div
+            class="errorMessage"
+          />
+        </label>
+        <label
+          class="label"
+          for="Password"
+        >
+          <div
+            class="labelName"
+          >
+            Password
+            :
+          </div>
+          <div
+            class="inputWithIcon "
+          >
+            <input
+              class="input"
+              name="Password"
+              pattern="[A-Za-z0-9]{8,}"
+              required=""
+              title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+              type="password"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-ellipsis-h fa-w-16 icon"
+              data-icon="ellipsis-h"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div
+            class="errorMessage"
+          />
+        </label>
+        <button
+          class="button button"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="form"
+    >
+      <div
+        class="header"
+      >
+        Authorization
+        <button
+          class="closeBtn"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-w-11 fa-3x "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <label
+        class="label"
+        for="Login"
+      >
+        <div
+          class="labelName"
+        >
+          Login
+          :
+        </div>
+        <div
+          class="inputWithIcon "
+        >
+          <input
+            class="input"
+            maxlength="30"
+            minlength="6"
+            name="Login"
+            required=""
+            type="text"
+            value=""
+          />
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-ellipsis-h fa-w-16 icon"
+            data-icon="ellipsis-h"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="errorMessage"
+        />
+      </label>
+      <label
+        class="label"
+        for="Password"
+      >
+        <div
+          class="labelName"
+        >
+          Password
+          :
+        </div>
+        <div
+          class="inputWithIcon "
+        >
+          <input
+            class="input"
+            name="Password"
+            pattern="[A-Za-z0-9]{8,}"
+            required=""
+            title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+            type="password"
+            value=""
+          />
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-ellipsis-h fa-w-16 icon"
+            data-icon="ellipsis-h"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="errorMessage"
+        />
+      </label>
+      <button
+        class="button button"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Forms snapshots sign up form: SignUpFormSnapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="form"
+      >
+        <div
+          class="header"
+        >
+          Registration
+          <button
+            class="closeBtn"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-w-11 fa-3x "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 352 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <label
+          class="label"
+          for="Login"
+        >
+          <div
+            class="labelName"
+          >
+            Login
+            :
+          </div>
+          <div
+            class="inputWithIcon "
+          >
+            <input
+              class="input"
+              maxlength="30"
+              minlength="6"
+              name="Login"
+              required=""
+              type="text"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-address-card fa-w-18 icon"
+              data-icon="address-card"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 576 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-352 96c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm112 236.8c0 10.6-10 19.2-22.4 19.2H86.4C74 384 64 375.4 64 364.8v-19.2c0-31.8 30.1-57.6 67.2-57.6h5c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h5c37.1 0 67.2 25.8 67.2 57.6v19.2zM512 312c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div
+            class="errorMessage"
+          />
+        </label>
+        <label
+          class="label"
+          for="Password"
+        >
+          <div
+            class="labelName"
+          >
+            Password
+            :
+          </div>
+          <div
+            class="inputWithIcon "
+          >
+            <input
+              class="input"
+              name="Password"
+              pattern="[A-Za-z0-9]{8,}"
+              required=""
+              title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+              type="password"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-lock fa-w-14 icon"
+              data-icon="lock"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div
+            class="errorMessage"
+          />
+        </label>
+        <label
+          class="label"
+          for="Repeat password"
+        >
+          <div
+            class="labelName"
+          >
+            Repeat password
+            :
+          </div>
+          <div
+            class="inputWithIcon "
+          >
+            <input
+              class="input"
+              name="Repeat password"
+              pattern="[A-Za-z0-9]{8,}"
+              required=""
+              title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+              type="password"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-redo fa-w-16 icon"
+              data-icon="redo"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div
+            class="errorMessage"
+          />
+        </label>
+        <button
+          class="button button"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="form"
+    >
+      <div
+        class="header"
+      >
+        Registration
+        <button
+          class="closeBtn"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-w-11 fa-3x "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <label
+        class="label"
+        for="Login"
+      >
+        <div
+          class="labelName"
+        >
+          Login
+          :
+        </div>
+        <div
+          class="inputWithIcon "
+        >
+          <input
+            class="input"
+            maxlength="30"
+            minlength="6"
+            name="Login"
+            required=""
+            type="text"
+            value=""
+          />
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-address-card fa-w-18 icon"
+            data-icon="address-card"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-352 96c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm112 236.8c0 10.6-10 19.2-22.4 19.2H86.4C74 384 64 375.4 64 364.8v-19.2c0-31.8 30.1-57.6 67.2-57.6h5c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h5c37.1 0 67.2 25.8 67.2 57.6v19.2zM512 312c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-64c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="errorMessage"
+        />
+      </label>
+      <label
+        class="label"
+        for="Password"
+      >
+        <div
+          class="labelName"
+        >
+          Password
+          :
+        </div>
+        <div
+          class="inputWithIcon "
+        >
+          <input
+            class="input"
+            name="Password"
+            pattern="[A-Za-z0-9]{8,}"
+            required=""
+            title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+            type="password"
+            value=""
+          />
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-lock fa-w-14 icon"
+            data-icon="lock"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="errorMessage"
+        />
+      </label>
+      <label
+        class="label"
+        for="Repeat password"
+      >
+        <div
+          class="labelName"
+        >
+          Repeat password
+          :
+        </div>
+        <div
+          class="inputWithIcon "
+        >
+          <input
+            class="input"
+            name="Repeat password"
+            pattern="[A-Za-z0-9]{8,}"
+            required=""
+            title="Must contain numbes, uppercase and lowercase letters, and at least 8 or more characters"
+            type="password"
+            value=""
+          />
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-redo fa-w-16 icon"
+            data-icon="redo"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="errorMessage"
+        />
+      </label>
+      <button
+        class="button button"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

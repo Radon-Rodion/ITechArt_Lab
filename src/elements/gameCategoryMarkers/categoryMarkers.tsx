@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./categoryMarkers.module.scss";
 import { categoryInfos } from "@/data/categoriesInfo";
 

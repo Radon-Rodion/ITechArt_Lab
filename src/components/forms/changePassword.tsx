@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import InputText from "@/elements/formElements/inputText/inputText";
 import styles from "./form.module.scss";
 import { formFieldByName } from "@/data/formFields";

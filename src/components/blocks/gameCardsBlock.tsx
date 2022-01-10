@@ -1,3 +1,4 @@
+import React from "react";
 import GameCard from "@/components/gameCard/gameCard";
 import { ProductInfo } from "@/data/productInfos";
 import styles from "./blocks.module.scss";

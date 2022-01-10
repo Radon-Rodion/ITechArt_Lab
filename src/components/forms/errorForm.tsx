@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import React, { FormEvent } from "react";
 import styles from "./form.module.scss";
 import FormHeader from "./formHeader";
 

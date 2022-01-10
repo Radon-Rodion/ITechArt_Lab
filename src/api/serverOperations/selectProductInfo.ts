@@ -27,7 +27,6 @@ export function sort(criteria: string, asc: boolean, arr: Array<ProductInfo>) {
 }
 
 function select(field: string, amount: number, arr: Array<ProductInfo>) {
-  console.log(`${field}: ${amount}`);
   const sortedArr = arr.sort((prInfo1, prInfo2) => compareByCriteria(prInfo1, prInfo2, field));
   return sortedArr.reverse().slice(0, amount);
 }

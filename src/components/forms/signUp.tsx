@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import InputText from "@/elements/formElements/inputText/inputText";
@@ -12,7 +12,6 @@ import ErrorForm from "./errorForm";
 import useRefWithValueChanger from "@/utils/useRefWithValueChanger";
 
 const SignUp = (props: ISignFormProps) => {
-  console.log("rerender");
   const [login, setLogin] = useRefWithValueChanger("");
   const [password, setPassword] = useRefWithValueChanger("");
   const [passwordRepeat, setPasswordRepeat] = useRefWithValueChanger("");
