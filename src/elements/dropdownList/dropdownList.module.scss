@@ -1,44 +1,44 @@
-.list{
-    display: none;
-    z-index: 9;
-    position: absolute;
-    margin-left: 66px;
-    width: 86px;
-    top: 48px;
-    background-color: #232323;
+.list {
+  display: none;
+  z-index: 9;
+  position: absolute;
+  margin-left: 66px;
+  width: 86px;
+  top: 48px;
+  background-color: #232323;
 }
 
-.listHeader{
-    position: relative;
+.listHeader {
+  position: relative;
 }
 
-.listItem{
-    display: block;
-    text-align: center;
-    height: 35px;
-    padding-top: 5px;
+.listItem {
+  display: block;
+  text-align: center;
+  height: 35px;
+  padding-top: 5px;
 }
 
-.link{
-    text-decoration: none;
-    color: #ccc;
+.link {
+  text-decoration: none;
+  color: #ccc;
 }
 
 .listHeader:hover ~ .list {
-    display: block;
+  display: block;
 }
 
-.list:Hover {
-    display: block;
-    height: fit-content;
+.list:hover {
+  display: block;
+  height: fit-content;
 }
 
-.listItem:Hover {
-    background-color: lighten(#232323, 15%);
+.listItem:hover {
+  background-color: lighten(#232323, 15%);
 }
 
-.active{
-    color: #fff;
-    border-bottom: 3px solid #a3f;
-    background-color: lighten(rgb(34,34,34), 15%);
+.active {
+  color: #fff;
+  border-bottom: 3px solid #a3f;
+  background-color: lighten(rgb(34, 34, 34), 15%);
 }

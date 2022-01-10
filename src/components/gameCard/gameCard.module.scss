@@ -1,102 +1,103 @@
-.card{
-    width: 200px;
-    height: 350px;
-    display: inline-block;
-    position: relative;
+.card {
+  width: 200px;
+  height: 350px;
+  display: inline-block;
+  position: relative;
 }
 
 .front,
-.back{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    backface-visibility: hidden;
-    position: relative;
-    transition: transform .6s linear;
-    border-radius: 7px;
-    box-shadow: 0 0 7px 2px #8823ff;
+.back {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  transition: transform 0.6s linear;
+  border-radius: 7px;
+  box-shadow: 0 0 7px 2px #8823ff;
 }
 
-.front{
-    height: 100%;
+.front {
+  height: 100%;
 }
 
-.front{
-    transform: perspective(600px) rotateY(0deg);
+.front {
+  transform: perspective(600px) rotateY(0deg);
 }
 
-.back{
-    transform: perspective(600px) rotateY(180deg);
-    background-color: #232323;
-    opacity: 95%;
-    position: absolute;
-    top: 0;
-    display: table;
+.back {
+  transform: perspective(600px) rotateY(180deg);
+  background-color: #232323;
+  opacity: 95%;
+  position: absolute;
+  top: 0;
+  display: table;
 }
 
-.backContent{
-    width: 100%;
-    text-align: center;
-    align-items: center;
-    display: table-cell;
-    vertical-align: middle;
+.backContent {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  display: table-cell;
+  vertical-align: middle;
 }
 
-.card:hover > .front{
-    transform: perspective(600px) rotateY(-180deg);
-}
-.card:hover > .back{
-    transform: perspective(600px) rotateY(0deg);
+.card:hover > .front {
+  transform: perspective(600px) rotateY(-180deg);
 }
 
-.image{
-    z-index: 1;
-    width: 100%;
-    height: 80%;
-    position: absolute;
-    top: 0;
+.card:hover > .back {
+  transform: perspective(600px) rotateY(0deg);
 }
 
-.frontInfo{
-    z-index: 99;
-    background-color: #232323;
-    color: #ccc;
-    width: 100%;
-    height: 20%;
-    position: absolute;
-    top: 80%;
+.image {
+  z-index: 1;
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 0;
 }
 
-.gameName{
-    display: inline;
-    margin-left: 5%;
+.frontInfo {
+  z-index: 99;
+  background-color: #232323;
+  color: #ccc;
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  top: 80%;
 }
 
-.gmaePrice{
-    display: inline;
-    float: right;
-    margin-right: 5%;
+.gameName {
+  display: inline;
+  margin-left: 5%;
 }
 
-.description{
-    color: #ccc;
+.gmaePrice {
+  display: inline;
+  float: right;
+  margin-right: 5%;
 }
 
-.ageCategory{
-    color: #ccc;
-    text-align: center;
-    margin: 5px 0px 5px;
+.description {
+  color: #ccc;
 }
 
-.button{
-    width: 85px;
-    height: 35px;
-    border-radius: 3px;
-    color: #ccc;
-    background-color: #8823ff;
-    margin: 3px;
+.ageCategory {
+  color: #ccc;
+  text-align: center;
+  margin: 5px 0px 5px;
 }
 
-.button:active{
-    box-shadow: 0 0 7px 2px #8823ff;
+.button {
+  width: 85px;
+  height: 35px;
+  border-radius: 3px;
+  color: #ccc;
+  background-color: #8823ff;
+  margin: 3px;
+}
+
+.button:active {
+  box-shadow: 0 0 7px 2px #8823ff;
 }

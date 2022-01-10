@@ -2,101 +2,101 @@ $backgroundColor: #232323f0;
 $color: #ccc;
 $buttonColor: #8823ff;
 
-@mixin form () {
-    background-color: $backgroundColor;
-    color: $color;
-    border-radius: 15px;
-    padding: 20px;
+@mixin form() {
+  background-color: $backgroundColor;
+  color: $color;
+  border-radius: 15px;
+  padding: 20px;
 }
 
-@mixin row () {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+@mixin row() {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-@mixin column () {
-    display: flex;
-    flex-direction: column;
+@mixin column() {
+  display: flex;
+  flex-direction: column;
 }
 
-.form{
-    @include form();
-    @include column();
+.form {
+  @include form();
+  @include column();
 }
 
-.smallForm{
-    @include form();
-    @include column();
-    width: 350px;
-    margin-left: calc(50% - 175px);
-    margin-top: 75px;
-    background-color: darken( $backgroundColor, 10%);
+.smallForm {
+  @include form();
+  @include column();
+  width: 350px;
+  margin-left: calc(50% - 175px);
+  margin-top: 75px;
+  background-color: darken($backgroundColor, 10%);
 }
 
-.row{
-    @include row();
+.row {
+  @include row();
 }
 
-.buttonsRow{
-    @include row();
-    width: 50%;
-    align-self: center;
-    margin-bottom: 30px;
+.buttonsRow {
+  @include row();
+  width: 50%;
+  align-self: center;
+  margin-bottom: 30px;
 }
 
-.narrowColumn{
-    @include column();
-    width: 30%;
+.narrowColumn {
+  @include column();
+  width: 30%;
 }
 
-.wideColumn{
-    @include column();
-    width: 70%;
+.wideColumn {
+  @include column();
+  width: 70%;
 }
 
-.header{
-    width: calc(100% - 40px);
-    margin: 10px 20px 10px;
-    display: flex;
-    flex-direction: row;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    font-size: 18pt;
-    color: lighten($color, 20%);
+.header {
+  width: calc(100% - 40px);
+  margin: 10px 20px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  font-size: 18pt;
+  color: lighten($color, 20%);
 }
 
-.paragraph{
-    font-size: 15pt;
-    color: lighten($color, 15%);
-    margin-left: 20px;
+.paragraph {
+  font-size: 15pt;
+  color: lighten($color, 15%);
+  margin-left: 20px;
 }
 
-.closeBtn{
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: #0000;
-    color: $color;
+.closeBtn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #0000;
+  color: $color;
 }
 
-.button{
-    margin-top: 25px;
-    min-width: 150px;
-    width: 25%;
-    height: 55px;
-    border-radius: 15px;
-    align-self: center;
-    font-size: 14pt;
+.button {
+  margin-top: 25px;
+  min-width: 150px;
+  width: 25%;
+  height: 55px;
+  border-radius: 15px;
+  align-self: center;
+  font-size: 14pt;
 }
 
-.button:active{
-    box-shadow: 0 0 7px 2px $buttonColor;
+.button:active {
+  box-shadow: 0 0 7px 2px $buttonColor;
 }
 
-.errorMessage{
-    font-size: 15pt;
-    color: red;
-    text-align: center;
-    align-self: center;
+.errorMessage {
+  font-size: 15pt;
+  color: red;
+  text-align: center;
+  align-self: center;
 }

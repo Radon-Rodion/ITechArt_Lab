@@ -1,74 +1,74 @@
-.allElement{
-    width: calc(100% - 40px);
-    margin: 10px 20px 10px;
-    display: flex;
-    flex-direction: row;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    font-size: 14pt;
+.allElement {
+  width: calc(100% - 40px);
+  margin: 10px 20px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  font-size: 14pt;
 }
 
-@mixin colors () {
-    background-color: #0000;
-    color: #ccc;
+@mixin colors() {
+  background-color: #0000;
+  color: #ccc;
 }
 
-.name{
-    align-self: flex-start;
-    @include colors();
+.name {
+  align-self: flex-start;
+  @include colors();
 }
 
-.switchWrap{
-    display: inline-block;    
-	height: 28px;
-    width: 56px;    
-	position: relative;
-	vertical-align: middle;
-	font-size: 14px;
-	user-select: none;	
+.switchWrap {
+  display: inline-block;
+  height: 28px;
+  width: 56px;
+  position: relative;
+  vertical-align: middle;
+  font-size: 14px;
+  user-select: none;
 }
 
-.switch{
-    position: absolute;
-    display: block;
-    opacity: 0;
-    width: 56px;	
-	height: 28px;
-    z-index: 10;
+.switch {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  width: 56px;
+  height: 28px;
+  z-index: 10;
 }
 
-.switchVisual{
-    position: absolute;	
-    z-index: 0;
-	display: block;
-	box-sizing: border-box;			
-	width: 56px;	
-	height: 28px;
-	border: 1px solid rgba(0, 0, 0, .1);
-	border-radius: 25%/50%;	
-	vertical-align: top;
-	background: #eee;
-	transition: .2s;
+.switchVisual {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  box-sizing: border-box;
+  width: 56px;
+  height: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 25%/50%;
+  vertical-align: top;
+  background: #eee;
+  transition: 0.2s;
 }
 
 .switchVisual::before {
-	content: '';
-	position: absolute;
-	top: 1px;
-	left: 1px;	
-	display: block;
-	width: 24px;	
-	height: 24px;
-	border-radius: 50%;
-	background: white;
-	box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-	transition: .15s;
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.15s;
 }
 
 .switch:checked + .switchVisual {
-	background: #8823ff;
+  background: #8823ff;
 }
 
 .switch:checked + .switchVisual:before {
-	transform:translateX(28px);
+  transform: translateX(28px);
 }

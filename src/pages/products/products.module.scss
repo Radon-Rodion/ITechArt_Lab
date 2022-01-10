@@ -15,24 +15,24 @@
   min-height: 800px;
 }
 
-.filtrationBlock{
+.filtrationBlock {
   width: 30%;
   height: 100%;
 }
 
-.rightPart{
+.rightPart {
   display: flex;
   flex-direction: column;
   width: 70%;
 }
 
-.topLine{
+.topLine {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.createButton{
+.createButton {
   background-color: #8823ff;
   color: #ccc;
   border-radius: 5px;
@@ -40,9 +40,10 @@
   cursor: pointer;
 }
 
-.createButton:active{
+.createButton:active {
   box-shadow: 0 0 7px 2px #8823ff;
 }
+
 .gamesBlock {
-    display: inline;
+  display: inline;
 }
