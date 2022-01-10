@@ -18,6 +18,7 @@ const Cart = React.lazy(() => import("@/pages/cart/cart"));
 interface AppProps {
   nothing: boolean;
 }
+
 interface AppState {
   hasError: boolean;
 }
