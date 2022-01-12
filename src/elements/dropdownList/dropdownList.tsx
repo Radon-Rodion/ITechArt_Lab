@@ -27,4 +27,4 @@ const DropdownList = (props: IDopdownListProps) => (
   </>
 );
 
-export default DropdownList;
+export default React.memo(DropdownList);

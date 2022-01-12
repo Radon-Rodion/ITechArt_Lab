@@ -49,4 +49,4 @@ InputText.defaultProps = {
   errorMessage: undefined,
 };
 
-export default React.memo(InputText, (prevProps, nextProps) => prevProps.text === nextProps.text);
+export default InputText;

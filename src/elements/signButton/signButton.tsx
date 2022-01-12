@@ -28,4 +28,4 @@ SignButton.defaultProps = {
   children: null,
 };
 
-export default SignButton;
+export default React.memo(SignButton);

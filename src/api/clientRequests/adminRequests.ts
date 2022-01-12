@@ -12,7 +12,6 @@ export function createCard(gameInfo: ProductInfo, showError = defaultShowError) 
     axios
       .post(REQUEST, gameInfo)
       .then((response) => {
-        console.log(response);
         dispatch(addCard(response.data.body));
       })
       .catch((error) => {

@@ -40,4 +40,4 @@ Select.defaultProps = {
   className: "",
 };
 
-export default React.memo(Select);
+export default Select;

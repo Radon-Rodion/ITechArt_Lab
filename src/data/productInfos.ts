@@ -57,7 +57,7 @@ const productInfos = [
     name: "Bladerunner",
     price: 9.99,
     mark: 4,
-    image: "images/Bladerunner.jpeg",
+    image: "images/Bladerunner.jpg",
     description: "Action, shooter, stels, by my imagination",
     ageCategory: 0,
     isPC: true,

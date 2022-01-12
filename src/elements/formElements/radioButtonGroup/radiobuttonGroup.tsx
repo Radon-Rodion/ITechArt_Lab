@@ -36,4 +36,4 @@ RadioButtonGroup.defaultProps = {
   className: "",
 };
 
-export default React.memo(RadioButtonGroup);
+export default RadioButtonGroup;

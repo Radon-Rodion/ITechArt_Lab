@@ -53,4 +53,4 @@ const GameCard = (props: IGameCardProps) => {
   );
 };
 
-export default GameCard;
+export default React.memo(GameCard);

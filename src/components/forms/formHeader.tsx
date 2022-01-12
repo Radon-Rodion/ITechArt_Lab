@@ -20,4 +20,4 @@ const FormHeader = (props: IFormHeaderProps) => (
   </div>
 );
 
-export default React.memo(FormHeader);
+export default FormHeader;

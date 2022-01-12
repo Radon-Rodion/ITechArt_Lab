@@ -8,17 +8,14 @@ interface ICategoriesBlockProps {
   blockName: string;
 }
 
-const CategoriesBlock = (props: ICategoriesBlockProps) => {
-  console.log("rerender block");
-  return (
-    <Block blockName={props.blockName}>
-      {categoryInfos.map((info: CategoryInfo) => (
-        <div className={styles.blockContentElement} key={info.key}>
-          <GameCategory info={info} />
-        </div>
-      ))}
-    </Block>
-  );
-};
+const CategoriesBlock = (props: ICategoriesBlockProps) => (
+  <Block blockName={props.blockName}>
+    {categoryInfos.map((info: CategoryInfo) => (
+      <div className={styles.blockContentElement} key={info.key}>
+        <GameCategory info={info} />
+      </div>
+    ))}
+  </Block>
+);
 
 export default React.memo(CategoriesBlock);

@@ -29,4 +29,4 @@ InputTextArea.defaultProps = {
   text: undefined,
 };
 
-export default React.memo(InputTextArea, (prevProps, nextProps) => prevProps.text === nextProps.text);
+export default InputTextArea;
