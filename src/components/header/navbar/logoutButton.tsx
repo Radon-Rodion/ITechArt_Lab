@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import React from "react";
 import styles from "./navbar.module.scss";
 import { resetUserAction } from "@/redux/actionCreators/userActionsCreator";
+import { clearCart } from "@/redux/actionCreators/cartActionsCreator";
 
 library.add(fas);
 
@@ -13,6 +14,7 @@ const LogOut = () => {
   const dispatch = useDispatch();
 
   const logOut = () => {
+    dispatch(clearCart());
     dispatch(resetUserAction());
   };
   return (
