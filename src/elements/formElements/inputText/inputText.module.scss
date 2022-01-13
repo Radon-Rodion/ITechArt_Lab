@@ -1,58 +1,58 @@
-.label{
-    width: calc(100% - 40px);
-    margin: 10px 20px 10px;
-    display: flex;
-    flex-direction: row;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    font-size: 14pt;
+.label {
+  width: calc(100% - 40px);
+  margin: 10px 20px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  font-size: 14pt;
 }
 
-@mixin inputWithBorder () {
-    border: 1px solid #ccc;
-    padding: 5px;
+@mixin inputWithBorder() {
+  border: 1px solid #ccc;
+  padding: 5px;
 }
 
-@mixin colors () {
-    background-color: #0000;
-    color: #ccc;
+@mixin colors() {
+  background-color: #0000;
+  color: #ccc;
 }
 
-.labelName{
-    align-self: flex-start;
-    @include colors();
+.labelName {
+  align-self: flex-start;
+  @include colors();
 }
 
-.inputWithIcon{
-    @include inputWithBorder();
-    display: inline;
-    width: 100%;
+.inputWithIcon {
+  @include inputWithBorder();
+  display: inline;
+  width: 100%;
 }
 
-.input{
-    @include colors();
-    border: none;
-    outline: none;
-    
-    width: calc(100% - 22px);
+.input {
+  @include colors();
+  border: none;
+  outline: none;
+
+  width: calc(100% - 22px);
 }
 
-.inputMultiline{
-    @include inputWithBorder();
-    @include colors();
-    width: 100%;
-    min-height: 100px;
+.inputMultiline {
+  @include inputWithBorder();
+  @include colors();
+  width: 100%;
+  min-height: 100px;
 }
 
-.icon{
-    @include colors();
+.icon {
+  @include colors();
 }
 
-.invalidInput{
-    border-color: red;
+.invalidInput {
+  border-color: red;
 }
 
-.errorMessage{
-    font-size: 10pt;
-    color: red;
+.errorMessage {
+  font-size: 10pt;
+  color: red;
 }

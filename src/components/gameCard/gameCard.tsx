@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { ProductInfo } from "@/data/productInfos";
 import { addGame } from "@/redux/actionCreators/cartActionsCreator";
 import StarsMark from "@/elements/starsMark/starsMark";
@@ -52,4 +53,4 @@ const GameCard = (props: IGameCardProps) => {
   );
 };
 
-export default GameCard;
+export default React.memo(GameCard);

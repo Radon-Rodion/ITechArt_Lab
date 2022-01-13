@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import GamesBlock from "@/components/blocks/gameCardsBlock";
 import styles from "./products.module.scss";
@@ -23,7 +23,7 @@ interface IProductsPageProps {
 const Products = (props: IProductsPageProps) => {
   const [filters, setFilters] = useState({ ...defaultFilters, category: props.category ?? "" });
 
-  const [responseGot, products, updateFilters] = useResource(filters);
+  const [responseGot, products, updateFilters] = useResource();
 
   const onChange = debounce(
     createChangeProcessor((newName: string) => {
@@ -31,9 +31,10 @@ const Products = (props: IProductsPageProps) => {
     }),
     330
   );
-
   useEffect(() => {
-    setFilters({ ...filters, category: props.category ?? "" });
+    if (filters.category !== (props.category ?? "")) {
+      setFilters({ ...filters, category: props.category ?? "" });
+    }
   }, [props.category]);
 
   useEffect(() => {
@@ -42,7 +43,7 @@ const Products = (props: IProductsPageProps) => {
 
   const isAdmin = useSelector((state: RootState) => state.user.info.isAdmin);
 
-  const adminForm = <AdminForm formInfo={formByName("Create card")} gameInfo={newProductInfo} />;
+  const adminForm = useMemo(() => <AdminForm formInfo={formByName("Create card")} gameInfo={newProductInfo} />, []);
 
   return (
     <div className={styles.allPage}>

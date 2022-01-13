@@ -1,3 +1,4 @@
+import React from "react";
 import { CategoryInfo, categoryInfos } from "@/data/categoriesInfo";
 import styles from "./dropdownList.module.scss";
 import LinkGuard from "@/elements/linkGuard";
@@ -26,4 +27,4 @@ const DropdownList = (props: IDopdownListProps) => (
   </>
 );
 
-export default DropdownList;
+export default React.memo(DropdownList);

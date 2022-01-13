@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import RadioButtonGroup from "@/elements/formElements/radioButtonGroup/radiobuttonGroup";
 import Select from "@/elements/formElements/select/select";
 import Block from "../../blocks/block";
@@ -12,18 +13,31 @@ interface IFiltrationProps {
 }
 
 const ProductsFiltration = (props: IFiltrationProps) => {
-  const setCriteria = (newCriteria: string) => {
-    props.setFilters({ ...props.filters, criteria: newCriteria });
-  };
-  const setOrder = (newOrder: string) => {
-    props.setFilters({ ...props.filters, order: newOrder });
-  };
-  const setGenre = (newGenre: string) => {
-    props.setFilters({ ...props.filters, genres: newGenre });
-  };
-  const setAge = (newAgeString: string) => {
-    props.setFilters({ ...props.filters, age: +newAgeString });
-  };
+  const setCriteria = useCallback(
+    (newCriteria: string) => {
+      props.setFilters({ ...props.filters, criteria: newCriteria });
+    },
+    [props.filters]
+  );
+  const setOrder = useCallback(
+    (newOrder: string) => {
+      props.setFilters({ ...props.filters, order: newOrder });
+    },
+    [props.filters]
+  );
+  const setGenre = useCallback(
+    (newGenre: string) => {
+      props.setFilters({ ...props.filters, genres: newGenre });
+    },
+    [props.filters]
+  );
+  const setAge = useCallback(
+    (newAgeString: string) => {
+      props.setFilters({ ...props.filters, age: +newAgeString });
+    },
+    [props.filters]
+  );
+
   return (
     <div className={props.className}>
       <Block blockName={getFullCategoryName(props.filters.category)}>
@@ -41,4 +55,4 @@ const ProductsFiltration = (props: IFiltrationProps) => {
   );
 };
 
-export default ProductsFiltration;
+export default React.memo(ProductsFiltration, (prevProps, nextProps) => prevProps.filters === nextProps.filters);

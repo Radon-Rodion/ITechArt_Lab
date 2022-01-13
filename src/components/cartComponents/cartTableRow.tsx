@@ -1,13 +1,14 @@
 import { Dispatch } from "redux";
-import { FormEvent } from "react";
+import React, { FormEvent, useState } from "react";
+import { useSelector } from "react-redux";
 import { FieldValue } from "@/data/filtrationFields";
 import Select from "@/elements/formElements/select/select";
-import { CartElement } from "@/redux/types/cart";
 import styles from "./cartComponents.module.scss";
 import { changeSelection, editAmount, editChosenPlatform } from "@/redux/actionCreators/cartActionsCreator";
+import { RootState } from "@/redux/store/store";
+import { CartElement } from "@/redux/types/cart";
 
 interface IRowProps {
-  element: CartElement;
   index: number;
   dispatch: Dispatch;
 }
@@ -19,38 +20,45 @@ function platformFieldValues(platforms: string[]) {
 }
 
 const CartTableRow = (props: IRowProps) => {
+  const [element, setElement] = useState(useSelector((state: RootState) => state.cart.elements[props.index]));
+
   const changeSelectedPlatform = (value: string): void => {
+    setElement((prevElement: CartElement) => ({ ...prevElement, chosenPlatformIndex: +value }));
     props.dispatch(editChosenPlatform(+value, props.index));
   };
   const onAmountChange = (e: FormEvent) => {
     const amount = Math.round(+(e.target as HTMLInputElement).value);
-    if (amount > 0) props.dispatch(editAmount(amount, props.index));
+    if (amount > 0) {
+      setElement((prevElement: CartElement) => ({ ...prevElement, amount }));
+      props.dispatch(editAmount(amount, props.index));
+    }
   };
 
   const onSelectionChange = () => {
+    setElement((prevElement: CartElement) => ({ ...prevElement, selected: !prevElement.selected }));
     props.dispatch(changeSelection(props.index));
   };
 
   return (
     <tr className={styles.bodyRow}>
-      <td className={styles.wideColumn}>{props.element.name}</td>
+      <td className={styles.wideColumn}>{element.name}</td>
       <td className={styles.mediumColumn}>
         <Select
-          valuesWithText={platformFieldValues(props.element.possiblePlatforms)}
+          valuesWithText={platformFieldValues(element.possiblePlatforms)}
           onChange={changeSelectedPlatform}
-          selectedItemValue={`${props.element.chosenPlatformIndex}`}
+          selectedItemValue={`${element.chosenPlatformIndex}`}
         />
       </td>
-      <td className={styles.mediumColumn}>{props.element.orderDate}</td>
+      <td className={styles.mediumColumn}>{element.orderDate}</td>
       <td className={styles.narrowColumn}>
-        <input type="number" className={styles.input} required value={props.element.amount} onChange={onAmountChange} />
+        <input type="number" className={styles.input} required value={element.amount} onChange={onAmountChange} />
       </td>
-      <td className={styles.narrowColumn}>{props.element.price}</td>
+      <td className={styles.narrowColumn}>{element.price}</td>
       <td className={styles.narrowColumn}>
-        <input type="checkbox" checked={props.element.selected} onChange={onSelectionChange} />
+        <input type="checkbox" checked={element.selected} onChange={onSelectionChange} />
       </td>
     </tr>
   );
 };
 
-export default CartTableRow;
+export default React.memo(CartTableRow);

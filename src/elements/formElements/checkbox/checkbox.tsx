@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./checkbox.module.scss";
 
 interface ICheckboxProps {
@@ -9,7 +10,7 @@ interface ICheckboxProps {
 const Checkbox = (props: ICheckboxProps) => (
   <label htmlFor={props.name} className={styles.allElement}>
     <div className={styles.name}>{props.name}:</div>
-    <input type="checkbox" className={styles.checkbox} checked={props.value} onChange={props.onChange} />
+    <input type="checkbox" className={styles.checkbox} defaultChecked={props.value} onChange={props.onChange} />
   </label>
 );
 

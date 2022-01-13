@@ -1,4 +1,5 @@
 import { Dispatch } from "redux";
+import React from "react";
 import CartTableRow from "./cartTableRow";
 import styles from "./cartComponents.module.scss";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
@@ -24,7 +25,7 @@ const CartTable = (props: { productsInCart: CartElement[]; dispatch: Dispatch })
       </thead>
       <tbody>
         {props.productsInCart.map((product, index) => (
-          <CartTableRow element={product} key={product.name} dispatch={props.dispatch} index={index} />
+          <CartTableRow key={product.name} dispatch={props.dispatch} index={index} />
         ))}
         <tr className={styles.bodyRow}>
           <td className={styles.wideColumn} colSpan={5}>

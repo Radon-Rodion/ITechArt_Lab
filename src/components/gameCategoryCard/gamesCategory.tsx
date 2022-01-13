@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./gamesCategory.module.scss";
 import { CategoryInfo } from "@/data/categoriesInfo";
 import LinkGuard from "@/elements/linkGuard";

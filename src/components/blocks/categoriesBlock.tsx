@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./blocks.module.scss";
 import GameCategory from "@/components/gameCategoryCard/gamesCategory";
 import { CategoryInfo, categoryInfos } from "@/data/categoriesInfo";
@@ -17,4 +18,4 @@ const CategoriesBlock = (props: ICategoriesBlockProps) => (
   </Block>
 );
 
-export default CategoriesBlock;
+export default React.memo(CategoriesBlock);

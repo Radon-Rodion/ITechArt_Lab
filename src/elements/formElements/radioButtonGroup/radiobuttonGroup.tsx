@@ -1,3 +1,4 @@
+import React from "react";
 import { FieldValue } from "@/data/filtrationFields";
 import { createChangeProcessor } from "../inputText/inputText";
 import styles from "./radiobuttonGroup.module.scss";

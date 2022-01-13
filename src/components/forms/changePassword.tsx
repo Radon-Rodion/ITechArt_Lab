@@ -1,14 +1,12 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { FormEvent, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import InputText from "@/elements/formElements/inputText/inputText";
 import styles from "./form.module.scss";
 import { formFieldByName } from "@/data/formFields";
 import FormHeader from "./formHeader";
 import { postPassword } from "@/api/clientRequests/profileRequests";
 import PurpleButton from "@/elements/purpleButton/purpleButton";
-
-library.add(fas);
+import useRefWithValueChanger from "@/utils/useRefWithValueChanger";
+import debounce from "@/utils/debounce";
 
 interface IChangePasswordProps {
   curPassword: string;
@@ -18,15 +16,17 @@ interface IChangePasswordProps {
 
 const ChangePassword = (props: IChangePasswordProps) => {
   const [oldPassword, setOldPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
+  const [newPassword, setNewPassword] = useRefWithValueChanger("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (oldPassword === props.curPassword) {
-      postPassword(props.userId, newPassword);
+      postPassword(props.userId, newPassword.current);
       if (props.onExit) props.onExit();
     }
   };
+
+  const setOldPasswordDebounced = debounce((pass: string) => setOldPassword(pass), 500);
 
   const errorMessage = oldPassword !== props.curPassword ? "Incorrect password!" : undefined;
 
@@ -37,10 +37,15 @@ const ChangePassword = (props: IChangePasswordProps) => {
         icon="lock"
         field={formFieldByName("Password")}
         text={oldPassword}
-        onChange={setOldPassword}
+        onChange={setOldPasswordDebounced}
         errorMessage={errorMessage}
       />
-      <InputText icon="redo" field={formFieldByName("New password")} text={newPassword} onChange={setNewPassword} />
+      <InputText
+        icon="redo"
+        field={formFieldByName("New password")}
+        text={newPassword.current}
+        onChange={setNewPassword}
+      />
       <PurpleButton name="Submit" type="submit" className={styles.button} />
     </form>
   );

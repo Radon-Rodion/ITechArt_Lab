@@ -11,4 +11,4 @@ const Search = (props: ISearchProps) => (
   </form>
 );
 
-export default React.memo(Search);
+export default Search;
