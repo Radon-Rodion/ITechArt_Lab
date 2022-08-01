@@ -1,3 +1,12 @@
+Online games shop frontend on React Typescript and webpack mock server
+Functions:
+- Authorisation & Registration
+- Home page with search bar, game platforms, 3 new games
+- Products page with ability to search and filter games, add them into basket
+- Profile page with ability to change profile info, password and profile picture
+- Basket page with ability to choose platform, amount and other params of selected games, to remove games from basket or buy them
+- Admin mode with ability to create, edit and delete game cards from products page
+Screenshots:
 ![image](https://user-images.githubusercontent.com/74260579/149275390-abca6810-9216-408f-9acd-dfc6055f9500.png)
 ![image](https://user-images.githubusercontent.com/74260579/149275424-ef2d4d62-924a-4928-ae52-cd24e73ec608.png)
 ![image](https://user-images.githubusercontent.com/74260579/149275458-6b8673ea-b854-41ae-8ec2-226035d7805e.png)
